@@ -10,11 +10,23 @@ import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 
-import { AuthService } from './services/auth.service'
+import { AuthService } from './services/auth.service';
+import { LoginComponent } from './pages/login/login.component';
+import { DashboardComponent } from './pages/dashboard/dashboard.component';
+import { HeaderComponent } from './components/header/header.component';
+import { FooterComponent } from './components/footer/footer.component';
+import { MenuComponent } from './components/menu/menu.component';
+import { DefaultComponent } from './components/default/default.component'
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    LoginComponent,
+    DashboardComponent,
+    HeaderComponent,
+    FooterComponent,
+    MenuComponent,
+    DefaultComponent
   ],
   imports: [
     BrowserModule,

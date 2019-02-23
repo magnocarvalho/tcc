@@ -2,7 +2,10 @@
     <div fxLayout="row" fxLayoutAlign="center center">
         <mat-card>
             <mat-card-content>
-                <form formGroup="form">
+                <form [formGroup]="form">
+                    <mat-form-field fxLayout="row" floatPlaceholder="auto">
+                        <input matInput formControlName="nome" type="text" required placeholder="Nome">
+                    </mat-form-field>
                     <mat-form-field fxLayout="row" floatPlaceholder="auto">
                         <input matInput formControlName="email" type="text" required placeholder="Email">
                     </mat-form-field>
@@ -12,7 +15,7 @@
                 </form>
             </mat-card-content>
             <mat-card-actions align="center">
-                <button mat-raised-button (click)="fazerLogin()">Entrar</button>
+                <button mat-raised-button (click)="criarLogin()">Entrar</button>
             </mat-card-actions>
         </mat-card>
     </div>

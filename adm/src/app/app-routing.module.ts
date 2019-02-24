@@ -7,7 +7,7 @@ import { CreateUserComponent } from './pages/create-user/create-user.component';
 const routes: Routes = [
   { path: 'auth', component: CreateUserComponent },
   { path: 'login', component: LoginComponent },
-  { path: '', component: DashboardComponent }
+  { path: 'dashboard', component: DashboardComponent }
 ];
 
 @NgModule({

@@ -20,14 +20,17 @@ export class CreateUserComponent implements OnInit {
   ngOnInit() {}
   criarLogin() {
     var obj = {
-      email: this.form.get("email").value(),
-      senha: this.form.get("senha").value()
+      email: this.form.get("email").value,
+      senha: this.form.get("senha").value
     };
-    this.auth.createUser(obj).then(() => {
-      console.log("deu bom");
-      this.route.navigate(["dashboard"]);
-    }, err => {
-      console.log(err);
-    });
+    this.auth.createUser(obj).then(
+      () => {
+        console.log("deu bom!!!");
+        this.route.navigate(["dashboard"]);
+      },
+      err => {
+        console.log(err);
+      }
+    );
   }
 }

@@ -1,3 +1,4 @@
+import { FormControl, FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
@@ -61,7 +62,6 @@ import {
 } from '@angular/material';
 import { CreateUserComponent } from './pages/create-user/create-user.component';
 
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -81,6 +81,9 @@ import { CreateUserComponent } from './pages/create-user/create-user.component';
     AngularFireDatabaseModule,
     AngularFireAuthModule,
     NgbModule,
+    BrowserModule,
+    FormsModule,
+    ReactiveFormsModule,
     FlexLayoutModule,
     CdkTableModule,
     MatAutocompleteModule,

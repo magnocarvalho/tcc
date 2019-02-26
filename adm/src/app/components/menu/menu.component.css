@@ -1,7 +1,10 @@
-.crm-navigation-bar {
+/* .crm-navigation-bar {
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
     z-index: 998;
+  } */
+  .menu{
+    max-width: 300;
   }

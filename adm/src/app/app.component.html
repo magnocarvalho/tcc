@@ -1,2 +1,20 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<router-outlet></router-outlet>
+<mat-drawer-container>
+  <mat-drawer #sidenav mode="side" class="drawer">
+    <div class="menu">
+      <span>menu 1</span>
+      <span>menu 1</span>
+      <span>menu 1</span>
+      <span>menu 1</span>
+    </div>
+  </mat-drawer>
+  <div class="sidenav-content">
+    <div class="content">
+      <mat-toolbar id="toolbar">
+          <button mat-icon-button class="menu" (click)="sidenav.toggle()">
+              <mat-icon>menu</mat-icon>
+          </button>
+      </mat-toolbar>
+      <router-outlet #outlet="outlet"></router-outlet>
+    </div>
+  </div>
+</mat-drawer-container>

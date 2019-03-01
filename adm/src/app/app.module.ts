@@ -22,6 +22,8 @@ import { DefaultComponent } from './components/default/default.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { CdkTableModule } from '@angular/cdk/table';
+import { AngularFontAwesomeModule } from 'angular-font-awesome';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import {
   MatButtonModule,
   MatCheckboxModule,
@@ -66,12 +68,12 @@ import { CreateUserComponent } from './pages/create-user/create-user.component';
   declarations: [
     AppComponent,
     LoginComponent,
-    DashboardComponent,
     HeaderComponent,
     FooterComponent,
     MenuComponent,
     DefaultComponent,
-    CreateUserComponent
+    CreateUserComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,
@@ -120,7 +122,9 @@ import { CreateUserComponent } from './pages/create-user/create-user.component';
     MatTabsModule,
     MatToolbarModule,
     MatTooltipModule,
-    MatTreeModule
+    MatTreeModule,
+    FontAwesomeModule,
+    AngularFontAwesomeModule
   ],
   providers: [AuthService],
   bootstrap: [AppComponent]

@@ -63,6 +63,7 @@ import {
   MatRippleModule
 } from '@angular/material';
 import { CreateUserComponent } from './pages/create-user/create-user.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -77,6 +78,7 @@ import { CreateUserComponent } from './pages/create-user/create-user.component';
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     AngularFireModule.initializeApp(environment.firebase, 'angular-auth-firebase'),

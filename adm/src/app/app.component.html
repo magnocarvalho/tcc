@@ -1,18 +1,21 @@
 <mat-drawer-container>
   <mat-drawer #sidenav mode="side" class="drawer">
     <div class="menu">
-      <span>menu 1</span>
-      <span>menu 1</span>
-      <span>menu 1</span>
-      <span>menu 1</span>
+      <mat-list>
+        <mat-list-item><mat-icon mat-list-icon>folder</mat-icon>Item 1</mat-list-item>
+        <mat-divider></mat-divider>
+        <mat-list-item>Item 2</mat-list-item>
+        <mat-divider></mat-divider>
+        <mat-list-item>Item 3</mat-list-item>
+      </mat-list>
     </div>
   </mat-drawer>
-  <div class="sidenav-content">
+  <div class="sidenav-contednt">
     <div class="content">
       <mat-toolbar id="toolbar">
-          <button mat-icon-button class="menu" (click)="sidenav.toggle()">
-              <mat-icon>menu</mat-icon>
-          </button>
+        <button mat-icon-button class="menu" (click)="sidenav.toggle()">
+          <mat-icon>menu</mat-icon>
+        </button>
       </mat-toolbar>
       <router-outlet #outlet="outlet"></router-outlet>
     </div>

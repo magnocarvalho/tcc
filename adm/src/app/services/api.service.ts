@@ -7,11 +7,11 @@ import { HttpClient } from '@angular/common/http';
 @Injectable()
 export class ApiService {
   constructor(private http: HttpClient) {}
-  uri = 'localhost:1337';
+  uri = 'http://localhost:1337/';
   // Postagem
   postagemAdd(obj) {
     this.http
-      .post(`${this.uri}/add`, obj)
+      .post(this.uri + 'add', obj)
       .subscribe(res => console.log('Done'));
   }
 }

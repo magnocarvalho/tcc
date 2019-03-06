@@ -1,0 +1,11 @@
+{
+  "dependencies": {
+    "bcrypt": "registry:dt/bcrypt#1.0.0+20161217125511",
+    "express": "registry:npm/express#4.14.0+20160925001530",
+    "jsonwebtoken": "registry:npm/jsonwebtoken#7.1.8+20160811031426"
+  },
+  "globalDependencies": {
+    "node": "registry:dt/node#7.0.0+20170124134802"
+  }
+}
+ 

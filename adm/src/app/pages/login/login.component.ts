@@ -32,7 +32,6 @@ export class LoginComponent implements OnInit {
       err => {
         console.log(err);
         var erro = err;
-        debugger;
         this.snackBar.open(erro.message, "erro" , {
           duration: 5000,
         });

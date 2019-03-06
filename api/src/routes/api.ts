@@ -7,18 +7,6 @@ var mcache = require('memory-cache');
 
 var router = express.Router();
 
-
-var descache = () => {
- return (req, res, next) => {
-  let key = '__express__' + req.originalUrl || req.url;
-  let cachedBody = mcache.get(mcache.keys()[0]);
-  if(cachedBody){
-    mcache.clear();
-  }
-  next();
-   
- }
-}
 router.post('/salvarUsuario',UsuarioCtrl.create);
 router.post('/loginUser', UsuarioCtrl.login);
 

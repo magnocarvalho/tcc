@@ -10,10 +10,12 @@ export class AuthGuard implements CanActivate {
     canActivate(
         next: ActivatedRouteSnapshot,
         state: RouterStateSnapshot): boolean {
-        if (this.auth.isLoggedIn) {
+        if (this.auth.isLoggedIn()) {
             console.log('AuthGuard#canActivate called');
             return true;
         } else {
+            this.auth.logout();
+            console.log('AuthGuard#canActivate rota não permitida');
             return false;
         }
     }

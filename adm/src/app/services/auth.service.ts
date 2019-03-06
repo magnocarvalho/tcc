@@ -16,7 +16,7 @@ export class AuthService {
     this.user.subscribe(user => {
       if (user) {
         this.userDetails = user;
-        console.log(this.userDetails);
+        // console.log(this.userDetails);
         this.email = this.userDetails.email;
       } else {
         this.userDetails = null;
@@ -28,7 +28,7 @@ export class AuthService {
       .signInWithEmailAndPassword(obj.email, obj.senha)
       .then(() => {
         console.log("login com sucesso");
-        console.log(this.userDetails);
+        // console.log(this.userDetails);
       });
   }
   createUser(user) {
@@ -43,7 +43,6 @@ export class AuthService {
       })
       .catch(err => console.log(err));
   }
-
   isLoggedIn() {
     if (this.userDetails == null) {
       return false;
@@ -52,10 +51,14 @@ export class AuthService {
     }
   }
   logout() {
-    this._firebaseAuth.auth.signOut().then(res => this.router.navigate(["/"]));
+    this._firebaseAuth.auth.signOut().then(res => {
+      this.userDetails = null;
+      this.router.navigate(["/login"])
+    }, err => {
+      console.error(err);
+    });
   }
-  emails()
-  {
+  emails() {
     return this.email || 'Email invalido';
   }
 }

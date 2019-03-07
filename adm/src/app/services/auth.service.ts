@@ -16,9 +16,10 @@ export class AuthService {
     this.user.subscribe(user => {
       if (user) {
         this.userDetails = user;
-        // console.log(this.userDetails);
+        console.log(this.userDetails);
         this.email = this.userDetails.email;
       } else {
+        console.log("nenhum usuario logado");
         this.userDetails = null;
       }
     });

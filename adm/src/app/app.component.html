@@ -19,15 +19,23 @@
           <mat-icon>menu</mat-icon>
         </button>
         <span class="spacer"></span>
-        <button mat-icon-button class="exit" *ngIf="flagLogin" (click)="sairLogin()">
+        <button mat-icon-button class="exit" (click)="sairLogin()">
           <mat-icon>exit_to_app</mat-icon>
         </button>
-        <button mat-raised-button class="" *ngIf="!flagLogin" routerLink="auth">
+        <!-- <button mat-raised-button class="" *ngIf="!flagLogin" routerLink="auth">
           <mat-icon>person_add</mat-icon>
           Cadastre-se
-        </button>
+        </button> -->
       </mat-toolbar>
-      <router-outlet #outlet="outlet"></router-outlet>
+      <div fxLayout="row" fxLayoutAlign="space-around start" class="back-branco">
+        <span>
+          <app-login></app-login>
+        </span>
+        <span>
+          <app-create-user></app-create-user>
+        </span>
+      </div>
+      <!-- <router-outlet #outlet="outlet"></router-outlet> -->
     </div>
   </div>
 </mat-drawer-container>

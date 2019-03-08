@@ -1,5 +1,5 @@
 <mat-drawer-container>
-  <mat-drawer #sidenav mode="side" class="drawer">
+  <mat-drawer #sidenav mode="outside" class="drawer">
     <div class="menu">
       <mat-list>
         <mat-list-item>
@@ -14,7 +14,7 @@
   </mat-drawer>
   <div class="sidenav-content">
     <div class="content">
-      <mat-toolbar id="toolbar">
+      <mat-toolbar id="toolbar" color="primary">
         <button mat-icon-button class="menu" (click)="sidenav.toggle()">
           <mat-icon>menu</mat-icon>
         </button>
@@ -27,15 +27,8 @@
           Cadastre-se
         </button> -->
       </mat-toolbar>
-      <div fxLayout="row" fxLayoutAlign="space-around start" class="back-branco">
-        <span>
-          <app-login></app-login>
-        </span>
-        <span>
-          <app-create-user></app-create-user>
-        </span>
-      </div>
-      <!-- <router-outlet #outlet="outlet"></router-outlet> -->
+    
+      <router-outlet #outlet="outlet"></router-outlet>
     </div>
   </div>
 </mat-drawer-container>

@@ -64,6 +64,7 @@ import {
 } from '@angular/material';
 import { CreateUserComponent } from './pages/create-user/create-user.component';
 import { HttpClientModule } from '@angular/common/http';
+import { DashboardLoginComponent } from './pages/dashboard-login/dashboard-login.component';
 
 @NgModule({
   declarations: [
@@ -74,7 +75,8 @@ import { HttpClientModule } from '@angular/common/http';
     MenuComponent,
     DefaultComponent,
     CreateUserComponent,
-    DashboardComponent
+    DashboardComponent,
+    DashboardLoginComponent
   ],
   imports: [
     BrowserModule,

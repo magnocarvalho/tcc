@@ -1,35 +1,19 @@
 <div fxLayout="row" fxLayoutAlign="center stretch" class="back-branco">
   <div fxLayout="row" fxLayoutAlign="center center">
     <mat-card>
+        <mat-card-header>
+            <mat-card-title>Ja tem uma conta!</mat-card-title>
+            <mat-card-subtitle>Faça login agora.</mat-card-subtitle>
+        </mat-card-header>
       <mat-card-content color="primary">
-        <form [formGroup]="form">
-          <mat-form-field
-            fxLayout="row"
-            floatPlaceholder="auto"
-            appearance="outline"
-          >
+        <form [formGroup]="form" class="example-container">
+          <mat-form-field fxLayout="row" floatPlaceholder="auto" appearance="outline">
             <mat-label>Email</mat-label>
-            <input
-              matInput
-              formControlName="email"
-              type="text"
-              required
-              placeholder="Email"
-            />
+            <input matInput formControlName="email" type="text" required placeholder="Email" />
           </mat-form-field>
-          <mat-form-field
-            fxLayout="row"
-            floatPlaceholder="auto"
-            appearance="outline"
-          >
+          <mat-form-field fxLayout="row" floatPlaceholder="auto" appearance="outline">
             <mat-label>Senha</mat-label>
-            <input
-              matInput
-              formControlName="senha"
-              type="password"
-              required
-              placeholder="Senha"
-            />
+            <input matInput formControlName="senha" type="password" required placeholder="Senha" />
           </mat-form-field>
         </form>
       </mat-card-content>

@@ -1,5 +1,5 @@
 <div fxLayout="row" fxLayoutAlign="center stretch" class="back-branco">
-  <div fxLayout="row" fxLayoutAlign="center center">
+  <div fxLayout="column" fxLayoutAlign="center stretch" class="example-card">
     <mat-card>
         <mat-card-header>
             <mat-card-title>Ja tem uma conta!</mat-card-title>
@@ -7,11 +7,11 @@
         </mat-card-header>
       <mat-card-content color="primary">
         <form [formGroup]="form" class="example-container">
-          <mat-form-field fxLayout="row" floatPlaceholder="auto" appearance="outline">
+          <mat-form-field  floatPlaceholder="auto" appearance="outline">
             <mat-label>Email</mat-label>
             <input matInput formControlName="email" type="text" required placeholder="Email" />
           </mat-form-field>
-          <mat-form-field fxLayout="row" floatPlaceholder="auto" appearance="outline">
+          <mat-form-field  floatPlaceholder="auto" appearance="outline">
             <mat-label>Senha</mat-label>
             <input matInput formControlName="senha" type="password" required placeholder="Senha" />
           </mat-form-field>

@@ -3,3 +3,16 @@
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 .back-branco { min-height: 100vh;}
+.example-container {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .example-container > * {
+    width: 100%;
+  }
+
+  .example-card .mat-card{
+    width: 100%;
+    max-width: 400px;
+  }

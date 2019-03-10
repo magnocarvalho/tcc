@@ -1,6 +1,7 @@
 import { FormControl, FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { NgxEditorModule } from 'ngx-editor';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -10,6 +11,7 @@ import { environment } from '../environments/environment';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFireAuthModule } from 'angularfire2/auth';
+import * as moment from 'moment';
 
 import { AuthService } from './services/auth.service';
 import { LoginComponent } from './pages/login/login.component';
@@ -65,6 +67,7 @@ import {
 import { CreateUserComponent } from './pages/create-user/create-user.component';
 import { HttpClientModule } from '@angular/common/http';
 import { DashboardLoginComponent } from './pages/dashboard-login/dashboard-login.component';
+import { FullscreenService } from './services/fullscreen.service';
 
 @NgModule({
   declarations: [
@@ -128,9 +131,10 @@ import { DashboardLoginComponent } from './pages/dashboard-login/dashboard-login
     MatTooltipModule,
     MatTreeModule,
     FontAwesomeModule,
-    AngularFontAwesomeModule
+    AngularFontAwesomeModule,
+    NgxEditorModule,
   ],
-  providers: [AuthService],
+  providers: [AuthService, FullscreenService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

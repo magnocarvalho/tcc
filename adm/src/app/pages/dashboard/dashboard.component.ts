@@ -3,6 +3,7 @@ import { ApiService } from 'src/app/services/api.service';
 import { Router } from '@angular/router';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { COMMA, ENTER } from "@angular/cdk/keycodes";
+import * as moment from 'moment';
 
 @Component({
   selector: 'app-dashboard',
@@ -13,7 +14,7 @@ export class DashboardComponent {
   form;
 
   categorias = [];
-  tag: Tags[] = [];
+  // tag: Tags[] = [];
   fotos: any[] = [];
   fotoThumb: any[] = [{}];
   fotosBlocos: any[] = [{}];
@@ -61,8 +62,8 @@ export class DashboardComponent {
       // "empresa": new FormControl('', [Validators.required]),
       titulo: new FormControl("", [Validators.required]),
       subtitulo: new FormControl(""),
-      dataCriacao: new FormControl(moment().format("L"), [Validators.]),
-      dataPublicacao: new FormControl(moment().format("L"), [ValidateDate]),
+      dataCriacao: new FormControl(moment().format("L"), [Validators.required]),
+      dataPublicacao: new FormControl(moment().format("L"), [Validators.required]),
       publicado: new FormControl(""),
       bgtitulo: new FormControl(""),
       blocos: new FormControl(""),

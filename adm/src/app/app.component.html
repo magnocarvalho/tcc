@@ -12,7 +12,7 @@
             </mat-list>
         </div>
     </mat-drawer>
-    <div class="sidenav-content" fixedInViewport="true">
+    <div class="sidenav-content">
         <div class="content">
             <mat-toolbar id="toolbar" color="primary">
                 <button mat-icon-button class="menu" (click)="sidenav.toggle()">
@@ -22,10 +22,10 @@
                 <button mat-icon-button class="exit" (click)="sairLogin()">
           <mat-icon>exit_to_app</mat-icon>
         </button>
-                <!-- <button mat-raised-button class="" *ngIf="!flagLogin" routerLink="auth">
+                <button mat-raised-button class="" routerLink="auth">
           <mat-icon>person_add</mat-icon>
           Cadastre-se
-        </button> -->
+        </button>
             </mat-toolbar>
             <div class="app-body">
                 <router-outlet #outlet="outlet"></router-outlet>

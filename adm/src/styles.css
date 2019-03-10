@@ -19,6 +19,10 @@ body {
     flex-direction: column;
 }
 
+.toolbar-fullscreen {
+    display: none;
+}
+
 .example-container>* {
     width: 100%;
 }

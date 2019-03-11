@@ -5,7 +5,7 @@
                 <mat-accordion class="col-12 expsansion-labels">
                     <mat-expansion-panel [expanded]="step === 0" (opened)="setStep(0)">
                         <mat-expansion-panel-header>
-                            <mat-panel-title>Sobre a postagem</mat-panel-title>
+                            <mat-panel-title>Titulo</mat-panel-title>
                             <mat-panel-description class="icon-direita">
                                 &nbsp;
                                 <mat-icon>portrait</mat-icon>
@@ -16,80 +16,17 @@
                                 <mat-label>Título da Postagem:</mat-label>
                                 <textarea required #titulo placeholder="Título da Postagem:" matInput maxlength="256" type="text" formControlName="titulo" name="titulo"></textarea>
                                 <mat-hint align="end">{{ titulo.value.length }} / 256</mat-hint>
-
                                 <mat-error *ngIf="form.get('titulo').hasError('required')">Adicione titulo
                                 </mat-error>
                             </mat-form-field>
-                            <!-- <mat-form-field appearance="outline" floatLabel="always" class="top-15 col-12">
-                                <mat-label>Resumo da Postagem:</mat-label>
-                                <textarea required placeholder="Resumo da Postagem:" matInput maxlength="520" type="text" formControlName="resumo" name="resumo"></textarea>
-                            </mat-form-field>
-                            <mat-form-field appearance="outline" floatLabel="always" class="top-15 col-12">
-                                <mat-label>Url da Postagem:</mat-label>
-                                <input required placeholder="Url única: (sem espaços)" matInput maxlength="100" type="text" formControlName="url" name="url" />
-                                <mat-error *ngIf="form.get('url').hasError('required')">URL deve ser única
-                                </mat-error>
-                            </mat-form-field> -->
 
-                            <!-- <mat-divider></mat-divider> -->
                         </div>
                         <mat-action-row>
                             <button mat-button color="primary" (click)="nextStep()">Proximo</button>
                         </mat-action-row>
                     </mat-expansion-panel>
-                    <!-- <mat-expansion-panel [expanded]="step === 1" (opened)="setStep(1)">
-                        <mat-expansion-panel-header>
-                            <mat-panel-title>Sobre Autor</mat-panel-title>
-                            <mat-panel-description class="icon-direita">
-                                &nbsp;
-                                <mat-icon>account_circle</mat-icon>
-                            </mat-panel-description>
-                        </mat-expansion-panel-header>
-                        <div class="row controle-row">
-                            <mat-form-field appearance="outline" floatLabel="always" class="top-15 col-12">
-                                <mat-label>Nome do Autor:</mat-label>
-                                <textarea #autor matInput required maxlength="256" placeholder="Nome do Autor:" type="text" formControlName="autor" name="autor"></textarea>
-                                <mat-hint align="end">{{ autor.value.length }} / 256</mat-hint>
-                            </mat-form-field>
-                            <mat-form-field appearance="outline" floatLabel="always" class="top-15 col-12">
-                                <mat-label>Sobre o autor:</mat-label>
-                                <textarea required placeholder="Resumo Sobre Autor:" matInput maxlength="512" type="text" formControlName="autorSobre" name="autorSobre"></textarea>
-                            </mat-form-field>
-                            <mat-label>Foto de Perfil:</mat-label>
-                            <div class="row controle-row">
-                                <div class="form-group col-12 foto" *ngFor="let foto of fotoPerfil; let i = index">
-                                    <input type="file" accept="image/x-png,image/gif,image/jpeg" class="form-control-file" id="foto1" *ngIf="!foto.url" (change)="onFileChangePerfil($event)" />
-                                    <div class="img-container">
-                                        <div class="img-ctrl img-ctrl-perfil">
-                                            <img class="img-preview" id="img-foto2" *ngIf="foto.url" src="{{foto.url}}" />
-                                        </div>
-                                    </div>
-                                    <div class="acoes" *ngIf="foto.url">
-                                        <div (click)="removePerfil(i)">
-                                            <mat-icon>delete</mat-icon>
-                                            Remover
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="form-group col-6 adicionar" (click)="this.fotoPerfil.push({})" *ngIf="!fotoPerfil.length">
-                                    <div>
-                                        <mat-icon>add_photo_alternate</mat-icon>
-                                        Adicionar foto de perfil
-                                    </div>
-                                </div>
-                            </div>
-                            <mat-divider></mat-divider>
-                        </div>
-                        <mat-action-row>
-                            <button mat-button color="warn" (click)="prevStep()">
-                  Anterior
-                </button>
-                            <button mat-button color="primary" (click)="nextStep()">
-                  Proximo
-                </button>
-                        </mat-action-row>
-                    </mat-expansion-panel> -->
-                    <mat-expansion-panel [expanded]="step === 2" (opened)="setStep(2)">
+
+                    <mat-expansion-panel [expanded]="step === 1" (opened)="setStep(1)">
                         <mat-expansion-panel-header>
                             <mat-panel-title> Data de Postagem </mat-panel-title>
                             <mat-panel-description class="icon-direita">
@@ -117,11 +54,10 @@
                   Anterior
                 </button>
                             <button mat-button color="primary" (click)="nextStep()">
-                  Proximo
-                </button>
+                  Proximo                </button>
                         </mat-action-row>
                     </mat-expansion-panel>
-                    <!-- <mat-expansion-panel [expanded]="step === 3" (opened)="setStep(3)">
+                    <mat-expansion-panel [expanded]="step === 2" (opened)="setStep(2)">
                         <mat-expansion-panel-header>
                             <mat-panel-title>Tags</mat-panel-title>
                             <mat-panel-description class="icon-direita">
@@ -138,19 +74,12 @@
                                 <input placeholder="Insira uma Tag" [matChipInputFor]="chipList" [matChipInputSeparatorKeyCodes]="separatorKeysCodes" [matChipInputAddOnBlur]="addOnBlur" (matChipInputTokenEnd)="addTag($event)" formControlName="tags" />
                             </mat-chip-list>
                         </div>
-
-             
-
                         <mat-action-row>
-                            <button mat-button color="warn" (click)="prevStep()">
-                  Anterior
-                </button>
-                            <button mat-button color="primary" (click)="nextStep()">
-                  Proximo
-                </button>
+                            <button mat-button color="warn" (click)="prevStep()">Anterior</button>
+                            <button mat-button color="primary" (click)="nextStep()">Proximo</button>
                         </mat-action-row>
-                    </mat-expansion-panel> -->
-                    <mat-expansion-panel [expanded]="step === 4" (opened)="setStep(4)">
+                    </mat-expansion-panel>
+                    <mat-expansion-panel [expanded]="step === 3" (opened)="setStep(3)">
                         <mat-expansion-panel-header>
                             <mat-panel-title>Thumbnail</mat-panel-title>
                             <mat-panel-description class="icon-direita">
@@ -190,7 +119,7 @@
                 </button>
                         </mat-action-row>
                     </mat-expansion-panel>
-                    <mat-expansion-panel [expanded]="step === 5" (opened)="setStep(5)">
+                    <mat-expansion-panel [expanded]="step === 4" (opened)="setStep(4)">
                         <mat-expansion-panel-header>
                             <mat-panel-title>Postagem</mat-panel-title>
                             <mat-panel-description class="icon-direita">
@@ -268,7 +197,7 @@
                     <img class="postagem-thumbnail" src="{{fot.url}}" alt="" />
                 </div>
                 <div class="col-12 postagem-exemplo" *ngIf="verificaFoto()">
-                    <img class="" src="/assets/portfolio_img_35.jpg" />
+                    <img class="" src="/assets/default.png" />
                 </div>
                 <div class="col-12 postagem-rascunho" (click)="setStep(0)">
                     <h1>{{ form.get("titulo").value }}</h1>

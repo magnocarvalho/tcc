@@ -63,7 +63,7 @@ export class DashboardComponent {
   customExpandedHeight: string = '';
 
   readonly separatorKeysCodes: number[] = [ENTER, COMMA];
- 
+
   constructor(public api: ApiService, private router: Router, private zone: NgZone) {
     this.form = new FormGroup({
       // "empresa": new FormControl('', [Validators.required]),

@@ -70,6 +70,7 @@ import { DashboardLoginComponent } from './pages/dashboard-login/dashboard-login
 import { FullscreenService } from './services/fullscreen.service';
 import { CatchErrorInterceptor } from './services/erro.service';
 import { ApiService } from './services/api.service';
+import { TokenStorage } from './services/token.storage';
 
 @NgModule({
   declarations: [
@@ -136,15 +137,15 @@ import { ApiService } from './services/api.service';
     AngularFontAwesomeModule,
     NgxEditorModule,
   ],
-  providers: [{
+  providers: [AuthService, FullscreenService, TokenStorage, {
     provide: HTTP_INTERCEPTORS,
     useClass: ApiService,
     multi: true,
   }, {
-    provide: HTTP_INTERCEPTORS,
-    useClass: CatchErrorInterceptor,
-    multi: true,
-  }],
+      provide: HTTP_INTERCEPTORS,
+      useClass: CatchErrorInterceptor,
+      multi: true,
+    }],
   // providers: [AuthService, FullscreenService],
   bootstrap: [AppComponent]
 })

@@ -290,7 +290,7 @@
                 </mat-accordion>
             </div>
         </form>
-        <div class="col-6 top-15">
+        <!-- <div class="col-6 top-15">
             <mat-card class="w-80 margin-auto card-postagem">
                 <div class="col-12" *ngFor="let fot of fotoThumb">
                     <img class="postagem-thumbnail" src="{{fot.url}}" alt="" />
@@ -311,7 +311,7 @@
                     <span *ngFor="let t of tag" class="tags-controler"><a>{{ t.texto }}</a>;</span>
                 </div>
             </mat-card>
-            <!-- <div></div> -->
+        
             <mat-card class="w-80 margin-auto card-postagem" [ngClass]="{'card-borda-black': editando && i == editavel}" *ngFor="let parte of postagem; let i = index">
                 <span class="editar-containner" (click)="editPostagem(parte, i)">
             <mat-icon>edit</mat-icon>
@@ -345,6 +345,6 @@
                     <p class="resumo-p">{{ form.get("autorSobre").value }}</p>
                 </div>
             </mat-card>
-        </div>
+        </div> -->
     </div>
 </div>

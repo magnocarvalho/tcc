@@ -1,0 +1,69 @@
+\providecommand{\abntreprintinfo}[1]{%
+ \citeonline{#1}}
+\setlength{\labelsep}{0pt}\begin{thebibliography}{}
+\providecommand{\abntrefinfo}[3]{}
+\providecommand{\abntbstabout}[1]{}
+\abntbstabout{v-1.9.6 }
+
+\bibitem[abnTeX2 e Araujo 2014]{abnTeX22014b}
+\abntrefinfo{abnTeX2 e Araujo}{ABNTEX2; ARAUJO}{2014a}
+{ABNTEX2; ARAUJO, L.~C. \textbf{A classe abntex2}: Documentos t\'{e}cnicos e
+  cient\'{i}ficos brasileiros compat\'{i}veis com as normas abnt.
+[S.l.], 2014. 46~p. Dispon{\'\i}vel em: \url{http://abntex2.googlecode.com/}.
+  Acesso em: 12 de setembro de 2014.}
+
+\bibitem[abnTeX2 e Araujo 2014]{abnTeX22014d}
+\abntrefinfo{abnTeX2 e Araujo}{ABNTEX2; ARAUJO}{2014b}
+{ABNTEX2; ARAUJO, L.~C. \textbf{O pacote abntex2cite}: Estilos
+  bibliogr\'{a}ficos compat\'{i}veis com a abnt nbr 6023.
+[S.l.], 2014. 91~p. Dispon{\'\i}vel em: \url{http://abntex2.googlecode.com/}.
+  Acesso em: 12 de setembro de 2014.}
+
+\bibitem[Araujo e abnTeX2 2014]{abnTeX22014c}
+\abntrefinfo{Araujo e abnTeX2}{ARAUJO; ABNTEX2}{2014}
+{ARAUJO, L.~C.; ABNTEX2. \textbf{O pacote abntex2cite}: T\'{o}picos
+  espec\'{i}ficos da abnt nbr 10520:2002 e o estilo bibliogr\'{a}fico
+  alfab\'{e}tico (sistema autor-data).
+[S.l.], 2014. 23~p. Dispon{\'\i}vel em: \url{http://abntex2.googlecode.com/}.
+  Acesso em: 12 de setembro de 2014.}
+
+\bibitem[Associa{\c c}\~ao Brasileira de Normas T\'ecnicas 2002]{NBR6023:2002}
+\abntrefinfo{ABNT}{ABNT}{2002}
+{ASSOCIA{\c C}\~AO BRASILEIRA DE NORMAS T\'ECNICAS. \textbf{{NBR} 6023}:
+  Informa{\c c}\~ao e documenta{\c c}\~ao --- refer\^encias --- elabora{\c
+  c}\~ao.
+Rio de Janeiro, 2002. 24~p.}
+
+\bibitem[Barbosa et al. 2004]{Barbosa2004}
+\abntrefinfo{Barbosa et al.}{BARBOSA et al.}{2004}
+{BARBOSA, C. et al. \textbf{Testando a utiliza{\c c}\~ao de ``et al.''}. 2. ed.
+  Cidade: Editora, 2004.}
+
+\bibitem[Goossens et al. 2007]{Goossens2007}
+\abntrefinfo{Goossens et al.}{GOOSSENS et al.}{2007}
+{GOOSSENS, M. et al. \textbf{The LaTeX graphics companion}. 2. ed. Boston:
+  Addison-Wesley, 2007.}
+
+\bibitem[IRL 2014]{IRL2014}
+\abntrefinfo{IRL}{IRL}{2014}
+{IRL. \textbf{Internet Research Laboratory}. 2014.
+Dispon{\'\i}vel em: \url{http://irl.cs.ucla.edu/topology}. Acesso em: 8 de
+  mar{\c c}o de 2014.}
+
+\bibitem[Maturana e Varela 2003]{Maturana2003}
+\abntrefinfo{Maturana e Varela}{MATURANA; VARELA}{2003}
+{MATURANA, H.~R.; VARELA, F.~J. \textbf{A \'{A}rvore do Conhecimento}: as bases
+  biol\'{o}gicas da compreens\~{a}o humana. 3. ed. S\~ao Paulo: Editora Palas
+  Athena, 2003.}
+
+\bibitem[Mittelbach et al. 2004]{Mittelbach2004}
+\abntrefinfo{Mittelbach et al.}{MITTELBACH et al.}{2004}
+{MITTELBACH, F. et al. \textbf{The LaTeX companion}. 2. ed. Boston:
+  Addison-Wesley, 2004.}
+
+\bibitem[Silva e Souza 2000]{Silva2000}
+\abntrefinfo{Silva e Souza}{SILVA; SOUZA}{2000}
+{SILVA, J.; SOUZA, J.~a.~L. \textbf{A Intelig{\^e}ncia da Complexidade}. S\~ao
+  Paulo: Editora Petr\'{o}polis, 2000.}
+
+\end{thebibliography}

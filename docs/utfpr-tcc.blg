@@ -1,0 +1,86 @@
+This is BibTeX, Version 0.99d (TeX Live 2017/Debian)
+Capacity: max_strings=100000, hash_size=100000, hash_prime=85009
+The top-level auxiliary file: utfpr-tcc.aux
+A level-1 auxiliary file: estrutura/pre-textuais/dedicatoria.aux
+A level-1 auxiliary file: estrutura/pre-textuais/agradecimentos.aux
+A level-1 auxiliary file: estrutura/pre-textuais/epigrafe.aux
+A level-1 auxiliary file: estrutura/pre-textuais/resumo.aux
+A level-1 auxiliary file: estrutura/pre-textuais/abstract.aux
+A level-1 auxiliary file: estrutura/pre-textuais/listas/listas-ilustracoes/lista-figuras.aux
+A level-1 auxiliary file: estrutura/pre-textuais/listas/listas-ilustracoes/lista-quadros.aux
+A level-1 auxiliary file: estrutura/pre-textuais/listas/lista-tabelas.aux
+A level-1 auxiliary file: estrutura/pre-textuais/listas/lista-siglas.aux
+A level-1 auxiliary file: estrutura/pre-textuais/listas/lista-simbolos.aux
+A level-1 auxiliary file: estrutura/pre-textuais/listas/listas-diversas/lista-algoritmos.aux
+A level-1 auxiliary file: estrutura/pre-textuais/sumario.aux
+A level-1 auxiliary file: estrutura/textuais/introducao.aux
+A level-1 auxiliary file: estrutura/textuais/desenvolvimento/revisao-de-literatura.aux
+A level-1 auxiliary file: estrutura/textuais/desenvolvimento/metodologia.aux
+A level-1 auxiliary file: estrutura/textuais/desenvolvimento/resultados.aux
+A level-1 auxiliary file: estrutura/textuais/desenvolvimento/orientacoes.aux
+A level-1 auxiliary file: estrutura/textuais/conclusao.aux
+A level-1 auxiliary file: estrutura/pos-textuais/referencias.aux
+The style file: abntex2-alf.bst
+A level-1 auxiliary file: estrutura/pos-textuais/apendices.aux
+A level-1 auxiliary file: estrutura/pos-textuais/anexos.aux
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated wiz_functions (elt_size=4) to 9000 items from 6000.
+Database file #1: abntex2-options.bib
+Database file #2: ./base-referencias.bib
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated glb_str_ptr (elt_size=4) to 20 items from 10.
+Reallocated global_strs (elt_size=20001) to 20 items from 10.
+Reallocated glb_str_end (elt_size=4) to 20 items from 10.
++---------------------------------------------------------+
+| Estilo bibliográfico abntex2-alf.bst versão v-1.9.6           |
+| Em caso de dúvidas ou problemas com este estilo procure |
+| http://www.abntex.net.br/                               |
++---------------------------------------------------------+
+You've used 16 entries,
+            6714 wiz_defined-function locations,
+            1292 strings with 12004 characters,
+and the built_in function-call counts, 12107 in all, are:
+= -- 1233
+> -- 305
+< -- 132
++ -- 295
+- -- 94
+* -- 779
+:= -- 1561
+add.period$ -- 46
+call.type$ -- 17
+change.case$ -- 127
+chr.to.int$ -- 34
+cite$ -- 10
+duplicate$ -- 752
+empty$ -- 853
+format.name$ -- 441
+if$ -- 2809
+int.to.chr$ -- 6
+int.to.str$ -- 3
+missing$ -- 240
+newline$ -- 53
+num.names$ -- 45
+pop$ -- 266
+preamble$ -- 1
+purify$ -- 59
+quote$ -- 0
+skip$ -- 1054
+stack$ -- 1
+substring$ -- 378
+swap$ -- 285
+text.length$ -- 4
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 0
+warning$ -- 0
+while$ -- 61
+width$ -- 0
+write$ -- 163

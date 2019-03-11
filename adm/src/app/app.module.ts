@@ -74,6 +74,7 @@ import { CatchErrorInterceptor } from './services/erro.service';
 import { ApiService } from './services/api.service';
 import { TokenStorage } from './services/token.storage';
 import { SlickCarouselModule } from 'ngx-slick-carousel';
+import { ImageCropperModule } from 'ngx-image-cropper';
 
 @NgModule({
   declarations: [
@@ -139,7 +140,8 @@ import { SlickCarouselModule } from 'ngx-slick-carousel';
     FontAwesomeModule,
     AngularFontAwesomeModule,
     NgxEditorModule,
-    SlickCarouselModule
+    SlickCarouselModule,
+    ImageCropperModule
   ],
   providers: [{ provide: MAT_DATE_LOCALE, useValue: 'pt-BR' }, AuthService, FullscreenService, TokenStorage, {
     provide: HTTP_INTERCEPTORS,

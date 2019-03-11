@@ -5,15 +5,12 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { COMMA, ENTER } from "@angular/cdk/keycodes";
 import * as moment from 'moment';
 import { MatChipInputEvent } from '@angular/material';
-
+import * as $ from "jQuery";
 
 declare var jQuery;
-declare var $;
-
 export interface Tags {
   texto: string;
 }
-
 
 @Component({
   selector: 'app-dashboard',
@@ -66,37 +63,7 @@ export class DashboardComponent {
   customExpandedHeight: string = '';
 
   readonly separatorKeysCodes: number[] = [ENTER, COMMA];
-  slides = [
-    { img: "/assets/portfolio_img_35.jpg" },
-    { img: "/assets/portfolio_img_35.jpg" }
-  ];
-  slideConfig = { "slidesToShow": 1, "slidesToScroll": 1 };
-
-  addSlide() {
-    this.slides.push({ img: "http://placehold.it/350x150/777777" })
-  }
-
-  removeSlide() {
-    this.slides.length = this.slides.length - 1;
-  }
-
-  slickInit(e) {
-    console.log('slick initialized');
-  }
-
-  breakpoint(e) {
-    console.log('breakpoint');
-  }
-
-  afterChange(e) {
-    console.log('afterChange');
-  }
-
-  beforeChange(e) {
-    console.log('beforeChange');
-  }
-
-
+ 
   constructor(public api: ApiService, private router: Router, private zone: NgZone) {
     this.form = new FormGroup({
       // "empresa": new FormControl('', [Validators.required]),

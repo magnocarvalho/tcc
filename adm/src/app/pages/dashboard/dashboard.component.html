@@ -37,7 +37,7 @@
                             <button mat-button color="primary" (click)="nextStep()">Proximo</button>
                         </mat-action-row>
                     </mat-expansion-panel>
-                    <mat-expansion-panel [expanded]="step === 1" (opened)="setStep(1)">
+                    <!-- <mat-expansion-panel [expanded]="step === 1" (opened)="setStep(1)">
                         <mat-expansion-panel-header>
                             <mat-panel-title>Sobre Autor</mat-panel-title>
                             <mat-panel-description class="icon-direita">
@@ -88,7 +88,7 @@
                   Proximo
                 </button>
                         </mat-action-row>
-                    </mat-expansion-panel>
+                    </mat-expansion-panel> -->
                     <mat-expansion-panel [expanded]="step === 2" (opened)="setStep(2)">
                         <mat-expansion-panel-header>
                             <mat-panel-title> Data de Postagem </mat-panel-title>
@@ -263,18 +263,6 @@
             </div>
         </form>
         <div class="col-md-7 top-15">
-            <mat-card class="w-80 margin-auto card-postagem">
-                <ngx-slick-carousel class="carousel" #slickModal="slick-carousel" [config]="slideConfig" (init)="slickInit($event)" (breakpoint)="breakpoint($event)" (afterChange)="afterChange($event)" (beforeChange)="beforeChange($event)">
-                    <div ngxSlickItem *ngFor="let slide of slides" class="slide">
-                        <img src="{{ slide.img }}" alt="" width="100%">
-                    </div>
-                </ngx-slick-carousel>
-
-                <button (click)="addSlide()">Add</button>
-                <button (click)="removeSlide()">Remove</button>
-                <button (click)="slickModal.slickGoTo(2)">slickGoto 2</button>
-                <button (click)="slickModal.unslick()">unslick</button>
-            </mat-card>
             <mat-card class="w-80 margin-auto card-postagem">
                 <div class="col-12" *ngFor="let fot of fotoThumb">
                     <img class="postagem-thumbnail" src="{{fot.url}}" alt="" />

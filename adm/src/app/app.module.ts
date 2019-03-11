@@ -6,6 +6,7 @@ import { NgxEditorModule } from 'ngx-editor';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MAT_DATE_LOCALE} from '@angular/material';
 
 import { environment } from '../environments/environment';
 import { AngularFireModule } from 'angularfire2';
@@ -140,7 +141,7 @@ import { SlickCarouselModule } from 'ngx-slick-carousel';
     NgxEditorModule,
     SlickCarouselModule
   ],
-  providers: [AuthService, FullscreenService, TokenStorage, {
+  providers: [{ provide: MAT_DATE_LOCALE, useValue: 'pt-BR' }, AuthService, FullscreenService, TokenStorage, {
     provide: HTTP_INTERCEPTORS,
     useClass: ApiService,
     multi: true,

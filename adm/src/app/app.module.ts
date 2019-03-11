@@ -12,6 +12,7 @@ import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import * as moment from 'moment';
+// import { CarouselModule } from 'angular4-carousel';
 
 import { AuthService } from './services/auth.service';
 import { LoginComponent } from './pages/login/login.component';
@@ -71,6 +72,7 @@ import { FullscreenService } from './services/fullscreen.service';
 import { CatchErrorInterceptor } from './services/erro.service';
 import { ApiService } from './services/api.service';
 import { TokenStorage } from './services/token.storage';
+import { SlickCarouselModule } from 'ngx-slick-carousel';
 
 @NgModule({
   declarations: [
@@ -136,6 +138,7 @@ import { TokenStorage } from './services/token.storage';
     FontAwesomeModule,
     AngularFontAwesomeModule,
     NgxEditorModule,
+    SlickCarouselModule
   ],
   providers: [AuthService, FullscreenService, TokenStorage, {
     provide: HTTP_INTERCEPTORS,

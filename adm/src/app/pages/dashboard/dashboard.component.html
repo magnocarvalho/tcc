@@ -264,6 +264,18 @@
         </form>
         <div class="col-md-7 top-15">
             <mat-card class="w-80 margin-auto card-postagem">
+                <ngx-slick-carousel class="carousel" #slickModal="slick-carousel" [config]="slideConfig" (init)="slickInit($event)" (breakpoint)="breakpoint($event)" (afterChange)="afterChange($event)" (beforeChange)="beforeChange($event)">
+                    <div ngxSlickItem *ngFor="let slide of slides" class="slide">
+                        <img src="{{ slide.img }}" alt="" width="100%">
+                    </div>
+                </ngx-slick-carousel>
+
+                <button (click)="addSlide()">Add</button>
+                <button (click)="removeSlide()">Remove</button>
+                <button (click)="slickModal.slickGoTo(2)">slickGoto 2</button>
+                <button (click)="slickModal.unslick()">unslick</button>
+            </mat-card>
+            <mat-card class="w-80 margin-auto card-postagem">
                 <div class="col-12" *ngFor="let fot of fotoThumb">
                     <img class="postagem-thumbnail" src="{{fot.url}}" alt="" />
                 </div>
@@ -297,7 +309,7 @@
                 <h4 *ngIf="parte.subTitulo">{{ parte.subTitulo }}</h4>
             </mat-card>
 
-            <mat-card class="w-80 margin-auto" (click)="setStep(1)">
+            <!-- <mat-card class="w-80 margin-auto" (click)="setStep(1)">
                 <div class="img-perfil-postagem" *ngIf="!verificaFotoPerfil()">
                     <img src="{{fotoPerfil[0].url}}" alt="" />
                 </div>
@@ -316,7 +328,7 @@
                     </p>
                     <p class="resumo-p">{{ form.get("autorSobre").value }}</p>
                 </div>
-            </mat-card>
+            </mat-card> -->
         </div>
     </div>
 </div>

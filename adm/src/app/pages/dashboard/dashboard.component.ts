@@ -83,6 +83,6 @@ export class DashboardComponent {
 
   }
   salvar() {
-    this.api.postagemAdd('testando');
+    // this.api.postagemAdd('testando');
   }
 }

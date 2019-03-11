@@ -65,9 +65,11 @@ import {
   MatRippleModule
 } from '@angular/material';
 import { CreateUserComponent } from './pages/create-user/create-user.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { DashboardLoginComponent } from './pages/dashboard-login/dashboard-login.component';
 import { FullscreenService } from './services/fullscreen.service';
+import { CatchErrorInterceptor } from './services/erro.service';
+import { ApiService } from './services/api.service';
 
 @NgModule({
   declarations: [
@@ -134,7 +136,16 @@ import { FullscreenService } from './services/fullscreen.service';
     AngularFontAwesomeModule,
     NgxEditorModule,
   ],
-  providers: [AuthService, FullscreenService],
+  providers: [{
+    provide: HTTP_INTERCEPTORS,
+    useClass: ApiService,
+    multi: true,
+  }, {
+    provide: HTTP_INTERCEPTORS,
+    useClass: CatchErrorInterceptor,
+    multi: true,
+  }],
+  // providers: [AuthService, FullscreenService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

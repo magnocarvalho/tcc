@@ -6,6 +6,7 @@ import { COMMA, ENTER } from "@angular/cdk/keycodes";
 import * as moment from 'moment';
 import { MatChipInputEvent } from '@angular/material';
 import * as $ from "jQuery";
+import { ImageCroppedEvent } from 'ngx-image-cropper';
 
 declare var jQuery;
 export interface Tags {
@@ -88,6 +89,21 @@ export class DashboardComponent {
       isDestaque: new FormControl()
     });
 
+  }
+  imageChangedEvent: any = '';
+  croppedImage: any = '';
+
+  fileChangeEvent(event: any): void {
+    this.imageChangedEvent = event;
+  }
+  imageCropped(event: ImageCroppedEvent) {
+    this.croppedImage = event.base64;
+  }
+  imageLoaded() {
+    // show cropper
+  }
+  loadImageFailed() {
+    // show message
   }
   onKeydown($) {
     $.preventDefault();

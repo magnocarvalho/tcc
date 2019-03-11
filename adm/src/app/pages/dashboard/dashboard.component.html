@@ -88,13 +88,21 @@
                             </mat-panel-description>
                         </mat-expansion-panel-header>
                         <div class="row controle-row">
+                            <!-- <input type="file" (change)="fileChangeEvent($event)" /> -->
+
+
+
+                            <!-- <img [src]="croppedImage" /> -->
+
                             <div class="form-group col-12 foto" *ngFor="let foto of fotoThumb; let i = index">
                                 <input type="file" accept="image/x-png,image/jpeg" class="form-control-file" id="foto1" *ngIf="!foto.url" (change)="onFileChange($event, i)" />
-                                <div class="img-container">
+                                <!-- <div class="img-container">
                                     <div class="img-ctrl">
                                         <img class="img-preview" id="img-foto1" *ngIf="foto.url" src="{{foto.url}}" />
                                     </div>
-                                </div>
+                                </div> -->
+                                <image-cropper [imageChangedEvent]="imageChangedEvent" [maintainAspectRatio]="true" [aspectRatio]="1 / 1" [resizeToWidth]="400" format="png" (imageCropped)="imageCropped($event)" (imageLoaded)="imageLoaded()" (loadImageFailed)="loadImageFailed()"></image-cropper>
+
                                 <div class="acoes" *ngIf="foto.url">
                                     <div (click)="removeThumb(i)">
                                         <mat-icon>delete</mat-icon>
@@ -108,7 +116,7 @@
                                     Adicionar Thumbnail
                                 </div>
                             </div>
-                            <!-- <mat-divider></mat-divider> -->
+
                         </div>
                         <mat-action-row>
                             <button mat-button color="warn" (click)="prevStep()">

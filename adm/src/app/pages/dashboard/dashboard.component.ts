@@ -212,8 +212,9 @@ export class DashboardComponent {
     }
   }
   verificaFoto(): boolean {
-    if (this.fotoThumb.length != 0) {
-      if (this.fotoThumb[0].url == undefined) {
+    if (this.croppedImage != null) {
+      debugger;
+      if (this.croppedImage.url == undefined) {
         return true;
       }
       return false;

@@ -13,7 +13,7 @@ export class AppComponent implements OnInit {
   title = 'adm';
   // flagLogin = false;
 
-  constructor(public auth: AuthService, public route: ActivatedRoute, private router: Router, private fullscreenService: FullscreenService) { }
+  constructor(public auth: AuthService, public route: ActivatedRoute) { }
   prepareRouteTransition(outlet) {
     const animation = outlet.activatedRouteData['animation'] || {};
     return animation['value'] || null;

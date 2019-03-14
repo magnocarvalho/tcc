@@ -22,12 +22,13 @@
                 <button mat-icon-button class="exit" (click)="sairLogin()">
           <mat-icon>exit_to_app</mat-icon>
         </button>
-                <button mat-raised-button class="" routerLink="auth">
+                <!-- <button mat-raised-button class="" routerLink="login">
           <mat-icon>person_add</mat-icon>
           Cadastre-se
-        </button>
+        </button> -->
+
             </mat-toolbar>
-            <div class="app-body">
+            <div class="app-body content">
                 <router-outlet #outlet="outlet"></router-outlet>
             </div>
         </div>

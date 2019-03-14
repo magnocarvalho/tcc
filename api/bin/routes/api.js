@@ -2,11 +2,13 @@
 const express = require("express");
 const UsuarioCtrl_1 = require("../controllers/UsuarioCtrl");
 const photoCtlr_1 = require("../controllers/photoCtlr");
+const PublicacaoCtlr_1 = require("../controllers/PublicacaoCtlr");
 var mcache = require('memory-cache');
 var router = express.Router();
 router.post('/salvarUsuario', UsuarioCtrl_1.default.create);
 router.post('/loginUser', UsuarioCtrl_1.default.login);
 router.post('/salvarFotos', photoCtlr_1.default.putPhotos);
+router.post('/publicacao', PublicacaoCtlr_1.default.create);
 router.get('/carregarAlbuns/:id', photoCtlr_1.default.buscarAlbuns);
 router.get('/carregarFotos/:id', photoCtlr_1.default.buscarAlbum);
 router.post('/apagarFoto', photoCtlr_1.default.deletarFoto);

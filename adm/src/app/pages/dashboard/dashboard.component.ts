@@ -1,12 +1,12 @@
-import { Component, OnInit, ViewChild, NgZone } from '@angular/core';
-import { ApiService } from 'src/app/services/api.service';
-import { Router } from '@angular/router';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { Component, OnInit, ViewChild, NgZone } from "@angular/core";
+import { ApiService } from "src/app/services/api.service";
+import { Router } from "@angular/router";
+import { FormGroup, FormControl, Validators } from "@angular/forms";
 import { COMMA, ENTER } from "@angular/cdk/keycodes";
-import * as moment from 'moment';
-import { MatChipInputEvent } from '@angular/material';
+import * as moment from "moment";
+import { MatChipInputEvent } from "@angular/material";
 import * as $ from "jQuery";
-import { ImageCroppedEvent } from 'ngx-image-cropper';
+import { ImageCroppedEvent } from "ngx-image-cropper";
 
 declare var jQuery;
 export interface Tags {
@@ -14,9 +14,9 @@ export interface Tags {
 }
 
 @Component({
-  selector: 'app-dashboard',
-  templateUrl: './dashboard.component.html',
-  styleUrls: ['./dashboard.component.css']
+  selector: "app-dashboard",
+  templateUrl: "./dashboard.component.html",
+  styleUrls: ["./dashboard.component.css"]
 })
 export class DashboardComponent {
   form;
@@ -60,12 +60,16 @@ export class DashboardComponent {
   editavel;
   toRemove;
 
-  customCollapsedHeight: string = '';
-  customExpandedHeight: string = '';
+  customCollapsedHeight = "";
+  customExpandedHeight = "";
 
   readonly separatorKeysCodes: number[] = [ENTER, COMMA];
 
-  constructor(public api: ApiService, private router: Router, private zone: NgZone) {
+  constructor(
+    public api: ApiService,
+    private router: Router,
+    private zone: NgZone
+  ) {
     this.form = new FormGroup({
       // "empresa": new FormControl('', [Validators.required]),
       titulo: new FormControl("", [Validators.required]),
@@ -88,10 +92,9 @@ export class DashboardComponent {
       IdCategoria: new FormControl(),
       isDestaque: new FormControl()
     });
-
   }
-  imageChangedEvent: any = '';
-  croppedImage: any = '';
+  imageChangedEvent: any = "";
+  croppedImage: any = "";
 
   fileChangeEvent(event: any): void {
     this.imageChangedEvent = event;
@@ -114,9 +117,17 @@ export class DashboardComponent {
     $.preventDefault();
   }
 
-
-  salvar() {
+  salvarPublicacao($event) {
     // this.api.postagemAdd('testando');
+    console.log(this.form.value);
+    this.api.postPublicacao(this.form.value).subscribe(
+      res => {
+        console.log(res);
+      },
+      err => {
+        console.error(err);
+      }
+    );
   }
   setStep(index: number) {
     this.step = index;
@@ -130,8 +141,8 @@ export class DashboardComponent {
     this.step--;
   }
   addTag(event: MatChipInputEvent): void {
-    let input = event.input;
-    let value = event.value;
+    const input = event.input;
+    const value = event.value;
     // Add
     // console.log(value);
 
@@ -156,65 +167,64 @@ export class DashboardComponent {
     return content.replace(/something/g, "new value"); // must return a string
   }
   onFileChange(event, i) {
-    var foto = this.fotoThumb[i];
+    const foto = this.fotoThumb[i];
     if (event.target.files && event.target.files.length) {
-      foto.file = event.target.files[0]; //jQuery('[name=' + id + ']').val();
-      var reader = new FileReader();
+      foto.file = event.target.files[0]; // jQuery('[name=' + id + ']').val();
+      const reader = new FileReader();
       reader.readAsDataURL(foto.file);
-      var self = this;
+      const self = this;
       self.fotoThumb[i].tipo = "thumbnail";
-      reader.onload = function () {
+      reader.onload = function() {
         self.zone.run(() => {
           self.fotoThumb[i].url = reader.result;
         });
       };
-      reader.onerror = function (error) {
+      reader.onerror = function(error) {
         console.log("Error: ", error);
       };
     }
   }
   onFileChangeImagem(event) {
-    var i = 0;
-    var foto = this.fotosBlocos[i];
+    const i = 0;
+    const foto = this.fotosBlocos[i];
     if (event.target.files && event.target.files.length) {
-      foto.file = event.target.files[0]; //jQuery('[name=' + id + ']').val();
-      var reader = new FileReader();
+      foto.file = event.target.files[0]; // jQuery('[name=' + id + ']').val();
+      const reader = new FileReader();
       reader.readAsDataURL(foto.file);
-      var self = this;
+      const self = this;
       self.fotosBlocos[i].tipo = "blog";
-      reader.onload = function () {
+      reader.onload = function() {
         self.zone.run(() => {
           self.fotosBlocos[i].url = reader.result;
         });
       };
-      reader.onerror = function (error) {
+      reader.onerror = function(error) {
         console.log("Error: ", error);
       };
     }
   }
   onFileChangePerfil(event) {
-    var i = 0;
-    var foto = this.fotoPerfil[i];
+    const i = 0;
+    const foto = this.fotoPerfil[i];
     if (event.target.files && event.target.files.length) {
-      foto.file = event.target.files[0]; //jQuery('[name=' + id + ']').val();
-      var reader = new FileReader();
+      foto.file = event.target.files[0]; // jQuery('[name=' + id + ']').val();
+      const reader = new FileReader();
       reader.readAsDataURL(foto.file);
-      var self = this;
+      const self = this;
       self.fotoPerfil[i].tipo = "thumbnail";
-      reader.onload = function () {
+      reader.onload = function() {
         self.zone.run(() => {
           self.fotoPerfil[i].url = reader.result;
         });
       };
-      reader.onerror = function (error) {
+      reader.onerror = function(error) {
         console.log("Error: ", error);
       };
     }
   }
   verificaFoto(): boolean {
     if (this.croppedImage != null) {
-      debugger;
-      if (this.croppedImage.url == undefined) {
+      if (this.croppedImage.url === undefined) {
         return true;
       }
       return false;
@@ -223,8 +233,8 @@ export class DashboardComponent {
     }
   }
   verificaFotoPerfil(): boolean {
-    if (this.fotoPerfil.length != 0) {
-      if (this.fotoPerfil[0].url == undefined) {
+    if (this.fotoPerfil.length !== 0) {
+      if (this.fotoPerfil[0].url === undefined) {
         return true;
       }
       return false;
@@ -242,12 +252,12 @@ export class DashboardComponent {
     this.fotosBlocos.splice(i, 1);
   }
   inserirPostagem() {
-    let tipoObj = this.form.get("tipoPostagem").value;
+    const tipoObj = this.form.get("tipoPostagem").value;
     let textObj;
     let txtSubTitulo;
     let imagemBloco;
     let obj;
-    if (tipoObj == "texto") {
+    if (tipoObj === "texto") {
       if (this.form.get("textoParagrafo").value && !this.editando) {
         textObj = this.form.get("textoParagrafo").value;
         obj = { texto: textObj };
@@ -259,7 +269,7 @@ export class DashboardComponent {
         this.editando = false;
         return;
       }
-    } else if (tipoObj == "imagem") {
+    } else if (tipoObj === "imagem") {
       if (this.fotosBlocos && !this.editando) {
         imagemBloco = this.fotosBlocos;
         obj = { imagem: imagemBloco[0].url, nome: imagemBloco[0].file.name };
@@ -276,7 +286,7 @@ export class DashboardComponent {
         this.editando = false;
         return;
       }
-    } else if (tipoObj == "subTitulo") {
+    } else if (tipoObj === "subTitulo") {
       if (this.form.get("textoSubtitulo").value && !this.editando) {
         txtSubTitulo = this.form.get("textoSubtitulo").value;
         obj = { subTitulo: txtSubTitulo };
@@ -297,6 +307,4 @@ export class DashboardComponent {
   addFotoBlog(imgBloco) {
     this.fotos.push(imgBloco);
   }
-
-
 }

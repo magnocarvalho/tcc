@@ -71,7 +71,7 @@ export class DashboardComponent {
       titulo: new FormControl("", [Validators.required]),
       subtitulo: new FormControl(""),
       dataCriacao: new FormControl(moment().format("L"), [Validators.required]),
-      dataPublicacao: new FormControl(moment().format("L"), [Validators.required]),
+      dataFinal: new FormControl(moment().format("L"), [Validators.required]),
       publicado: new FormControl(""),
       bgtitulo: new FormControl(""),
       blocos: new FormControl(""),

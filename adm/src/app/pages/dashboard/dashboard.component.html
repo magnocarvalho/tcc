@@ -1,97 +1,99 @@
 <div #formRef>
     <div class="card-body">
-        <form id="form" class="col-md-5 top-15" [formGroup]="form" novalidate>
-            <div class="form-row">
-                <mat-accordion class="col-12 expsansion-labels">
-                    <mat-expansion-panel [expanded]="step === 0" (opened)="setStep(0)">
-                        <mat-expansion-panel-header>
-                            <mat-panel-title>Titulo</mat-panel-title>
-                            <mat-panel-description class="icon-direita">
-                                &nbsp;
-                                <mat-icon>portrait</mat-icon>
-                            </mat-panel-description>
-                        </mat-expansion-panel-header>
-                        <div class="row controle-row">
-                            <mat-form-field appearance="outline" floatLabel="always" appearance="outline" floatLabel="always" class="top-15 col-12">
-                                <mat-label>Título da Postagem:</mat-label>
-                                <textarea required #titulo placeholder="Título da Postagem:" matInput maxlength="256" type="text" formControlName="titulo" name="titulo"></textarea>
-                                <mat-hint align="end">{{ titulo.value.length }} / 256</mat-hint>
-                                <mat-error *ngIf="form.get('titulo').hasError('required')">Adicione titulo
-                                </mat-error>
-                            </mat-form-field>
+        <div class="col-md-7 top-15">
+            <form id="form" class="col-md-10 top-15" [formGroup]="form" novalidate>
+                <h3>Edite as informaçoes da postagem</h3>
+                <div class="form-row">
+                    <mat-accordion class="col-12 expsansion-labels">
+                        <mat-expansion-panel [expanded]="step === 0" (opened)="setStep(0)">
+                            <mat-expansion-panel-header>
+                                <mat-panel-title>Titulo</mat-panel-title>
+                                <mat-panel-description class="icon-direita">
+                                    &nbsp;
+                                    <mat-icon>portrait</mat-icon>
+                                </mat-panel-description>
+                            </mat-expansion-panel-header>
+                            <div class="row controle-row">
+                                <mat-form-field appearance="outline" floatLabel="always" appearance="outline" floatLabel="always" class="top-15 col-12">
+                                    <mat-label>Título da Postagem:</mat-label>
+                                    <textarea required #titulo placeholder="Título da Postagem:" matInput maxlength="256" type="text" formControlName="titulo" name="titulo"></textarea>
+                                    <mat-hint align="end">{{ titulo.value.length }} / 256</mat-hint>
+                                    <mat-error *ngIf="form.get('titulo').hasError('required')">Adicione titulo
+                                    </mat-error>
+                                </mat-form-field>
 
-                        </div>
-                        <mat-action-row>
-                            <button mat-button color="primary" (click)="nextStep()">Proximo</button>
-                        </mat-action-row>
-                    </mat-expansion-panel>
+                            </div>
+                            <mat-action-row>
+                                <button mat-button color="primary" (click)="nextStep()">Proximo</button>
+                            </mat-action-row>
+                        </mat-expansion-panel>
 
-                    <mat-expansion-panel [expanded]="step === 1" (opened)="setStep(1)">
-                        <mat-expansion-panel-header>
-                            <mat-panel-title> Data de Postagem </mat-panel-title>
-                            <mat-panel-description class="icon-direita">
-                                &nbsp;
-                                <mat-icon>date_range</mat-icon>
-                            </mat-panel-description>
-                        </mat-expansion-panel-header>
-                        <div class="row controle-row">
-                            <mat-form-field appearance="outline" floatLabel="always" class="top-15 col-6">
-                                <mat-label>Data da Postagem:</mat-label>
-                                <input placeholder="Data da Postagem:" matInput maxlength="255" [matDatepicker]="picker1" formControlName="dataCriacao" name="dataCriacao" />
-                                <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
-                                <mat-datepicker #picker1></mat-datepicker>
-                            </mat-form-field>
-                            <mat-form-field appearance="outline" floatLabel="always" class="top-15 col-6">
-                                <mat-label>Data Para Publicação:</mat-label>
-                                <input placeholder="Data Para Publicação:" matInput maxlength="255" [matDatepicker]="picker2" formControlName="dataPublicacao" name="dataPublicacao" />
-                                <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
-                                <mat-datepicker #picker2></mat-datepicker>
-                            </mat-form-field>
-                            <!-- <mat-divider></mat-divider> -->
-                        </div>
-                        <mat-action-row>
-                            <button mat-button color="warn" (click)="prevStep()">
+                        <mat-expansion-panel [expanded]="step === 1" (opened)="setStep(1)">
+                            <mat-expansion-panel-header>
+                                <mat-panel-title>Validade</mat-panel-title>
+                                <mat-panel-description class="icon-direita">
+                                    &nbsp;
+                                    <mat-icon>date_range</mat-icon>
+                                </mat-panel-description>
+                            </mat-expansion-panel-header>
+                            <div class="row controle-row">
+                                <mat-form-field appearance="outline" floatLabel="always" class="top-15 col-6">
+                                    <mat-label>Inicio</mat-label>
+                                    <input placeholder="Inicio" matInput maxlength="255" [matDatepicker]="picker1" formControlName="dataCriacao" name="dataCriacao" />
+                                    <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+                                    <mat-datepicker #picker1></mat-datepicker>
+                                </mat-form-field>
+                                <mat-form-field appearance="outline" floatLabel="always" class="top-15 col-6">
+                                    <mat-label>Fim da Publicação</mat-label>
+                                    <input placeholder="Fim da Publicação" matInput maxlength="255" [matDatepicker]="picker2" formControlName="dataFinal" name="dataFinal" />
+                                    <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+                                    <mat-datepicker #picker2></mat-datepicker>
+                                </mat-form-field>
+                                <!-- <mat-divider></mat-divider> -->
+                            </div>
+                            <mat-action-row>
+                                <button mat-button color="warn" (click)="prevStep()">
                   Anterior
                 </button>
-                            <button mat-button color="primary" (click)="nextStep()">
+                                <button mat-button color="primary" (click)="nextStep()">
                   Proximo                </button>
-                        </mat-action-row>
-                    </mat-expansion-panel>
-                    <mat-expansion-panel [expanded]="step === 2" (opened)="setStep(2)">
-                        <mat-expansion-panel-header>
-                            <mat-panel-title>Tags</mat-panel-title>
-                            <mat-panel-description class="icon-direita">
-                                &nbsp;
-                                <mat-icon>label</mat-icon>
-                            </mat-panel-description>
-                        </mat-expansion-panel-header>
-                        <div class="controle-chips">
-                            <mat-chip-list #chipList>
-                                <mat-chip *ngFor="let tags of tag" [selectable]="selectable" [removable]="removable" (removed)="removeTag(tags)">
-                                    {{ tags.texto }}
-                                    <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
-                                </mat-chip>
-                                <input placeholder="Insira uma Tag" [matChipInputFor]="chipList" [matChipInputSeparatorKeyCodes]="separatorKeysCodes" [matChipInputAddOnBlur]="addOnBlur" (matChipInputTokenEnd)="addTag($event)" formControlName="tags" />
-                            </mat-chip-list>
-                        </div>
-                        <mat-action-row>
-                            <button mat-button color="warn" (click)="prevStep()">Anterior</button>
-                            <button mat-button color="primary" (click)="nextStep()">Proximo</button>
-                        </mat-action-row>
-                    </mat-expansion-panel>
-                    <mat-expansion-panel [expanded]="step === 3" (opened)="setStep(3)">
-                        <mat-expansion-panel-header>
-                            <mat-panel-title>Thumbnail</mat-panel-title>
-                            <mat-panel-description class="icon-direita">
-                                &nbsp;
-                                <mat-icon>add_photo_alternate</mat-icon>
-                            </mat-panel-description>
-                        </mat-expansion-panel-header>
-                        <div class="row controle-row">
-                            <input type="file" (change)="fileChangeEvent($event)" />
+                            </mat-action-row>
+                        </mat-expansion-panel>
+                        <mat-expansion-panel [expanded]="step === 2" (opened)="setStep(2)">
+                            <mat-expansion-panel-header>
+                                <mat-panel-title>Tags</mat-panel-title>
+                                <mat-panel-description class="icon-direita">
+                                    &nbsp;
+                                    <mat-icon>label</mat-icon>
+                                </mat-panel-description>
+                            </mat-expansion-panel-header>
+                            <div class="controle-chips">
+                                <mat-chip-list #chipList>
+                                    <mat-chip *ngFor="let tags of tag" [selectable]="selectable" [removable]="removable" (removed)="removeTag(tags)">
+                                        {{ tags.texto }}
+                                        <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
+                                    </mat-chip>
+                                    <input placeholder="Insira uma Tag" [matChipInputFor]="chipList" [matChipInputSeparatorKeyCodes]="separatorKeysCodes" [matChipInputAddOnBlur]="addOnBlur" (matChipInputTokenEnd)="addTag($event)" formControlName="tags" />
+                                </mat-chip-list>
+                            </div>
+                            <mat-action-row>
+                                <button mat-button color="warn" (click)="prevStep()">Anterior</button>
+                                <button mat-button color="primary" (click)="nextStep()">Proximo</button>
+                            </mat-action-row>
+                        </mat-expansion-panel>
+                        <mat-expansion-panel [expanded]="step === 3" (opened)="setStep(3)">
+                            <mat-expansion-panel-header>
+                                <mat-panel-title>Thumbnail</mat-panel-title>
+                                <mat-panel-description class="icon-direita">
+                                    &nbsp;
+                                    <mat-icon>add_photo_alternate</mat-icon>
+                                </mat-panel-description>
+                            </mat-expansion-panel-header>
+                            <div class="row controle-row">
+                                <input type="file" (change)="fileChangeEvent($event)" />
 
-                            <image-cropper [imageChangedEvent]="imageChangedEvent" [maintainAspectRatio]="true" [aspectRatio]="1 / 1" [resizeToWidth]="500" format="png" (imageCropped)="imageCropped($event)" (imageLoaded)="imageLoaded()" (loadImageFailed)="loadImageFailed()"></image-cropper>
-                            <!-- <div class="form-group col-12 foto" *ngFor="let foto of fotoThumb; let i = index">
+                                <image-cropper [imageChangedEvent]="imageChangedEvent" [maintainAspectRatio]="true" [aspectRatio]="1 / 1" [resizeToWidth]="500" format="png" (imageCropped)="imageCropped($event)" (imageLoaded)="imageLoaded()" (loadImageFailed)="loadImageFailed()"></image-cropper>
+                                <!-- <div class="form-group col-12 foto" *ngFor="let foto of fotoThumb; let i = index">
                                 <input type="file" accept="image/x-png,image/jpeg" class="form-control-file" id="foto1" *ngIf="!foto.url" (change)="onFileChange($event, i)" />
                                 <div class="img-container">
                                     <div class="img-ctrl">
@@ -106,53 +108,53 @@
                                     </div>
                                 </div>
                             </div> -->
-                            <!-- <div class="form-group col-6 adicionar" (click)="this.fotoThumb.push({})" *ngIf="!fotoThumb.length">
+                                <!-- <div class="form-group col-6 adicionar" (click)="this.fotoThumb.push({})" *ngIf="!fotoThumb.length">
                                 <div>
                                     <mat-icon>add_photo_alternate</mat-icon>
                                     Adicionar Thumbnail
                                 </div>
                             </div> -->
 
-                        </div>
-                        <mat-action-row>
-                            <button mat-button color="warn" (click)="prevStep()">
+                            </div>
+                            <mat-action-row>
+                                <button mat-button color="warn" (click)="prevStep()">
                   Anterior
                 </button>
-                            <button mat-button color="primary" (click)="nextStep()">
+                                <button mat-button color="primary" (click)="nextStep()">
                   Proximo
                 </button>
-                        </mat-action-row>
-                    </mat-expansion-panel>
-                    <mat-expansion-panel [expanded]="step === 4" (opened)="setStep(4)">
-                        <mat-expansion-panel-header>
-                            <mat-panel-title>Postagem</mat-panel-title>
-                            <mat-panel-description class="icon-direita">
-                                &nbsp;
-                                <mat-icon>add_circle</mat-icon>
-                            </mat-panel-description>
-                        </mat-expansion-panel-header>
-                        <div class="row controle-row">
-                            <div class="top-15 col-12">
+                            </mat-action-row>
+                        </mat-expansion-panel>
+                        <mat-expansion-panel [expanded]="step === 4" (opened)="setStep(4)">
+                            <mat-expansion-panel-header>
+                                <mat-panel-title>Postagem</mat-panel-title>
+                                <mat-panel-description class="icon-direita">
+                                    &nbsp;
+                                    <mat-icon>add_circle</mat-icon>
+                                </mat-panel-description>
+                            </mat-expansion-panel-header>
+                            <div class="row controle-row">
+                                <div class="top-15 col-12">
 
-                                <mat-radio-group class="example-radio-group" formControlName="tipoPostagem">
-                                    <mat-radio-button class="example-radio-button" value="texto" selected>Texto
-                                    </mat-radio-button>
-                                    <mat-radio-button class="example-radio-button" value="imagem">Imagem
-                                    </mat-radio-button>
-                                    <mat-radio-button class="example-radio-button" value="subTitulo">SubTitulo
-                                    </mat-radio-button>
-                                </mat-radio-group>
+                                    <mat-radio-group class="example-radio-group" formControlName="tipoPostagem">
+                                        <mat-radio-button class="example-radio-button" value="texto" selected>Texto
+                                        </mat-radio-button>
+                                        <mat-radio-button class="example-radio-button" value="imagem">Imagem
+                                        </mat-radio-button>
+                                        <mat-radio-button class="example-radio-button" value="subTitulo">SubTitulo
+                                        </mat-radio-button>
+                                    </mat-radio-group>
 
-                                <mat-form-field appearance="outline" floatLabel="always" class="top-15 col-12" *ngIf="form.get('tipoPostagem').value == 'subTitulo'">
-                                    <mat-label>Subtítulo:</mat-label>
-                                    <input placeholder="Insira o subtítulo" matInput maxlength="255" type="text" name="subTitulo" formControlName="textoSubtitulo" />
-                                </mat-form-field>
-                                <span *ngIf="form.get('tipoPostagem').value == 'texto'">
+                                    <mat-form-field appearance="outline" floatLabel="always" class="top-15 col-12" *ngIf="form.get('tipoPostagem').value == 'subTitulo'">
+                                        <mat-label>Subtítulo:</mat-label>
+                                        <input placeholder="Insira o subtítulo" matInput maxlength="255" type="text" name="subTitulo" formControlName="textoSubtitulo" />
+                                    </mat-form-field>
+                                    <span *ngIf="form.get('tipoPostagem').value == 'texto'">
                     <app-ngx-editor [config]="configuracao" formControlName="textoParagrafo">
                     </app-ngx-editor>
                   </span>
 
-                                <span *ngIf="form.get('tipoPostagem').value == 'imagem'">
+                                    <span *ngIf="form.get('tipoPostagem').value == 'imagem'">
                     <div class="row controle-row">
                       <div class="form-group col-12 foto" *ngFor="let foto of fotosBlocos; let i = index">
                         <input type="file" accept="image/x-png,image/gif,image/jpeg" class="form-control-file" id="foto1"
@@ -178,46 +180,51 @@
                       <!-- <mat-divider></mat-divider> -->
                     </div>
                   </span>
-                            </div>
-                            <div class="inserir-contanner col-12">
-                                <button mat-raised-button color="primary" (click)="inserirPostagem()">
+                                </div>
+                                <div class="inserir-contanner col-12">
+                                    <button mat-raised-button color="primary" (click)="inserirPostagem()">
                     Inserir
                   </button>
+                                </div>
+                                <!-- <mat-divider></mat-divider> -->
                             </div>
-                            <!-- <mat-divider></mat-divider> -->
-                        </div>
-                        <mat-action-row>
-                            <button mat-button color="warn" (click)="prevStep()">
+                            <mat-action-row>
+                                <button mat-button color="warn" (click)="prevStep()">
                   Anterior
                 </button>
-                        </mat-action-row>
-                    </mat-expansion-panel>
-                </mat-accordion>
-            </div>
-        </form>
-        <div class="col-md-7 top-15">
-            <mat-card class="w-80 margin-auto card-postagem">
-                <div class="col-12" *ngIf="croppedImage">
-                    <img class="postagem-thumbnail" [src]="croppedImage" alt="" />
+                            </mat-action-row>
+                        </mat-expansion-panel>
+                    </mat-accordion>
                 </div>
-                <div class="col-12 postagem-exemplo" *ngIf="!croppedImage">
-                    <img class="" src="/assets/default.png" />
-                </div>
-                <div class="col-12 postagem-rascunho" (click)="setStep(0)">
-                    <h1>{{ form.get("titulo").value }}</h1>
-                </div>
-                <div class="col-12 postagem-titulo-exemplo" *ngIf="!form.get('titulo').value">
-                    <h1>Insira um titulo para a postagem</h1>
-                </div>
-                <div class="col-12" *ngIf="!tag.length" (click)="setStep(3)">
-                    <a>Tags-exemplo; insira-tag; insira-tag; insira-tag;</a>
-                </div>
-                <div id="tags-ctrl" class="col-12" (click)="setStep(3)">
-                    <span *ngFor="let t of tag" class="tags-controler"><a>{{ t.texto }}</a>;</span>
-                </div>
+            </form>
+        </div>
+        <div class="col-md-4 top-15">
+            <h3>Pre-visualização da postagem</h3>
+            <mat-card class="margin-auto card-postagem">
+                <mat-card-header color="primary">
+                    <img matCardAvatar src="/assets/male.png">
+                    <mat-card-title>Empresa da postagem</mat-card-title>
+                    <mat-card-subtitle>Atividade da empresa</mat-card-subtitle>
+                </mat-card-header>
+                <mat-card-content>
+                    <img matCardImage class="" *ngIf="croppedImage" [src]="croppedImage" alt="" />
+                    <img matCardImage class="" *ngIf="!croppedImage" src="/assets/default.png" />
+                    <div class="col-12 postagem-rascunho" (click)="setStep(0)">
+                        <h4>{{ form.get("titulo").value }}</h4>
+                    </div>
+                    <div class="col-12 postagem-titulo-exemplo" *ngIf="!form.get('titulo').value">
+                        <h1>Insira um titulo para a postagem</h1>
+                    </div>
+                    <div class="col-12" *ngIf="!tag.length" (click)="setStep(3)">
+                        <a>Tags-exemplo; insira-tag; insira-tag; insira-tag;</a>
+                    </div>
+                    <div id="tags-ctrl" class="col-12" (click)="setStep(3)">
+                        <span *ngFor="let t of tag" class="tags-controler"><a>{{ t.texto }}</a>;</span>
+                    </div>
+                </mat-card-content>
             </mat-card>
 
-            <mat-card class="w-80 margin-auto card-postagem" [ngClass]="{'card-borda-black': editando && i == editavel}" *ngFor="let parte of postagem; let i = index">
+            <mat-card class="margin-auto card-postagem" [ngClass]="{'card-borda-black': editando && i == editavel}" *ngFor="let parte of postagem; let i = index">
                 <span class="editar-containner" (click)="editPostagem(parte, i)">
             <mat-icon>edit</mat-icon>
           </span>

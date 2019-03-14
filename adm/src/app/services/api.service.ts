@@ -28,7 +28,7 @@ export class ApiService implements HttpInterceptor {
     master: boolean;
   };
   constructor(private http: HttpClient, private token: TokenStorage) {
-    // this.token = localStorage.getItem("__token");
+    // this.token = localStorage.getItem("firebase");
   }
   public $userSource = new Subject<any>();
 
@@ -109,15 +109,21 @@ export class ApiService implements HttpInterceptor {
     // Clone the request to add the new header
     const token = new TokenStorage();
     const tokenVal = token.getToken();
+    const cabecacho = [{'Authorization': tokenVal}, {'Content-Type' : 'application/json'}];
+
     const clonedRequest = req.clone({
-      headers: req.headers.set(
-        // 'Authorization',
-        // tokenVal ? `Bearer ${tokenVal}` : ''
-        'Content-Type', 'application/json'
-      )
+      headers: req.headers.set('Content-Type', 'application/json')
+      // headers: req.headers.append(
+      //   'Authorization',
+      //   tokenVal ? `Bearer ${tokenVal}` : '', 'Content-Type','application/json'
+      // )
     });
     // clonedRequest.('Content-Type', 'application/json');
+    // ['Authorization': tokenVal],
+    //     ['Content-Type' 'application/json']
     // Pass the cloned request instead of the original request to the next handle
+    clonedRequest.headers.append('Authorization',
+      tokenVal ? `Bearer ${tokenVal}` : '');
     return next.handle(clonedRequest);
   }
   doRequest(tipo: 'post' | 'put' | 'delete' | 'get'): Observable<any> {
@@ -137,11 +143,13 @@ export class ApiService implements HttpInterceptor {
   }
   postPublicacao(obj): Observable<any> {
     return Observable.create(resposta => {
-      this.http.post(this.URL + 'publicacao', obj).subscribe((data: any) => {
-        resposta.next();
-        console.log(data);
-        resposta.complete();
-      });
+      this.http
+        .post(this.URL + 'publicacao', obj, { headers: this.headers })
+        .subscribe((data: any) => {
+          resposta.next();
+          console.log(data);
+          resposta.complete();
+        });
     });
   }
 }

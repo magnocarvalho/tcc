@@ -7,6 +7,8 @@ import * as moment from "moment";
 import { MatChipInputEvent } from "@angular/material";
 import * as $ from "jQuery";
 import { ImageCroppedEvent } from "ngx-image-cropper";
+import { DISABLED } from '@angular/forms/src/model';
+import { Observable, of } from 'rxjs';
 
 declare var jQuery;
 export interface Tags {
@@ -20,7 +22,9 @@ export interface Tags {
 })
 export class DashboardComponent {
   form;
-
+  hoje: Date = new Date();
+  mes: Date = new Date(moment().add(1, 'month').format());
+  isDescon = false;
   categorias = [];
   tag: Tags[] = [];
   fotos: any[] = [];
@@ -72,26 +76,18 @@ export class DashboardComponent {
   ) {
     this.form = new FormGroup({
       // "empresa": new FormControl('', [Validators.required]),
-      titulo: new FormControl("", [Validators.required]),
-      subtitulo: new FormControl(""),
+      titulo: new FormControl("", [Validators.required, Validators.maxLength(54)]),
       dataCriacao: new FormControl(moment().format("L"), [Validators.required]),
       dataFinal: new FormControl(moment().format("L"), [Validators.required]),
-      publicado: new FormControl(""),
-      bgtitulo: new FormControl(""),
-      blocos: new FormControl(""),
-      autorSobre: new FormControl(""),
       tags: new FormControl(""),
-      autor: new FormControl("", [Validators.required]),
-      thumbnail: new FormControl(""),
-      imgAutor: new FormControl(""),
-      url: new FormControl("", [Validators.required]),
-      resumo: new FormControl(""),
-      textoParagrafo: new FormControl(""),
-      textoSubtitulo: new FormControl(""),
-      tipoPostagem: new FormControl(""),
-      IdCategoria: new FormControl(),
-      isDestaque: new FormControl()
+      descricao: new FormControl(""),
+      desconto: new FormControl(""),
+      isDesconto: new FormControl(false),
+      preco: new FormControl(0, [Validators.max(10000), Validators.min(0)]),
+      descontoPreco: new FormControl(0, [Validators.max(10000), Validators.min(0)]),
+      porcentagem: new FormControl({ value: 0, disabled: false }, [Validators.max(100), Validators.min(0)])
     });
+
   }
   imageChangedEvent: any = "";
   croppedImage: any = "";
@@ -116,10 +112,22 @@ export class DashboardComponent {
   selectFile($) {
     $.preventDefault();
   }
+  descontoSlide($event)
+  {
+    $event.preventDefault();
+    debugger;
+  }
 
   salvarPublicacao($event) {
     // this.api.postagemAdd('testando');
-    console.log(this.form.value);
+    // console.log(this.form.value);
+    var postagem = {
+      titulo: this.form.get("titulo").value,
+      dataCriacao: this.form.get("dataCriacao").value,
+      // titulo: this.form.get("titulo").value,
+      // titulo: this.form.get("titulo").value,
+      // titulo: this.form.get("titulo").value,
+    }
     this.api.postPublicacao(this.form.value).subscribe(
       res => {
         console.log(res);
@@ -174,12 +182,12 @@ export class DashboardComponent {
       reader.readAsDataURL(foto.file);
       const self = this;
       self.fotoThumb[i].tipo = "thumbnail";
-      reader.onload = function() {
+      reader.onload = function () {
         self.zone.run(() => {
           self.fotoThumb[i].url = reader.result;
         });
       };
-      reader.onerror = function(error) {
+      reader.onerror = function (error) {
         console.log("Error: ", error);
       };
     }
@@ -193,12 +201,12 @@ export class DashboardComponent {
       reader.readAsDataURL(foto.file);
       const self = this;
       self.fotosBlocos[i].tipo = "blog";
-      reader.onload = function() {
+      reader.onload = function () {
         self.zone.run(() => {
           self.fotosBlocos[i].url = reader.result;
         });
       };
-      reader.onerror = function(error) {
+      reader.onerror = function (error) {
         console.log("Error: ", error);
       };
     }
@@ -212,12 +220,12 @@ export class DashboardComponent {
       reader.readAsDataURL(foto.file);
       const self = this;
       self.fotoPerfil[i].tipo = "thumbnail";
-      reader.onload = function() {
+      reader.onload = function () {
         self.zone.run(() => {
           self.fotoPerfil[i].url = reader.result;
         });
       };
-      reader.onerror = function(error) {
+      reader.onerror = function (error) {
         console.log("Error: ", error);
       };
     }

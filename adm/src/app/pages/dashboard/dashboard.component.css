@@ -199,6 +199,15 @@
     float: left;
 }
 
+.example-right-align {
+    text-align: right;
+}
+
+input.example-right-align::-webkit-outer-spin-button,
+input.example-right-align::-webkit-inner-spin-button {
+    display: none;
+}
+
 .img-perfil-postagem img {
     position: absolute;
     bottom: 0;
@@ -302,4 +311,12 @@
 
 .destaque mat-slide-toggle {
     margin-left: 10px;
+}
+
+input.example-right-align {
+    -moz-appearance: textfield;
+}
+
+.mat-form-field-appearance-outline .mat-form-field-suffix {
+    top: 0 !important;
 }

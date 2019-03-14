@@ -75,6 +75,7 @@ import { ApiService } from './services/api.service';
 import { TokenStorage } from './services/token.storage';
 import { SlickCarouselModule } from 'ngx-slick-carousel';
 import { ImageCropperModule } from 'ngx-image-cropper';
+import {NgxMaskModule} from 'ngx-mask'
 
 @NgModule({
   declarations: [
@@ -141,7 +142,8 @@ import { ImageCropperModule } from 'ngx-image-cropper';
     AngularFontAwesomeModule,
     NgxEditorModule,
     SlickCarouselModule,
-    ImageCropperModule
+    ImageCropperModule,
+    NgxMaskModule.forRoot()
   ],
   providers: [{ provide: MAT_DATE_LOCALE, useValue: 'pt-BR' }, AuthService, FullscreenService, TokenStorage, {
     provide: HTTP_INTERCEPTORS,

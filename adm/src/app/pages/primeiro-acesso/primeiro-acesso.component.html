@@ -1,0 +1,53 @@
+<div class="card-body">
+  <form [formGroup]="form" class="example-container" fxLayout="row wrap">
+    <mat-form-field fxFlex="40" floatPlaceholder="auto"
+      appearance="outline">
+      <mat-label>Nome Fantasia</mat-label>
+      <input matInput formControlName="nomeFantasia" type="text" required
+        placeholder="nomeFantasia">
+    </mat-form-field>
+    <mat-form-field  fxFlex="30" floatPlaceholder="auto"
+      appearance="outline">
+      <mat-label>CNPJ</mat-label>
+      <input matInput formControlName="cnpj" type="text" required
+        placeholder="cnpj">
+    </mat-form-field>
+    <mat-form-field  fxFlex="30" floatPlaceholder="auto"
+      appearance="outline">
+      <mat-label>Estado</mat-label>
+      <input matInput formControlName="estado" type="text" required
+        placeholder="estado">
+    </mat-form-field>
+    <mat-form-field  fxFlex="40" floatPlaceholder="auto"
+      appearance="outline">
+      <mat-label>Cidade</mat-label>
+      <input matInput formControlName="cidade" type="text" required
+        placeholder="cidade">
+    </mat-form-field>
+    <mat-form-field  fxFlex="30" floatPlaceholder="auto"
+      appearance="outline">
+      <mat-label>Bairro</mat-label>
+      <input matInput formControlName="bairro" type="text" required
+        placeholder="bairro">
+    </mat-form-field>
+    <mat-form-field  fxFlex="30" floatPlaceholder="auto"
+      appearance="outline">
+      <mat-label>Rua</mat-label>
+      <input matInput formControlName="rua" type="text" required
+        placeholder="rua">
+    </mat-form-field>
+    <mat-form-field  fxFlex="10" floatPlaceholder="auto"
+      appearance="outline">
+      <mat-label>Numero</mat-label>
+      <input matInput formControlName="numero" type="text" required
+        placeholder="numero">
+    </mat-form-field>
+    <mat-form-field  fxFlex="40" floatPlaceholder="auto"
+      appearance="outline">
+      <mat-label>Cep</mat-label>
+      <input matInput formControlName="cep" type="text" required
+        placeholder="cep">
+    </mat-form-field>
+  </form>
+  <button mat-raised-button color="accent" (click)="salvarLogin()">Inscreva-se</button>
+</div>

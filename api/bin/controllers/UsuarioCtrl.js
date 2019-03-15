@@ -25,17 +25,10 @@ class UsuarioCtrl {
         });
     }
     static putDadosUsuario(req, res, next) {
+        var _id = req.params;
         var obj = req.body;
-        var id = obj.id;
-        if (obj.logo) {
-            var base64Data = obj.logo.replace(/^data:image\/[a-z]+;base64,/, "");
-            obj.logo = id + ".png";
-            fs.writeFile("./bin/assets/" + id + ".png", base64Data, "base64", function (err) {
-                if (err)
-                    console.log("err = " + err);
-            });
-        }
-        Usuario_1.UsuarioModel.findOneAndUpdate({ id: id }, obj, (err, data) => {
+        var id = _id.id;
+        Usuario_1.UsuarioModel.findOneAndUpdate(id, obj, (err, data) => {
             if (err)
                 next(err);
             else {

@@ -8,8 +8,9 @@ var mcache = require('memory-cache');
 
 var router = express.Router();
 
-router.post('/salvarUsuario',UsuarioCtrl.create);
+router.post('/register',UsuarioCtrl.create);
 router.post('/loginUser', UsuarioCtrl.login);
+router.put('/primeiro-acesso/:id', UsuarioCtrl.putDadosUsuario);
 
 router.post('/salvarFotos' ,PhotoCtlr.putPhotos);
 router.post('/publicacao', PublicacaoCtlr.create);

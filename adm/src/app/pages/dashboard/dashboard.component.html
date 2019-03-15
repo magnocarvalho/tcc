@@ -194,7 +194,7 @@
                 <mat-panel-title>Valores</mat-panel-title>
                 <mat-panel-description class="icon-direita">
                   &nbsp;
-                  <mat-icon>money</mat-icon>
+                  <mat-icon>attach_money</mat-icon>
                 </mat-panel-description>
               </mat-expansion-panel-header>
               <div class="row controle-row">
@@ -258,18 +258,18 @@
     <div class="col-md-4 top-15">
       <h3>Pre-visualização da postagem</h3>
       <mat-card class="margin-auto card-postagem">
+
         <mat-card-header color="primary">
 
-            <img matCardAvatar src="/assets/male.png">
-            <mat-card-title>Empresa da postagem</mat-card-title>
-            <mat-card-subtitle>Atividade da empresa</mat-card-subtitle>
-
-          <div class="col-2 direito" *ngIf="this.form.get('porcentagem').value> 0; this.form.get('isDesconto').value;">
-            <span>{{this.form.get('porcentagem').value}}</span>
-            <span>%</span>
-          </div>
+          <img matCardAvatar src="/assets/male.png">
+          <mat-card-title>Empresa da postagem</mat-card-title>
+          <mat-card-subtitle>Atividade da empresa</mat-card-subtitle>
         </mat-card-header>
         <mat-card-content>
+          <div class="direito" *ngIf="this.form.get('isDesconto').value">
+            <button mat-flat-button color="warn">{{this.form.get('porcentagem').value}}<span>%</span>OFF
+              <mat-icon>local_offer</mat-icon></button>
+          </div>
           <img matCardImage class="" *ngIf="croppedImage"
             [src]="croppedImage" alt="" />
           <img matCardImage class="" *ngIf="!croppedImage"
@@ -279,7 +279,7 @@
           </div>
           <div class="col-12 postagem-titulo-exemplo"
             *ngIf="!form.get('titulo').value">
-            <h1>Insira um titulo para a postagem</h1>
+            <h4>Insira um titulo para a postagem</h4>
           </div>
           <div class="col-12" *ngIf="!tag.length"
             (click)="setStep(3)">
@@ -291,7 +291,7 @@
           </div>
         </mat-card-content>
         <mat-card-footer>
-          <span [innerHTML]="this.form.get('descricao').value"></span>
+          <div class="col-12" [innerHTML]="this.form.get('descricao').value"></div>
         </mat-card-footer>
       </mat-card>
     </div>

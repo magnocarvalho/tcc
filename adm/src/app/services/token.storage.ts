@@ -1,23 +1,34 @@
 import { Injectable } from '@angular/core';
 
-const TOKEN_KEY = 'firebase';
+const TOKEN_FIREBASE = 'firebase';
+const TOKEN_ID = 'token';
 
 @Injectable()
 export class TokenStorage {
   constructor() {}
 
   signOut() {
-    window.localStorage.removeItem(TOKEN_KEY);
+    window.localStorage.removeItem(TOKEN_FIREBASE);
+    window.localStorage.removeItem(TOKEN_ID);
     window.localStorage.clear();
   }
 
-  public saveToken(token: string) {
-    if (!token) return;
-    window.localStorage.removeItem(TOKEN_KEY);
-    window.localStorage.setItem(TOKEN_KEY, token);
+  public saveID(token: string) {
+    if (!token) { return; }
+    window.localStorage.removeItem(TOKEN_ID);
+    window.localStorage.setItem(TOKEN_ID, token);
   }
 
-  public getToken(): string {
-    return localStorage.getItem(TOKEN_KEY);
+  public getID(): string {
+    return localStorage.getItem(TOKEN_ID);
+  }
+  public saveFirebase(token: string) {
+    if (!token) { return; }
+    window.localStorage.removeItem(TOKEN_FIREBASE);
+    window.localStorage.setItem(TOKEN_FIREBASE, token);
+  }
+
+  public getFirebase(): string {
+    return localStorage.getItem(TOKEN_FIREBASE);
   }
 }

@@ -14,8 +14,23 @@ import { HttpHeaders } from "@angular/common/http";
 import "rxjs/add/observable/fromPromise";
 import { environment } from "src/environments/environment";
 import { TokenStorage } from "./token.storage";
-import { Subject } from "rxjs";
+import { Subject, BehaviorSubject } from "rxjs";
 
+export interface usuarioData {
+  id: string;
+  email: string;
+  nome?: string;
+  empresa: string;
+  uid: string;
+  master: boolean;
+  nomeFantasia: string;
+  cnpj: string;
+  rua: string;
+  numero: string;
+  cep: string;
+  bairro: string;
+  cidade: string;
+}
 @Injectable({
   providedIn: "root"
 })
@@ -25,126 +40,22 @@ export class ApiService implements HttpInterceptor {
   URL_ASSETS = environment.assets;
   headers = new HttpHeaders().set("Content-Type", "application/json");
   // token = new TokenStorage();
-  usuarioData: {
-    name: string;
-    email: string;
-    empresa: string;
-    code: string;
-    master: boolean;
-  };
+  usuarioLogado: usuarioData;
+  private currentUserSubject: BehaviorSubject<usuarioData>;
+  public currentUser: Observable<usuarioData>;
+
   constructor(private http: HttpClient, private token: TokenStorage) {
     // this.token = localStorage.getItem("firebase");
-    this.headers.append('Authorization', token.getToken());
+    this.headers.append("Authorization", token.getFirebase());
+    this.currentUserSubject = new BehaviorSubject<usuarioData>(
+      JSON.parse(localStorage.getItem("currentUser"))
+    );
   }
-  public $userSource = new Subject<any>();
-
-  login(email: string, password: string): Observable<any> {
-    return Observable.create(observer => {
-      this.http
-        .post("/api/auth/login", {
-          email,
-          password
-        })
-        .subscribe((data: any) => {
-          observer.next({ user: data.user });
-          this.setUser(data.user);
-          this.token.saveToken(data.token);
-          observer.complete();
-        });
-    });
-  }
-
-  register(
-    fullname: string,
-    email: string,
-    password: string,
-    repeatPassword: string
-  ): Observable<any> {
-    return Observable.create(observer => {
-      this.http
-        .post("/api/auth/register", {
-          fullname,
-          email,
-          password,
-          repeatPassword
-        })
-        .subscribe((data: any) => {
-          observer.next({ user: data.user });
-          this.setUser(data.user);
-          this.token.saveToken(data.token);
-          observer.complete();
-        });
-    });
-  }
-
-  setUser(user): void {
-    if (user) {
-      user.isAdmin = user.roles.indexOf("admin") > -1;
-    }
-    this.$userSource.next(user);
-    (<any>window).user = user;
-  }
-
-  getUser(): Observable<any> {
-    return this.$userSource.asObservable();
-  }
-
-  me(): Observable<any> {
-    return Observable.create(observer => {
-      const tokenVal = this.token.getToken();
-      if (!tokenVal) {
-        return observer.complete();
-      }
-      this.http.get("/api/auth/me").subscribe((data: any) => {
-        observer.next({ user: data.user });
-        this.setUser(data.user);
-        observer.complete();
-      });
-    });
-  }
-
-  signOut(): void {
-    this.token.signOut();
-    this.setUser(null);
-    delete (<any>window).user;
-  }
-  // intercept(
-  //   req: HttpRequest<any>,
-  //   next: HttpHandler
-  // ): Observable<HttpEvent<any>> {
-  //   // Clone the request to add the new header
-  //   const token = new TokenStorage();
-  //   const tokenVal = token.getToken();
-  //   const cabecacho = [
-  //     { Authorization: tokenVal },
-  //     { "Content-Type": "application/json" }
-  //   ];
-
-  //   const clonedRequest = req.clone({
-  //     responseType: "json",
-  //     headers: req.headers.set("Content-Type", "application/json")
-  //     // headers: req.headers.append(
-  //     //   'Authorization',
-  //     //   tokenVal ? `Bearer ${tokenVal}` : '', 'Content-Type','application/json'
-  //     // )
-  //   });
-  //   // clonedRequest.('Content-Type', 'application/json');
-  //   // ['Authorization': tokenVal],
-  //   //     ['Content-Type' 'application/json']
-  //   // Pass the cloned request instead of the original request to the next handle
-  //   clonedRequest.headers.append(
-  //     "Authorization",
-  //     tokenVal ? `Bearer ${tokenVal}` : ""
-  //   );
-  //   return next.handle(clonedRequest);
-  // }
 
   intercept(
     request: HttpRequest<any>,
     next: HttpHandler
   ): Observable<HttpEvent<any>> {
-    const token = new TokenStorage();
-    const tokenVal = token.getToken();
     request = request.clone({
       responseType: "json"
     });
@@ -162,21 +73,10 @@ export class ApiService implements HttpInterceptor {
       }
     );
   }
-  doRequest(tipo: "post" | "put" | "delete" | "get"): Observable<any> {
-    return Observable.create(observer => {
-      const tokenVal = this.token.getToken();
-      if (!tokenVal) {
-        return observer.complete();
-      }
-      if (tipo === "get") {
-        this.http.get("URL").subscribe((data: any) => {
-          observer.next({ user: data.user });
-          this.setUser(data.user);
-          observer.complete();
-        });
-      }
-    });
+  public get currentUserValue(): usuarioData {
+    return this.currentUserSubject.value;
   }
+
   postPublicacao(obj): Observable<any> {
     return Observable.create(resposta => {
       this.http
@@ -185,6 +85,39 @@ export class ApiService implements HttpInterceptor {
           resposta.next();
           console.log(data);
           resposta.complete();
+        });
+    });
+  }
+  register(user, obj): Observable<any> {
+    const objeto = {
+      email: obj.email,
+      uid: user.uid,
+      nome: obj.nome
+    };
+    return Observable.create(observer => {
+      this.http
+        .post(this.URL + "register", objeto, { headers: this.headers })
+        .subscribe((data: any) => {
+          observer.next();
+          console.log(data);
+          localStorage.setItem("currentUser", JSON.stringify(data));
+          this.currentUserSubject.next(data);
+          this.token.saveID(data._id);
+          this.token.saveFirebase(data.uid);
+          observer.complete();
+        });
+    });
+  }
+  primeiroAcesso(obj): Observable<any> {
+    return Observable.create(observer => {
+      this.http
+        .put(this.URL + "primeiro-acesso/" + this.token.getID(), obj, {
+          headers: this.headers
+        })
+        .subscribe((data: any) => {
+          observer.next();
+          this.currentUserSubject.next(data);
+          observer.complete();
         });
     });
   }

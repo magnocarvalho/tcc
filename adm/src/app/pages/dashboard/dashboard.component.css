@@ -235,7 +235,7 @@ input.example-right-align::-webkit-inner-spin-button {
 
 .card-postagem:hover,
 .card-borda-black {
-    border: #000 solid 1px;
+    /* border: #000 solid 1px; */
 }
 
 .card-postagem:hover>.editar-containner {
@@ -303,6 +303,12 @@ input.example-right-align::-webkit-inner-spin-button {
 
 .margin-auto {
     margin: auto;
+}
+.direito {
+  z-index: 30;
+  position: absolute;
+  right: 0;
+  display: block;
 }
 
 .destaque {

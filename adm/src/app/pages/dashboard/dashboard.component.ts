@@ -1,14 +1,14 @@
-import { Component, OnInit, ViewChild, NgZone } from '@angular/core';
-import { ApiService } from 'src/app/services/api.service';
-import { Router } from '@angular/router';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { COMMA, ENTER } from '@angular/cdk/keycodes';
-import * as moment from 'moment';
-import { MatChipInputEvent } from '@angular/material';
-import * as $ from 'jQuery';
-import { ImageCroppedEvent } from 'ngx-image-cropper';
-import { DISABLED } from '@angular/forms/src/model';
-import { Observable, of } from 'rxjs';
+import { Component, OnInit, ViewChild, NgZone } from "@angular/core";
+import { ApiService } from "src/app/services/api.service";
+import { Router } from "@angular/router";
+import { FormGroup, FormControl, Validators } from "@angular/forms";
+import { COMMA, ENTER } from "@angular/cdk/keycodes";
+import * as moment from "moment";
+import { MatChipInputEvent } from "@angular/material";
+import * as $ from "jQuery";
+import { ImageCroppedEvent } from "ngx-image-cropper";
+import { DISABLED } from "@angular/forms/src/model";
+import { Observable, of } from "rxjs";
 
 declare var jQuery;
 export interface Tags {
@@ -16,16 +16,16 @@ export interface Tags {
 }
 
 @Component({
-  selector: 'app-dashboard',
-  templateUrl: './dashboard.component.html',
-  styleUrls: ['./dashboard.component.css']
+  selector: "app-dashboard",
+  templateUrl: "./dashboard.component.html",
+  styleUrls: ["./dashboard.component.css"]
 })
 export class DashboardComponent {
   form;
   hoje: Date = new Date();
   mes: Date = new Date(
     moment()
-      .add(1, 'month')
+      .add(1, "month")
       .format()
   );
   isDescon = false;
@@ -37,7 +37,7 @@ export class DashboardComponent {
   fotoPerfil: any[] = [{}];
   step = 0;
   postagem = [];
-  textoP = '';
+  textoP = "";
   visible = true;
   selectable = true;
   removable = true;
@@ -47,29 +47,29 @@ export class DashboardComponent {
   configuracao = {
     editable: true,
     spellcheck: true,
-    height: 'auto',
-    minHeight: '200',
-    width: 'auto',
-    minWidth: '0',
-    translate: 'yes',
+    height: "auto",
+    minHeight: "200",
+    width: "auto",
+    minWidth: "0",
+    translate: "yes",
     enableToolbar: true,
     showToolbar: true,
-    fontSize: '20px',
-    fontSizePopover: '16px',
-    placeholder: 'Texto aqui..',
-    imageEndPoint: '',
+    fontSize: "20px",
+    fontSizePopover: "16px",
+    placeholder: "Texto aqui..",
+    imageEndPoint: "",
     toolbar: [
-      ['bold', 'italic', 'underline'],
-      ['justifyLeft', 'justifyCenter', 'justifyRight', 'justifyFull'],
-      ['link', 'unlink']
+      ["bold", "italic", "underline"],
+      ["justifyLeft", "justifyCenter", "justifyRight", "justifyFull"],
+      ["link", "unlink"]
     ]
   };
   editando = false;
   editavel;
   toRemove;
 
-  customCollapsedHeight = '';
-  customExpandedHeight = '';
+  customCollapsedHeight = "";
+  customExpandedHeight = "";
 
   readonly separatorKeysCodes: number[] = [ENTER, COMMA];
 
@@ -80,16 +80,16 @@ export class DashboardComponent {
   ) {
     this.form = new FormGroup({
       // "empresa": new FormControl('', [Validators.required]),
-      titulo: new FormControl('', [
+      titulo: new FormControl("", [
         Validators.required,
         Validators.maxLength(54)
       ]),
-      dataCriacao: new FormControl(moment().format('L'), [Validators.required]),
-      dataFinal: new FormControl(moment().format('L'), [Validators.required]),
-      tags: new FormControl(''),
-      descricao: new FormControl(''),
-      desconto: new FormControl(''),
-      isDesconto: new FormControl(false),
+      dataCriacao: new FormControl(moment().format("L"), [Validators.required]),
+      dataFinal: new FormControl(moment().format("L"), [Validators.required]),
+      tags: new FormControl(""),
+      descricao: new FormControl(""),
+      desconto: new FormControl(""),
+      isDesconto: new FormControl(true),
       preco: new FormControl(0, [Validators.max(10000), Validators.min(0)]),
       descontoPreco: new FormControl(0, [
         Validators.max(10000),
@@ -101,8 +101,8 @@ export class DashboardComponent {
       ])
     });
   }
-  imageChangedEvent: any = '';
-  croppedImage: any = '';
+  imageChangedEvent: any = "";
+  croppedImage: any = "";
 
   fileChangeEvent(event: any): void {
     this.imageChangedEvent = event;
@@ -118,15 +118,15 @@ export class DashboardComponent {
   }
   onKeydown($) {
     $.preventDefault();
-    this.tag.push(this.form.get('tags').value);
-    this.form.get('tags').setValue('');
+    this.tag.push(this.form.get("tags").value);
+    this.form.get("tags").setValue("");
   }
   selectFile($) {
     $.preventDefault();
   }
   descontoSlide($event) {
     const estado = $event.checked;
-    if (!estado) {
+    if (estado) {
       this.form.controls.porcentagem.enable();
     } else {
       this.form.controls.porcentagem.disable();
@@ -137,8 +137,8 @@ export class DashboardComponent {
     // this.api.postagemAdd('testando');
     // console.log(this.form.value);
     const postagem = {
-      titulo: this.form.get('titulo').value,
-      dataCriacao: this.form.get('dataCriacao').value
+      titulo: this.form.get("titulo").value,
+      dataCriacao: this.form.get("dataCriacao").value
       // titulo: this.form.get("titulo").value,
       // titulo: this.form.get("titulo").value,
       // titulo: this.form.get("titulo").value,
@@ -175,7 +175,7 @@ export class DashboardComponent {
 
     // Reset the input value
     if (input) {
-      input.value = '';
+      input.value = "";
     }
   }
 
@@ -187,7 +187,7 @@ export class DashboardComponent {
     }
   }
   preRenderFunc(content: string) {
-    return content.replace(/something/g, 'new value'); // must return a string
+    return content.replace(/something/g, "new value"); // must return a string
   }
   onFileChange(event, i) {
     const foto = this.fotoThumb[i];
@@ -196,14 +196,14 @@ export class DashboardComponent {
       const reader = new FileReader();
       reader.readAsDataURL(foto.file);
       const self = this;
-      self.fotoThumb[i].tipo = 'thumbnail';
+      self.fotoThumb[i].tipo = "thumbnail";
       reader.onload = function() {
         self.zone.run(() => {
           self.fotoThumb[i].url = reader.result;
         });
       };
       reader.onerror = function(error) {
-        console.log('Error: ', error);
+        console.log("Error: ", error);
       };
     }
   }
@@ -215,14 +215,14 @@ export class DashboardComponent {
       const reader = new FileReader();
       reader.readAsDataURL(foto.file);
       const self = this;
-      self.fotosBlocos[i].tipo = 'blog';
+      self.fotosBlocos[i].tipo = "blog";
       reader.onload = function() {
         self.zone.run(() => {
           self.fotosBlocos[i].url = reader.result;
         });
       };
       reader.onerror = function(error) {
-        console.log('Error: ', error);
+        console.log("Error: ", error);
       };
     }
   }
@@ -234,14 +234,14 @@ export class DashboardComponent {
       const reader = new FileReader();
       reader.readAsDataURL(foto.file);
       const self = this;
-      self.fotoPerfil[i].tipo = 'thumbnail';
+      self.fotoPerfil[i].tipo = "thumbnail";
       reader.onload = function() {
         self.zone.run(() => {
           self.fotoPerfil[i].url = reader.result;
         });
       };
       reader.onerror = function(error) {
-        console.log('Error: ', error);
+        console.log("Error: ", error);
       };
     }
   }
@@ -275,24 +275,24 @@ export class DashboardComponent {
     this.fotosBlocos.splice(i, 1);
   }
   inserirPostagem() {
-    const tipoObj = this.form.get('tipoPostagem').value;
+    const tipoObj = this.form.get("tipoPostagem").value;
     let textObj;
     let txtSubTitulo;
     let imagemBloco;
     let obj;
-    if (tipoObj === 'texto') {
-      if (this.form.get('textoParagrafo').value && !this.editando) {
-        textObj = this.form.get('textoParagrafo').value;
+    if (tipoObj === "texto") {
+      if (this.form.get("textoParagrafo").value && !this.editando) {
+        textObj = this.form.get("textoParagrafo").value;
         obj = { texto: textObj };
-        this.form.get('textoParagrafo').setValue('');
-      } else if (this.form.get('textoParagrafo').value && this.editando) {
-        textObj = this.form.get('textoParagrafo').value;
+        this.form.get("textoParagrafo").setValue("");
+      } else if (this.form.get("textoParagrafo").value && this.editando) {
+        textObj = this.form.get("textoParagrafo").value;
         this.postagem[this.editavel] = { texto: textObj };
-        this.form.get('textoParagrafo').setValue('');
+        this.form.get("textoParagrafo").setValue("");
         this.editando = false;
         return;
       }
-    } else if (tipoObj === 'imagem') {
+    } else if (tipoObj === "imagem") {
       if (this.fotosBlocos && !this.editando) {
         imagemBloco = this.fotosBlocos;
         obj = { imagem: imagemBloco[0].url, nome: imagemBloco[0].file.name };
@@ -309,15 +309,15 @@ export class DashboardComponent {
         this.editando = false;
         return;
       }
-    } else if (tipoObj === 'subTitulo') {
-      if (this.form.get('textoSubtitulo').value && !this.editando) {
-        txtSubTitulo = this.form.get('textoSubtitulo').value;
+    } else if (tipoObj === "subTitulo") {
+      if (this.form.get("textoSubtitulo").value && !this.editando) {
+        txtSubTitulo = this.form.get("textoSubtitulo").value;
         obj = { subTitulo: txtSubTitulo };
-        this.form.get('textoSubtitulo').setValue('');
-      } else if (this.form.get('textoSubtitulo').value && this.editando) {
-        txtSubTitulo = this.form.get('textoSubtitulo').value;
+        this.form.get("textoSubtitulo").setValue("");
+      } else if (this.form.get("textoSubtitulo").value && this.editando) {
+        txtSubTitulo = this.form.get("textoSubtitulo").value;
         this.postagem[this.editavel] = { subTitulo: txtSubTitulo };
-        this.form.get('textoSubtitulo').setValue('');
+        this.form.get("textoSubtitulo").setValue("");
         this.editando = false;
         return;
       }

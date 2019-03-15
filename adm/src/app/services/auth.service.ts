@@ -1,24 +1,28 @@
+import { ApiService } from "src/app/services/api.service";
 import { Injectable } from "@angular/core";
 import { Router } from "@angular/router";
 import { AngularFireAuth } from "angularfire2/auth";
 import * as firebase from "firebase/app";
 import { Observable, Subscriber, BehaviorSubject } from "rxjs";
-import { User } from '@firebase/auth-types';
+import { User } from "@firebase/auth-types";
 
 @Injectable({
   providedIn: "root"
 })
 export class AuthService {
-
   private user: Observable<firebase.User>;
   private userDetails: firebase.User = null;
   private email;
 
   public usuario: User;
   private onLogin = new BehaviorSubject<boolean>(false);
-  public firebaseToken = '';
+  public firebaseToken = "";
 
-  constructor(private _firebaseAuth: AngularFireAuth, private router: Router) {
+  constructor(
+    private _firebaseAuth: AngularFireAuth,
+    private router: Router,
+    public api: ApiService
+  ) {
     this.user = _firebaseAuth.authState;
     this.user.subscribe(user => {
       if (user) {
@@ -30,30 +34,31 @@ export class AuthService {
         this.userDetails = null;
       }
     });
-
   }
   init(second = false) {
     if (!this.usuario) {
-      if (second)
+      if (second) {
         return;
-      this._firebaseAuth.authState.subscribe(user => {
-        this.usuario = user;
-        this.init(true);
-      }, err => {
-        // this.sub.forEach(s => {
-        //   s.next(false);
-        // });
-        console.error(err);
-      });
+      }
+      this._firebaseAuth.authState.subscribe(
+        user => {
+          this.usuario = user;
+          this.init(true);
+        },
+        err => {
+          // this.sub.forEach(s => {
+          //   s.next(false);
+          // });
+          console.error(err);
+        }
+      );
       return;
     }
     this.usuario.getIdToken().then(token => {
-      localStorage.setItem('firebase', token);
-      let aux = localStorage.getItem('firebase');
+      localStorage.setItem("firebase", token);
+      const aux = localStorage.getItem("firebase");
       this.firebaseToken = aux;
-
     });
-
   }
   get isLogged() {
     return this.onLogin.asObservable();
@@ -64,23 +69,21 @@ export class AuthService {
       .signInWithEmailAndPassword(obj.email, obj.senha)
       .then(res => {
         localStorage.clear();
-        localStorage.setItem('firebase', res.user.uid);
+        localStorage.setItem("firebase", res.user.uid);
         console.log("login com sucesso");
         // console.log(this.userDetails);
       });
   }
-  createUser(user) {
+  createUser(obj) {
     return this._firebaseAuth.auth
-      .createUserWithEmailAndPassword(user.email, user.senha)
+      .createUserWithEmailAndPassword(obj.email, obj.senha)
       .then(() => {
-        var user = this._firebaseAuth.auth.currentUser;
+        const user = this._firebaseAuth.auth.currentUser;
         user
           .sendEmailVerification()
           .then(() => {
-            console.log("please verify your email")
-            localStorage.clear();
-            localStorage.setItem('firebase', user.uid);
-            console.log("login com sucesso");
+            console.log({ user, obj });
+            this.api.register(user, obj).subscribe(res => {});
           })
           .catch(err => console.log(err));
       })
@@ -95,14 +98,17 @@ export class AuthService {
   }
 
   logout() {
-    this._firebaseAuth.auth.signOut().then(res => {
-      this.userDetails = null;
-      this.router.navigate(["/login"])
-    }, err => {
-      console.error(err);
-    });
+    this._firebaseAuth.auth.signOut().then(
+      res => {
+        this.userDetails = null;
+        this.router.navigate(["/login"]);
+      },
+      err => {
+        console.error(err);
+      }
+    );
   }
   emails() {
-    return this.email || 'Email invalido';
+    return this.email || "Email invalido";
   }
 }

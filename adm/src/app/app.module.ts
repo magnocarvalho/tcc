@@ -82,6 +82,8 @@ import { SlickCarouselModule } from "ngx-slick-carousel";
 import { ImageCropperModule } from "ngx-image-cropper";
 import { NgxMaskModule } from "ngx-mask";
 import { PrimeiroAcessoComponent } from "./pages/primeiro-acesso/primeiro-acesso.component";
+import { LoadingBarHttpClientModule } from '@ngx-loading-bar/http-client';
+import { LoadingBarModule, LoadingBarService } from '@ngx-loading-bar/core';
 
 @NgModule({
   declarations: [
@@ -153,7 +155,9 @@ import { PrimeiroAcessoComponent } from "./pages/primeiro-acesso/primeiro-acesso
     NgxEditorModule,
     SlickCarouselModule,
     ImageCropperModule,
-    NgxMaskModule.forRoot()
+    NgxMaskModule.forRoot(),
+    LoadingBarModule,
+    LoadingBarHttpClientModule
   ],
   providers: [
     { provide: MAT_DATE_LOCALE, useValue: "pt-BR" },

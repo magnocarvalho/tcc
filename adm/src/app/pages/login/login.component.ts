@@ -31,7 +31,7 @@ export class LoginComponent implements OnInit {
     this.auth.login(obj).then(
       () => {
         // console.log("deu bom!!!");
-        this.route.navigate(["dashboard"]);
+
       },
       err => {
         // console.log(err);

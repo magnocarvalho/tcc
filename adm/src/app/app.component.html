@@ -1,36 +1,38 @@
+
+<mat-progress-bar mode="determinate" [value]="loader.progress$|async"></mat-progress-bar>
 <mat-drawer-container fullscreen>
-    <mat-drawer #sidenav mode="outside" class="drawer">
-        <div class="menu">
-            <mat-list>
-                <mat-list-item>
-                    <mat-icon routerLink="dashboard" mat-list-icon>folder</mat-icon>Item 1
-                </mat-list-item>
-                <mat-divider></mat-divider>
-                <mat-list-item>Item 2</mat-list-item>
-                <mat-divider></mat-divider>
-                <mat-list-item><a (click)="checkRota()">Item qualquer</a></mat-list-item>
-            </mat-list>
-        </div>
-    </mat-drawer>
-    <div class="sidenav-content">
-        <div class="content">
-            <mat-toolbar id="toolbar" color="primary">
-                <button mat-icon-button class="menu" (click)="sidenav.toggle()">
+  <mat-drawer #sidenav mode="outside" class="drawer">
+    <div class="menu">
+      <mat-list>
+        <mat-list-item>
+          <mat-icon routerLink="dashboard" mat-list-icon>folder</mat-icon>Item 1
+        </mat-list-item>
+        <mat-divider></mat-divider>
+        <mat-list-item>Item 2</mat-list-item>
+        <mat-divider></mat-divider>
+
+      </mat-list>
+    </div>
+  </mat-drawer>
+  <div class="sidenav-content">
+    <div class="content">
+      <mat-toolbar id="toolbar" color="primary">
+        <button mat-icon-button class="menu" (click)="sidenav.toggle()">
           <mat-icon>menu</mat-icon>
         </button>
-                <span class="spacer"></span>
-                <button mat-icon-button class="exit" (click)="sairLogin()">
+        <span class="spacer"></span>
+        <button mat-icon-button class="exit" (click)="sairLogin()">
           <mat-icon>exit_to_app</mat-icon>
         </button>
-                <!-- <button mat-raised-button class="" routerLink="login">
+        <!-- <button mat-raised-button class="" routerLink="login">
           <mat-icon>person_add</mat-icon>
           Cadastre-se
         </button> -->
+      </mat-toolbar>
+      <div class="app-body content">
 
-            </mat-toolbar>
-            <div class="app-body content">
-                <router-outlet #outlet="outlet"></router-outlet>
-            </div>
-        </div>
+        <router-outlet #outlet="outlet"></router-outlet>
+      </div>
     </div>
+  </div>
 </mat-drawer-container>

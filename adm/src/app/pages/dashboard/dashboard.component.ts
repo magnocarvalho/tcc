@@ -69,7 +69,7 @@ export class DashboardComponent {
   toRemove;
   customCollapsedHeight = "";
   customExpandedHeight = "";
-  empresa: any;
+  empresa = JSON.parse(localStorage.getItem("currentUser"));
   readonly separatorKeysCodes: number[] = [ENTER, COMMA];
 
   constructor(
@@ -77,8 +77,6 @@ export class DashboardComponent {
     private router: Router,
     private zone: NgZone
   ) {
-    this.empresa = JSON.parse(localStorage.getItem("currentUser"));
-    console.log(this.empresa);
     this.form = new FormGroup({
       titulo: new FormControl("", [
         Validators.required,
@@ -134,7 +132,7 @@ export class DashboardComponent {
 
   salvarPublicacao($event) {
     // this.api.postagemAdd('testando');
-    console.log(this.form.value);
+    // console.log(this.form.value);
     const postagem = {
       titulo: this.form.get("titulo").value,
       dataCriacao: this.form.get("dataCriacao").value,

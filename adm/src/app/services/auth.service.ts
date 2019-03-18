@@ -68,6 +68,9 @@ export class AuthService {
         localStorage.clear();
         this.api.login(res.user.uid).subscribe(login => {
           console.log('login com sucesso');
+          this.router.navigate(["dashboard"]);
+        }, err => {
+          console.error(err);
         });
         // console.log(this.userDetails);
       });

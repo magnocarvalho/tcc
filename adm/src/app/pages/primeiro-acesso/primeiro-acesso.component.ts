@@ -38,7 +38,9 @@ export class PrimeiroAcessoComponent implements OnInit {
       ramo: this.form.get('ramo').value
     };
     this.api.primeiroAcesso(obj).subscribe(res => {
-      this.router.navigate(['dashboard']);
+      console.log(res);
+    }, err => {
+      console.error(err);
     });
   }
 }

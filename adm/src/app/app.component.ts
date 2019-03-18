@@ -3,6 +3,7 @@ import { AuthService } from './services/auth.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Observable, of } from 'rxjs';
 import { FullscreenService } from './services/fullscreen.service';
+import { LoadingBarService } from '@ngx-loading-bar/core';
 
 @Component({
   selector: 'app-root',
@@ -13,7 +14,7 @@ export class AppComponent implements OnInit {
   title = 'adm';
   flagLogin: Observable<boolean> = of(false);
 
-  constructor(public auth: AuthService, public route: ActivatedRoute) {
+  constructor(public auth: AuthService, public route: ActivatedRoute, public loader: LoadingBarService) {
 
 
   }

@@ -84,6 +84,7 @@ import { NgxMaskModule } from "ngx-mask";
 import { PrimeiroAcessoComponent } from "./pages/primeiro-acesso/primeiro-acesso.component";
 import { LoadingBarHttpClientModule } from '@ngx-loading-bar/http-client';
 import { LoadingBarModule, LoadingBarService } from '@ngx-loading-bar/core';
+import { AgmCoreModule } from '@agm/core';
 
 @NgModule({
   declarations: [
@@ -157,7 +158,12 @@ import { LoadingBarModule, LoadingBarService } from '@ngx-loading-bar/core';
     ImageCropperModule,
     NgxMaskModule.forRoot(),
     LoadingBarModule,
-    LoadingBarHttpClientModule
+    LoadingBarHttpClientModule,
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyBxWYxuGUitYgQkbfS82Lxwuc5J5i4fI18'
+    })
+
+    // AIzaSyAjOoyjfs5zX1weaGygwUwiyhFcNIR-TuA
   ],
   providers: [
     { provide: MAT_DATE_LOCALE, useValue: "pt-BR" },

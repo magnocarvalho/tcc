@@ -55,6 +55,9 @@
         <input matInput formControlName="cep" type="text" required
           placeholder="cep">
       </mat-form-field>
+      <agm-map [latitude]="lat" [zoom]="zoom" [longitude]="lng">
+        <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
+      </agm-map>
     </form>
     <button mat-raised-button color="accent" (click)="salvarLogin()">Inscreva-se</button>
   </div>
@@ -64,7 +67,9 @@
         <mat-card-title>Seja bem vindo!</mat-card-title>
         <mat-card-subtitle>Sua empresa crescendo e alcançando novos clientes</mat-card-subtitle>
       </mat-card-header>
-      <img matCardImage src="/assets/empresa.png">
+      <mat-card-content>
+        <img matCardImage src="/assets/empresa.png">
+      </mat-card-content>
     </mat-card>
   </div>
 </div>

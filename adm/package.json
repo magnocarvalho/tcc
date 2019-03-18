@@ -11,6 +11,7 @@
     },
     "private": true,
     "dependencies": {
+        "@agm/core": "^1.0.0-beta.5",
         "@angular/animations": "^7.1.4",
         "@angular/cdk": "^7.3.3",
         "@angular/common": "~7.1.0",
@@ -30,6 +31,7 @@
         "@ngx-loading-bar/core": "^4.2.0",
         "@ngx-loading-bar/http-client": "^4.2.0",
         "@ngx-loading-bar/router": "^4.2.0",
+        "@types/googlemaps": "^3.30.19",
         "@types/jquery": "^3.3.29",
         "angular-font-awesome": "^3.1.2",
         "angularfire2": "^5.1.1",

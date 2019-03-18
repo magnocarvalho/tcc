@@ -71,7 +71,7 @@
                   <mat-label>Fim da Publicação</mat-label>
                   <input placeholder="Fim da Publicação"
                     [max]="mes" matInput maxlength="255"
-                    [matDatepicker]="picker2"
+                    [matDatepicker]="picker2" [min]="hoje"
                     formControlName="dataFinal"
                     name="dataFinal" />
                   <mat-datepicker-toggle matSuffix

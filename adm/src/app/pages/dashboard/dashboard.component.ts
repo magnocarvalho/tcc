@@ -86,7 +86,7 @@ export class DashboardComponent {
       dataFinal: new FormControl(moment().format("L"), [Validators.required]),
       tags: new FormControl(""),
       descricao: new FormControl(""),
-      isDesconto: new FormControl(true),
+      isDesconto: new FormControl(false),
       preco: new FormControl(0, [Validators.max(10000), Validators.min(0)]),
       descontoPreco: new FormControl(0, [
         Validators.max(10000),
@@ -179,6 +179,7 @@ export class DashboardComponent {
       input.value = "";
     }
   }
+
   removeTag(obj): void {
     const index = this.tag.indexOf(obj);
     if (index >= 0) {

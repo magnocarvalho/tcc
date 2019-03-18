@@ -15,6 +15,8 @@ export interface IUsuarioModel extends IDefault {
   cep: string;
   bairro: string;
   cidade: string;
+  estado: string;
+  ramo: string;
 }
 
 let schema = {
@@ -29,7 +31,9 @@ let schema = {
   numero: { type: String },
   cep: { type: String },
   bairro: { type: String },
-  cidade: { type: String }
+  cidade: { type: String },
+  estado: {type: String},
+  ramo: {type: String}
 };
 
 Inject(schema);

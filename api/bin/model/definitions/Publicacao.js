@@ -6,7 +6,7 @@ let schema = {
     nome: { type: String },
     publicacao: { type: String },
     userID: { type: mongoose.Schema.Types.ObjectId, ref: 'Usuario' },
-    namePublicacao: { type: Array }
+    namePublicacao: { type: String }
 };
 IDefault_1.Inject(schema);
 exports.publicacaoMasterSchema = new mongoose.Schema(schema);

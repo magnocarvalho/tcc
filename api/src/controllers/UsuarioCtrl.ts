@@ -12,9 +12,10 @@ class UsuarioCtrl {
 
   static login(req, res, next) {
     var obj = req.body;
-    var email = obj.email;
-    var pass = obj.pass;
-    UsuarioCtrl.getByLogin(email, pass).then(
+    var uid = obj.uid;
+    console.log(obj);
+    // var uid = obj.
+    UsuarioCtrl.getByLogin(uid).then(
       data => {
         if (data) {
           res.json(data);
@@ -59,10 +60,10 @@ class UsuarioCtrl {
       });
     });
   }
-  private static getByLogin(email, pass) {
+  private static getByLogin(obj) {
     return new Promise<IUsuarioModel>((resolve, reject) => {
       UsuarioModel.findOne(
-        { isDeleted: false, email: email, pass: pass },
+        { isDeleted: false, uid: obj},
         { pass: 0 },
         (err, data) => {
           if (err || data === null) reject(err);

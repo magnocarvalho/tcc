@@ -19,7 +19,8 @@ export class PrimeiroAcessoComponent implements OnInit {
       cep: new FormControl(''),
       bairro: new FormControl(''),
       cidade: new FormControl(''),
-      estado: new FormControl('')
+      estado: new FormControl(''),
+      ramo: new FormControl('')
     });
   }
 
@@ -33,7 +34,8 @@ export class PrimeiroAcessoComponent implements OnInit {
       cep: this.form.get('cep').value,
       bairro: this.form.get('bairro').value,
       cidade: this.form.get('cidade').value,
-      estado: this.form.get('estado').value
+      estado: this.form.get('estado').value,
+      ramo: this.form.get('ramo').value
     };
     this.api.primeiroAcesso(obj).subscribe(res => {
       this.router.navigate(['dashboard']);

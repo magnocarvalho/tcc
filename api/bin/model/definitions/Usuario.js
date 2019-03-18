@@ -14,7 +14,9 @@ let schema = {
     numero: { type: String },
     cep: { type: String },
     bairro: { type: String },
-    cidade: { type: String }
+    cidade: { type: String },
+    estado: { type: String },
+    ramo: { type: String }
 };
 IDefault_1.Inject(schema);
 exports.UsuarioMasterSchema = new mongoose.Schema(schema);

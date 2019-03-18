@@ -5,6 +5,11 @@
 /tmp
 /out-tsc
 /api/bin
+/bin/
+binbin/
+bin/
+/bin
+
 # dependencies
 /node_modules
 

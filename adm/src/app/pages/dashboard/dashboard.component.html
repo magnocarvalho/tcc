@@ -5,7 +5,7 @@
         novalidate>
         <span><h3>Edite as informaçoes da postagem <button
               mat-raised-button
-              (click)="salvarPublicacao($event)">Salvar</button></h3>
+              (click)="salvarPublicacao($event)" color="primary">Salvar</button></h3>
         </span>
         <div class="form-row">
           <mat-accordion class="col-12 expsansion-labels">
@@ -35,7 +35,6 @@
                     titulo
                   </mat-error>
                 </mat-form-field>
-
               </div>
               <mat-action-row>
                 <button mat-button color="primary"
@@ -240,8 +239,6 @@
                   <mat-slide-toggle (change)="descontoSlide($event)"
                     color="primary" formControlName="isDesconto">Porcentagem</mat-slide-toggle>
                 </div>
-
-
               </div>
               <mat-action-row>
                 <button mat-button color="warn"

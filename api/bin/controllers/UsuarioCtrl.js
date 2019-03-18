@@ -14,9 +14,10 @@ class UsuarioCtrl {
     }
     static login(req, res, next) {
         var obj = req.body;
-        var email = obj.email;
-        var pass = obj.pass;
-        UsuarioCtrl.getByLogin(email, pass).then(data => {
+        var uid = obj.uid;
+        console.log(obj);
+        // var uid = obj.
+        UsuarioCtrl.getByLogin(uid).then(data => {
             if (data) {
                 res.json(data);
             }
@@ -55,9 +56,9 @@ class UsuarioCtrl {
             });
         });
     }
-    static getByLogin(email, pass) {
+    static getByLogin(obj) {
         return new Promise((resolve, reject) => {
-            Usuario_1.UsuarioModel.findOne({ isDeleted: false, email: email, pass: pass }, { pass: 0 }, (err, data) => {
+            Usuario_1.UsuarioModel.findOne({ isDeleted: false, uid: obj }, { pass: 0 }, (err, data) => {
                 if (err || data === null)
                     reject(err);
                 else {

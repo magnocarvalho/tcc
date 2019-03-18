@@ -6,7 +6,7 @@ const PublicacaoCtlr_1 = require("../controllers/PublicacaoCtlr");
 var mcache = require('memory-cache');
 var router = express.Router();
 router.post('/register', UsuarioCtrl_1.default.create);
-router.post('/loginUser', UsuarioCtrl_1.default.login);
+router.post('/login', UsuarioCtrl_1.default.login);
 router.put('/primeiro-acesso/:id', UsuarioCtrl_1.default.putDadosUsuario);
 router.post('/salvarFotos', photoCtlr_1.default.putPhotos);
 router.post('/publicacao', PublicacaoCtlr_1.default.create);

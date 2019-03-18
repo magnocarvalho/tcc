@@ -166,16 +166,12 @@
               </mat-expansion-panel-header>
               <div class="row controle-row">
                 <div class="top-15 col-12">
-
                   <span>
                     <app-ngx-editor [config]="configuracao"
                       formControlName="descricao">
                     </app-ngx-editor>
                   </span>
-
-
                 </div>
-
                 <!-- <mat-divider></mat-divider> -->
               </div>
               <mat-action-row>
@@ -259,13 +255,23 @@
         <mat-card-header color="primary">
 
           <img matCardAvatar src="/assets/male.png">
-          <mat-card-title>Empresa da postagem</mat-card-title>
-          <mat-card-subtitle>Atividade da empresa</mat-card-subtitle>
+          <mat-card-title>{{empresa.nomeFantasia}}</mat-card-title>
+          <mat-card-subtitle>{{empresa.ramo}}</mat-card-subtitle>
         </mat-card-header>
         <mat-card-content>
           <div class="direito" *ngIf="this.form.get('isDesconto').value">
             <button mat-flat-button color="warn">{{this.form.get('porcentagem').value}}<span>%</span>OFF
               <mat-icon>local_offer</mat-icon></button>
+          </div>
+          <div class="esquerdo">
+            <button *ngIf="this.form.get('preco').value" class="esquerdo-de"
+              mat-flat-button color="primary">De: R$
+              {{this.form.get('preco').value}}<span>.00</span>
+            </button>
+            <button *ngIf="this.form.get('descontoPreco').value" mat-flat-button
+              lass="esquerdo-por">Por: R$
+              {{this.form.get('descontoPreco').value}}.00
+            </button>
           </div>
           <img matCardImage class="" *ngIf="croppedImage"
             [src]="croppedImage" alt="" />

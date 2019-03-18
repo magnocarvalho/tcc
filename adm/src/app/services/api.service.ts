@@ -78,7 +78,6 @@ export class ApiService implements HttpInterceptor {
   }
 
   postPublicacao(obj): Observable<any> {
-    obj['empresa'] = this.token.getID();
     return Observable.create(resposta => {
       this.http
         .post(this.URL + 'publicacao', obj, { headers: this.headers })
@@ -93,7 +92,8 @@ export class ApiService implements HttpInterceptor {
     return Observable.create(observer => {
       this.http.post(this.URL + 'login', {uid: firebase}).subscribe((data: any) => {
         observer.next();
-        console.log(data);
+        localStorage.setItem('currentUser', JSON.stringify(data));
+        this.currentUserSubject.next(data);
         this.token.saveID(data._id);
         this.token.saveFirebase(data.uid);
         observer.complete();

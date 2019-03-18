@@ -1,14 +1,14 @@
-import { Component, OnInit, ViewChild, NgZone } from '@angular/core';
-import { ApiService } from 'src/app/services/api.service';
-import { Router } from '@angular/router';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { COMMA, ENTER } from '@angular/cdk/keycodes';
-import * as moment from 'moment';
-import { MatChipInputEvent } from '@angular/material';
-import * as $ from 'jQuery';
-import { ImageCroppedEvent } from 'ngx-image-cropper';
-import { DISABLED } from '@angular/forms/src/model';
-import { Observable, of } from 'rxjs';
+import { Component, OnInit, ViewChild, NgZone } from "@angular/core";
+import { ApiService } from "src/app/services/api.service";
+import { Router } from "@angular/router";
+import { FormGroup, FormControl, Validators } from "@angular/forms";
+import { COMMA, ENTER } from "@angular/cdk/keycodes";
+import * as moment from "moment";
+import { MatChipInputEvent } from "@angular/material";
+import * as $ from "jQuery";
+import { ImageCroppedEvent } from "ngx-image-cropper";
+import { DISABLED } from "@angular/forms/src/model";
+import { Observable, of } from "rxjs";
 
 declare var jQuery;
 export interface Tags {
@@ -16,16 +16,16 @@ export interface Tags {
 }
 
 @Component({
-  selector: 'app-dashboard',
-  templateUrl: './dashboard.component.html',
-  styleUrls: ['./dashboard.component.css']
+  selector: "app-dashboard",
+  templateUrl: "./dashboard.component.html",
+  styleUrls: ["./dashboard.component.css"]
 })
 export class DashboardComponent {
   form;
   hoje: Date = new Date();
   mes: Date = new Date(
     moment()
-      .add(1, 'month')
+      .add(1, "month")
       .format()
   );
   isDescon = false;
@@ -37,7 +37,7 @@ export class DashboardComponent {
   fotoPerfil: any[] = [{}];
   step = 0;
   postagem = [];
-  textoP = '';
+  textoP = "";
   visible = true;
   selectable = true;
   removable = true;
@@ -47,30 +47,29 @@ export class DashboardComponent {
   configuracao = {
     editable: true,
     spellcheck: true,
-    height: 'auto',
-    minHeight: '200',
-    width: 'auto',
-    minWidth: '0',
-    translate: 'yes',
+    height: "auto",
+    minHeight: "200",
+    width: "auto",
+    minWidth: "0",
+    translate: "yes",
     enableToolbar: true,
     showToolbar: true,
-    fontSize: '20px',
-    fontSizePopover: '16px',
-    placeholder: 'Texto aqui..',
-    imageEndPoint: '',
+    fontSize: "20px",
+    fontSizePopover: "16px",
+    placeholder: "Texto aqui..",
+    imageEndPoint: "",
     toolbar: [
-      ['bold', 'italic', 'underline'],
-      ['justifyLeft', 'justifyCenter', 'justifyRight', 'justifyFull'],
-      ['link', 'unlink']
+      ["bold", "italic", "underline"],
+      ["justifyLeft", "justifyCenter", "justifyRight", "justifyFull"],
+      ["link", "unlink"]
     ]
   };
   editando = false;
   editavel;
   toRemove;
-
-  customCollapsedHeight = '';
-  customExpandedHeight = '';
-
+  customCollapsedHeight = "";
+  customExpandedHeight = "";
+  empresa: any;
   readonly separatorKeysCodes: number[] = [ENTER, COMMA];
 
   constructor(
@@ -78,16 +77,17 @@ export class DashboardComponent {
     private router: Router,
     private zone: NgZone
   ) {
+    this.empresa = JSON.parse(localStorage.getItem("currentUser"));
+    console.log(this.empresa);
     this.form = new FormGroup({
-      // "empresa": new FormControl('', [Validators.required]),
-      titulo: new FormControl('', [
+      titulo: new FormControl("", [
         Validators.required,
         Validators.maxLength(54)
       ]),
-      dataCriacao: new FormControl(moment().format('L'), [Validators.required]),
-      dataFinal: new FormControl(moment().format('L'), [Validators.required]),
-      tags: new FormControl(''),
-      descricao: new FormControl(''),
+      dataCriacao: new FormControl(moment().format("L"), [Validators.required]),
+      dataFinal: new FormControl(moment().format("L"), [Validators.required]),
+      tags: new FormControl(""),
+      descricao: new FormControl(""),
       isDesconto: new FormControl(true),
       preco: new FormControl(0, [Validators.max(10000), Validators.min(0)]),
       descontoPreco: new FormControl(0, [
@@ -100,8 +100,8 @@ export class DashboardComponent {
       ])
     });
   }
-  imageChangedEvent: any = '';
-  croppedImage: any = '';
+  imageChangedEvent: any = "";
+  croppedImage: any = "";
 
   fileChangeEvent(event: any): void {
     this.imageChangedEvent = event;
@@ -117,8 +117,8 @@ export class DashboardComponent {
   }
   onKeydown($) {
     $.preventDefault();
-    this.tag.push(this.form.get('tags').value);
-    this.form.get('tags').setValue('');
+    this.tag.push(this.form.get("tags").value);
+    this.form.get("tags").setValue("");
   }
   selectFile($) {
     $.preventDefault();
@@ -136,15 +136,16 @@ export class DashboardComponent {
     // this.api.postagemAdd('testando');
     console.log(this.form.value);
     const postagem = {
-      titulo: this.form.get('titulo').value,
-      dataCriacao: this.form.get('dataCriacao').value,
-      descricao: this.form.get('descricao').value,
-      descontoPreco: this.form.get('descontoPreco').value,
-      dataFinal: this.form.get('dataFinal').value,
-      isDesconto: this.form.get('isDesconto').value,
-      porcentagem: this.form.get('porcentagem').value,
-      preco: this.form.get('preco').value,
-      tags: this.tag
+      titulo: this.form.get("titulo").value,
+      dataCriacao: this.form.get("dataCriacao").value,
+      descricao: this.form.get("descricao").value,
+      descontoPreco: this.form.get("descontoPreco").value,
+      dataFinal: this.form.get("dataFinal").value,
+      isDesconto: this.form.get("isDesconto").value,
+      porcentagem: this.form.get("porcentagem").value,
+      preco: this.form.get("preco").value,
+      tags: this.tag,
+      empresa: localStorage.getItem("token")
     };
     this.api.postPublicacao(postagem).subscribe(
       res => {
@@ -177,7 +178,7 @@ export class DashboardComponent {
 
     // Reset the input value
     if (input) {
-      input.value = '';
+      input.value = "";
     }
   }
   removeTag(obj): void {
@@ -187,7 +188,7 @@ export class DashboardComponent {
     }
   }
   preRenderFunc(content: string) {
-    return content.replace(/something/g, 'new value'); // must return a string
+    return content.replace(/something/g, "new value"); // must return a string
   }
   addFotoBlog(imgBloco) {
     this.fotos.push(imgBloco);

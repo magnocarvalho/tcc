@@ -2,7 +2,7 @@ import { Router } from "@angular/router";
 import { AuthService } from "./../../services/auth.service";
 import { Component, OnInit } from "@angular/core";
 import { FormGroup, FormControl, Validators } from "@angular/forms";
-import { MatSnackBar } from '@angular/material';
+import { MatSnackBar } from "@angular/material";
 
 @Component({
   selector: "app-login",
@@ -10,7 +10,11 @@ import { MatSnackBar } from '@angular/material';
   styleUrls: ["./login.component.css"]
 })
 export class LoginComponent implements OnInit {
-  constructor(public auth: AuthService, public route: Router, private snackBar: MatSnackBar) {}
+  constructor(
+    public auth: AuthService,
+    public route: Router,
+    private snackBar: MatSnackBar
+  ) {}
 
   form = new FormGroup({
     email: new FormControl("", Validators.email),
@@ -26,14 +30,14 @@ export class LoginComponent implements OnInit {
     };
     this.auth.login(obj).then(
       () => {
-        console.log("deu bom!!!");
+        // console.log("deu bom!!!");
         this.route.navigate(["dashboard"]);
       },
       err => {
-        console.log(err);
+        // console.log(err);
         var erro = err;
-        this.snackBar.open(erro.message, "erro" , {
-          duration: 5000,
+        this.snackBar.open(erro.message, "erro", {
+          duration: 5000
         });
       }
     );

@@ -29,8 +29,6 @@ export class AuthService {
     this.user.subscribe(user => {
       if (user) {
         this.userDetails = user;
-        console.log(this.userDetails);
-        this.email = this.userDetails.email;
       } else {
         console.log('nenhum usuario logado');
         this.userDetails = null;
@@ -48,9 +46,6 @@ export class AuthService {
           this.init(true);
         },
         err => {
-          // this.sub.forEach(s => {
-          //   s.next(false);
-          // });
           console.error(err);
         }
       );
@@ -71,9 +66,7 @@ export class AuthService {
       .signInWithEmailAndPassword(obj.email, obj.senha)
       .then(res => {
         localStorage.clear();
-        // localStorage.setItem("firebase", res.user.uid);
-        // this.token.saveFirebase(res.user.uid);
-        this.api.login(res.user.uid).subscribe(res => {
+        this.api.login(res.user.uid).subscribe(login => {
           console.log('login com sucesso');
         });
         // console.log(this.userDetails);
@@ -106,6 +99,7 @@ export class AuthService {
     this._firebaseAuth.auth.signOut().then(
       res => {
         this.userDetails = null;
+        this.token.signOut();
         this.router.navigate(['/login']);
       },
       err => {

@@ -14,7 +14,7 @@ export class AppComponent implements OnInit {
   flagLogin: Observable<boolean> = of(false);
 
   constructor(public auth: AuthService, public route: ActivatedRoute) {
-    
+
 
   }
   prepareRouteTransition(outlet) {
@@ -24,7 +24,7 @@ export class AppComponent implements OnInit {
   }
   ngOnInit() {
     this.auth.isLogged.subscribe(res => {
-      console.log(res);
+      // console.log(res);
       if (res == true)
         this.flagLogin = of(true);
     })

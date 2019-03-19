@@ -86,13 +86,13 @@ export class DashboardComponent {
       dataFinal: new FormControl(moment().format("L"), [Validators.required]),
       tags: new FormControl(""),
       descricao: new FormControl(""),
-      isDesconto: new FormControl(false),
+      isDesconto: new FormControl(true),
       preco: new FormControl(0, [Validators.max(10000), Validators.min(0)]),
       descontoPreco: new FormControl(0, [
         Validators.max(10000),
         Validators.min(0)
       ]),
-      porcentagem: new FormControl({ value: 0, disabled: false }, [
+      porcentagem: new FormControl(0, [
         Validators.max(100),
         Validators.min(0)
       ])

@@ -1,0 +1,298 @@
+<html>
+<head>
+<title>Relat&#243;rio&#32;DOCxWEB&#58;&#32;https&#58;&#47;&#47;www&#46;docxweb&#46;com</title>
+
+<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+
+<style>
+BODY {
+	FONT-SIZE: 14px; FONT-FAMILY: verdana,arial,helvetica; BACKGROUND-COLOR: #ffffff
+}
+TABLE {
+	FONT-SIZE: 14px;
+	COLOR: #444444;
+	FONT-FAMILY: verdana,arial,helvetica;
+   
+}
+TD {
+	FONT-SIZE: 14px; COLOR: #444444; FONT-FAMILY: verdana,arial,helvetica; 
+}
+TR {
+	FONT-SIZE: 14px; COLOR: #444444; FONT-FAMILY: verdana,arial,helvetica;  
+	                                              
+}
+SPAN {
+	FONT-SIZE: 14px; COLOR: #444444; FONT-FAMILY: verdana,arial,helvetica
+}
+DIV {
+	FONT-SIZE: 14px; COLOR: #444444; FONT-FAMILY: verdana,arial,helvetica
+}
+P {
+	FONT-SIZE: 14px; COLOR: #444444; FONT-FAMILY: verdana,arial,helvetica
+}
+A {
+	padding-left:3px;
+	TEXT-DECORATION: none
+}
+A:hover {
+	TEXT-DECORATION: underline
+}
+
+#addthis_services {
+  background-color: #FFFFFF;
+}
+#addthis_services a {
+  padding: 0px 0px 0px 4px;
+  color:#333333;
+  display: block;
+  font-weight: normal;
+}
+#addthis_services td{
+  padding: 1px 0px 1px 0px;
+}
+#addthis_dropdown a:hover {
+  background-color: #F5F5F5;
+}
+#addthis_dropdown a {
+  text-decoration: none;
+  FONT-SIZE: 14px;
+}
+#addthis_dropdown img {
+  border:none;
+  vertical-align:middle;
+  width: 16px;
+  height: 16px;
+}
+#addthis_dropdown {
+  z-index: 1000000;
+  text-align: left;
+  width: 500px;
+  position: absolute;
+  display: none;
+  border: #CCCCCC solid 1px;
+  padding: 1px 1px 0px 1px;
+  overflow: hidden;
+  background-color: #FFFFFF;
+}
+a:link{
+	FONT-SIZE: 14px;
+	color: #111111;
+	padding-left:3px;
+	text-decoration: none;
+
+}
+a.lknLight{
+	color: #111111;
+        font:bold 1.1em arial;
+}
+a.lknHeavy  {
+	color: red;
+	font:bold 1.1em arial;
+        onMouseOut: addthis_close();
+        onClick: return addthis_to();
+}
+
+</style>
+
+<script >
+  
+
+    function acionaView(view) { 
+		document.getElementById("reportWeb").style.display = "none";
+		var rh = document.getElementById("reportHome");
+		if (rh != null) rh.style.display = "none";
+		document.getElementById(view).style.display = "block";
+				
+    }
+
+	function getElemento(getElemento){
+		return document.getElementById(getElemento);
+	}
+
+	function addthis_clearclosewin( ){
+		if (typeof at15A!="undefined")clearTimeout(at15A);
+	}
+
+	function addthis_open(at15a,title_window, p_links, vetor, tipoWeb){
+		var vetorLinks = p_links.split('|');
+		var textoLinks = '';
+		var i = 0;
+		for (i; i < vetorLinks.length; i++) {
+			if (vetor[vetorLinks[i]] != null) {
+				if (tipoWeb) { 
+					textoLinks += '<a href="'+vetor[vetorLinks[i]]+'">'+vetor[vetorLinks[i]]+'</a>'
+				} else {
+					textoLinks += '<a href="#">'+vetor[vetorLinks[i]]+'</a>'
+				}	
+			}	
+		}
+		document.getElementById("links").innerHTML=textoLinks;
+		document.getElementById("caption_title").innerHTML=title_window;
+
+		addthis_clearclosewin( );
+
+		var at15u=020;
+		var at15Z=at15a.getElementsByTagName('img');
+		if (at15Z && at15Z[0]){at15a=at15Z[0]; at15u=0; }
+
+		var at15z=at15X(at15a);
+		var at15x=at15z[0]+0;
+		var at15W=at15z[1]+at15u+1+0;
+		var at15w=at15V( );
+		var at15v=at15T( );
+		var at15t=getElemento('addthis_dropdown');
+		at15t.style.display='block';
+		if (at15x-at15v[0]+at15t.clientWidth+024>at15w[0])
+			at15x=at15x-at15t.clientWidth;
+		if (at15W-at15v[1]+at15t.clientHeight+at15a.clientHeight+024>at15w[1])
+			at15W=at15W-at15t.clientHeight-024; at15t.style.left=at15x+'px';
+		at15t.style.top=(at15W+at15a.clientHeight)+'px';
+
+		return false;
+	}
+
+	function addthis_close( ){
+		addthis_closewinwait( );
+	}
+
+	function addthis_closewinwait( ){
+		at15A=setTimeout("addthis_closewin()",0764);
+	}
+
+	function addthis_closewin( ){
+		var at15t=getElemento('addthis_dropdown');
+		at15t.style.display='none';
+		return false;
+	}
+
+	function at15X(at15L){
+		var at15l=0,at15K=0;
+		do {
+			at15l+=at15L.offsetTop || 0;
+			at15K+=at15L.offsetLeft || 0;
+			at15L=at15L.offsetParent;
+		}while (at15L);
+		return [at15K,at15l];
+	}
+
+	function at15V( ){
+		var at15k=0; var at15J=0;
+		if (typeof(window.innerWidth)=='number'){
+			at15k=window.innerWidth;
+			at15J=window.innerHeight;
+		}else if (document.documentElement && (document.documentElement.clientWidth || document.documentElement.clientHeight)){
+			at15k=document.documentElement.clientWidth;
+			at15J=document.documentElement.clientHeight;
+		}else if (document.body && (document.body.clientWidth || document.body.clientHeight)){
+			at15k=document.body.clientWidth;
+			at15J=document.body.clientHeight;
+		}
+		return [at15k,at15J];
+	}
+
+	function at15T( ){
+		var at15j=0;
+		var at15H=0;
+		if (typeof(window.pageYOffset)=='number'){
+			at15H=window.pageYOffset;
+			at15j=window.pageXOffset;
+		}else if (document.body && (document.body.scrollLeft || document.body.scrollTop)){
+			at15H=document.body.scrollTop;
+			at15j=document.body.scrollLeft;
+		}else if (document.documentElement && (document.documentElement.scrollLeft || document.documentElement.scrollTop)){
+			at15H=document.documentElement.scrollTop;
+			at15j=document.documentElement.scrollLeft;
+		}
+		return [at15j,at15H];
+	}
+
+
+</script>
+
+
+<div id="addthis_dropdown" onmouseover="addthis_clearclosewin()" onmouseout="addthis_close()" >
+	<table width="100%" cellpadding="2" cellspacing="0" style="background-color: #EEEEEE; height: 18px">
+		<tr><td style="FONT-SIZE: 14px; color: #666666; padding-left:3px">
+			<span id="caption_title"> </span>
+		</td></tr>
+	</table>
+	<table id="addthis_services" width="100%" cellpadding="0" >
+		<tr><td id="links">
+		</td></tr>
+	</table>
+</div>
+
+
+</head>
+<body>
+<table width="900px" align="center"  bgcolor="#E0EEE0">
+<tr>
+<td>
+	<center>
+	<br><font size="4">Relat&#243;rio&#32;DOCxWEB&#58;&#32;https&#58;&#47;&#47;www&#46;docxweb&#46;com</font><p/> 
+	</center>
+	<div align="justify">
+	<br><font size="3">
+	<b>T&#237;tulo: software</b>
+	<br>Data: Mar 19, 2019 2:37:06 AM 
+	<br>Usu&#225;rio: Magno&#32;Carvalho&#32;Dos&#32;Santos 
+	<br>Email: magnosantos&#64;alunos&#46;utfpr&#46;edu&#46;br <br><br>
+	<p />
+	<table bgcolor="#F08080"><tr><td>
+	<input type="button" value="WEB"  onClick="acionaView('reportWeb');" />
+	
+	<input type="button" value="Ajuda"  
+	onClick="javascript: window.open('http://www.docxweb.com/pages/help/reportHelp.jsf', '_blank', 'width=700,height=500,scrollbars=1,screenX=50,screenY=50, resizable=yes, toolbar=yes,location=no,directories=yes,status=yes,menubar=yes,scrollbars=yes');" />
+	</td></tr></table>
+	<p />
+	<div id="reportWeb" style="display: block">
+		<script>
+var vetorWeb = new Array ();
+vetorWeb[0] = 'https://www.researchgate.net/publication/282769405_modelagem_em_desenvolvimento_agil_de_software_uma_revisao_da_literatura_modeling_in_agile_software_development_a_literature_review_work_in_progress_unpublished_unreviewed';
+vetorWeb[1] = 'https://www.devmedia.com.br/introducao-a-prototipacao-e-apresentacao-do-axure-rp-6-5/27978';
+vetorWeb[2] = 'https://www.adobe.com/products/xd.html';
+vetorWeb[3] = 'http://visao.sapo.pt/exame';
+vetorWeb[4] = 'http://visao.sapo.pt/atualidade/entrevistas-visao';
+vetorWeb[5] = 'https://www.adobe.com/br/';
+ 
+</script>
+<table width="900px" align="center"  bgcolor="#FFFFE0">
+<tr>
+<td>
+	<center>
+	<br><font size="4">Autenticidade&#32;em&#32;rela&#231;&#227;o&#32;a&#32;INTERNET</font><p/> 
+	</center>
+	<br>  Autenticidade&#32;Calculada:  </font><b><font size="5" color="blue">98 %</font></b><br>
+	<br>  Autenticidade&#32;Total:  82 %<p>
+	<hr><b></b><p><p>
+	<hr><b>Texto&#32;Pesquisado</b><p>&nbsp;<a class="lknLight" href='https://www.scribd.com/presentation/245610863/uml' >Diagramas&#32;UML<br><br>Diagramas&#32;UML&#32;&#40;Unified</a>&nbsp;&#32;Modelling&#32;Language&#41;&#44;&#32;s&#227;o&#32;tipos&#32;de&#32;linguagens&#32;em&#32;forma&#32;&nbsp;<a class="lknLight" href='http://www.profissionaldeecommerce.com.br/tag/monitoramento/' >de&#32;diagramas&#32;que&#32;auxiliam&#32;os&#32;desenvolvedores</a>&nbsp;&#32;a&#32;especificar&#44;&#32;visualizar&#44;&#32;&nbsp;<a class="lknLight" href='http://repositorio.roca.utfpr.edu.br/jspui/bitstream/1/589/1/pb_coads_2012_1_06.pdf' >construir&#32;e&#32;documentar&#32;modelos&#32;de</a>&nbsp;&#32;softwares&#32;orientados&#32;por&#32;objetos&#32;&#40;BOOCH&#59;&#32;RUMBAUGH&#44;&#32;&nbsp;<a class="lknLight" href='https://es.scribd.com/doc/129575444/gestao-de-marketing' >2005&#41;&#46;<br>Empresas&#32;praticantes&#32;da&#32;metodologia</a>&nbsp;&#32;&#225;gil&#32;veem&#32;a&#32;modelagem&#32;&nbsp;<a class="lknLight" href='http://www.administradores.com.br/artigos/marketing/agregar-valor-uma-estrategia-dos-dias-atuais-e-pouco-utilizada-pelas-empresas/24104/' >com&#32;pouco&#32;valor&#32;para&#32;o&#32;cliente&#44;&#32;e&#32;pouco</a>&nbsp;&#32;&#250;til&#32;quando&#32;feita&#32;anteriormente&#32;&nbsp;<a class="lknLight" href='https://www.dicio.com.br/efetivo/' >ao&#32;in&#237;cio&#32;do&#32;desenvolvimento&#32;efetivo</a>&nbsp;&#32;do&#32;projeto&#32;&#40;ABRAHAMSSON&#59;&#32;&nbsp;<a class="lknHeavy" href='https://www.researchgate.net/publication/282769405_modelagem_em_desenvolvimento_agil_de_software_uma_revisao_da_literatura_modeling_in_agile_software_development_a_literature_review_work_in_progress_unpublished_unreviewed' onMouseOver="return addthis_open(this, 'BABAR&#59;&#32;KRUCHTEN&#44;&#32;2010&#41;&#46;&#32;H&#225;&#32;tamb&#233;m&#32;a','0|', vetorWeb, true);" onMouseOut  = "addthis_close();" onClick  = "return addthis_to();" >BABAR&#59;&#32;KRUCHTEN&#44;&#32;2010&#41;&#46;&#32;H&#225;&#32;tamb&#233;m&#32;a</a>&nbsp;&#32;percep&#231;&#227;o&#32;que&#32;programadores&#32;n&#227;o&#32;gostam&#32;de&#32;fazer&#32;&nbsp;<a class="lknLight" href='https://www.devmedia.com.br/modelagem-de-sistemas-atraves-de-uml-uma-visao-geral/27913' >modelagem&#32;e&#32;documenta&#231;&#227;o&#46;&#32;Assim&#44;&#32;se</a>&nbsp;&#32;os&#32;desenvolvedores&#32;&#225;geis&#32;&nbsp;<a class="lknLight" href='https://www.scribd.com/document/252147209/guia-de-secretariado-livro-pdf' >n&#227;o&#32;perceberem&#32;a&#32;import&#226;ncia&#32;da</a>&nbsp;&#32;modelagem&#44;&#32;eles&#32;n&#227;o&#32;v&#227;o&#32;us&#225;&#45;la&#44;&#32;nem&#32;seus&#32;&nbsp;<a class="lknLight" href='https://applocal.com.br/empresa/industria-de-artefatos-de-cimento-schroeder/joinville/sc/11245068' >artefatos&#32;&#40;SCHROEDER&#59;&#32;SANTOS&#44;&#32;2014&#41;&#46;</a>&nbsp;&#32;<br>Parece&#32;consenso&#32;que&#32;o&#32;uso&#32;deste&#32;arcabou&#231;o&#32;com&#32;muita&#32;antecipa&#231;&#227;o&#32;antes&#32;do&#32;in&#237;cio&#32;do&#32;desenvolvimento&#32;efetivo&#32;do&#32;software&#32;&nbsp;<a class="lknLight" href='http://bibliotecadigital.fgv.br/dspace/bitstream/handle/10438/11826/gestï¿½ï¿½o da mudanï¿½ï¿½a-uma revisï¿½ï¿½o teï¿½ï¿½rica.pdf?sequence=1' >pode&#32;levar&#32;a&#32;decis&#245;es&#32;equivocadas&#46;</a>&nbsp;&#32;Tamb&#233;m&#32;&#233;&#32;prudente&#32;avaliar&#32;que&#32;&nbsp;<a class="lknLight" href='https://tudocommoda.com/bolsas/bolsa-de-tecido/' >a&#32;modelagem&#32;deve&#32;ser&#32;de&#32;acordo&#32;com</a>&nbsp;&#32;o&#32;contexto&#58;&#32;projetos&#32;grandes&#32;e&#32;complexos&#32;&nbsp;<a class="lknHeavy" href='https://www.researchgate.net/publication/282769405_modelagem_em_desenvolvimento_agil_de_software_uma_revisao_da_literatura_modeling_in_agile_software_development_a_literature_review_work_in_progress_unpublished_unreviewed' onMouseOver="return addthis_open(this, 'necessitam&#32;de&#32;um&#32;esfor&#231;o&#32;de&#32;modelagem&#32;maior&#46;&#32;Apesar&#32;da&#32;arquitetura','0|', vetorWeb, true);" onMouseOut  = "addthis_close();" onClick  = "return addthis_to();" >necessitam&#32;de&#32;um&#32;esfor&#231;o&#32;de&#32;modelagem&#32;maior&#46;&#32;Apesar&#32;da&#32;arquitetura</a>&nbsp;&#32;evoluir&#32;interativamente&#44;&#32;decis&#245;es&#32;de&#32;maior&#32;dificuldade&#32;de&#32;mudan&#231;a&#32;e&#32;mais&#32;permanentes&#32;devem&#32;ser&#32;tomadas&#32;&nbsp;<a class="lknLight" href='http://www.anvisa.gov.br/datavisa/fila_bula/frmvisualizarbula.asp?pnutransacao=10630312015&amp;pidanexo=2984060' >nas&#32;primeiras&#32;intera&#231;&#245;es&#32;&#40;ABRAHAMSSON&#59;</a>&nbsp;&#32;BABAR&#59;&#32;KRUCHTEN&#44;&#32;2010&#41;&#46;&#32;<br>Tendo&#32;o&#32;foco&#32;no&#32;desenvolvimento&#32;&#225;gil&#44;&#32;inicialmente&#32;o&#32;&#250;nico&#32;diagrama&#32;UML&#32;criado&#32;para&#32;o&#32;software&#32;proposto&#32;nesse&#32;trabalho&#32;ser&#225;&#32;o&#32;diagrama&#32;de&#32;caso&#32;de&#32;uso&#46;&#32;Outros&#32;diagramas&#32;UML&#32;ser&#227;o&#32;desenvolvidos&#32;conforme&#32;&nbsp;<a class="lknLight" href='https://www.passeidireto.com/arquivo/22340455/concessao-de-oficio-da-antecipacao-da-tutela-das-obrigacoes-de-fazer-e-nao-fazer/9' >a&#32;demanda&#32;da&#32;exig&#234;ncia&#32;dos&#32;requisitos&#46;</a>&nbsp;&#32;Nessa&#32;fase&#32;do&#32;projeto&#44;&#32;&nbsp;<a class="lknLight" href='http://estudanteesdedireito.blogspot.com/2011/03/questao-do-ensino-juridico.html' >que&#32;exige&#32;apenas&#32;uma&#32;abstra&#231;&#227;o&#32;inicial</a>&nbsp;&#32;da&#32;proposta&#44;&#32;foram&#32;&nbsp;<a class="lknLight" href='https://www.noticiasnaturais.com/2013/11/explode-o-uso-de-antidepressivos-nos-paises-desenvolvidos/' >desenvolvidos&#32;o&#32;caso&#32;de&#32;uso&#32;junto</a>&nbsp;&#32;com&#32;os&#32;prot&#243;tipos&#32;do&#32;projeto&#44;&#32;aliados&#32;ao&#32;modelo&#32;de&#32;processo&#32;do&#32;Scrum&#32;Solo&#46;<br><br>3&#46;2&#46;1&#32;Casos&#32;de&#32;uso<br><br>Um&#32;caso&#32;&nbsp;<a class="lknLight" href='https://www.ateomomento.com.br/o-que-e-caso-de-uso/' >de&#32;uso&#32;&#233;&#32;uma&#32;descri&#231;&#227;o&#32;de&#32;um&#32;comportamento</a>&nbsp;&#32;de&#32;um&#32;sistema&#44;&#32;seja&#32;ele&#32;o&#32;sistema&#32;completo&#44;&#32;ou&#32;apenas&#32;uma&#32;tarefa&#32;separada&#32;dentro&#32;&nbsp;<a class="lknLight" href='https://www.infoescola.com/saude/sus/' >do&#32;sistema&#32;como&#32;um&#32;todo&#44;&#32;sendo&#32;que</a>&nbsp;&#32;esta&#32;descri&#231;&#227;o&#32;&#233;&#32;realizada&#32;&nbsp;<a class="lknLight" href='http://repositorio.roca.utfpr.edu.br/jspui/bitstream/1/9979/1/ct_cosis_2017_1_5.pdf' >relatando&#32;passo&#32;a&#32;passo&#32;a&#32;intera&#231;&#227;o</a>&nbsp;&#32;do&#32;usu&#225;rio&#32;com&#32;o&#32;sistema&#44;&#32;em&#32;um&#32;cen&#225;rio&#32;&#243;timo&#32;&#40;MELO&#44;&#32;2004&#41;&#46;&#32;<br>A&#32;seguir&#32;est&#227;o&#32;descritos&#32;os&#32;casos&#32;&nbsp;<a class="lknLight" href='https://www.gestortecnico.net/2017/12/corrigir-uso-do-disco-100-no-windows10.html' >de&#32;uso&#32;que&#32;contemplam&#32;a&#32;solu&#231;&#227;o</a>&nbsp;&#32;apresentada&#44;&#32;sendo&#32;definidos&#32;os&#32;atores&#32;como&#32;usu&#225;rio&#32;aplicativo&#32;e&#32;usu&#225;rio&#32;empresa&#58;<br>O&#32;usu&#225;rio&#32;aplicativo&#32;interage&#32;com&#32;o&#32;m&#243;dulo&#32;aplicativo&#32;conforme&#32;descrito&#32;nos&#32;requisitos&#32;funcionais&#32;no&#32;item&#32;3&#46;1&#32;referentes&#32;a&#32;plataforma&#32;aplicativo&#46;&#32;Ele&#32;pode&#32;acessar&#32;a&#32;lista&#32;de&#32;promo&#231;&#245;es&#32;cadastradas&#32;&nbsp;<a class="lknLight" href='https://repositorio.ufsc.br/bitstream/handle/123456789/95316/295260.pdf?sequence=1' >nas&#32;proximidades&#32;de&#32;sua&#32;localiza&#231;&#227;o</a>&nbsp;&#32;via&#32;GPS&#44;&#32;uma&#32;vez&#32;que&#32;esteja&#32;&nbsp;<a class="lknLight" href='https://www.blogadvpl.com/entrando-automaticamente-no-protheus-sem-precisar-informar-usuario-e-senha/' >autenticado&#32;no&#32;sistema&#46;&#32;<br>J&#225;&#32;o&#32;usu&#225;rio</a>&nbsp;&#32;empresa&#32;interage&#32;com&#32;o&#32;m&#243;dulo&#32;empresa&#32;descrito&#32;nos&#32;requisitos&#32;funcionais&#32;no&#32;item&#32;&nbsp;<a class="lknLight" href='https://www.plataformamedia.com/pt-pt/noticias/economia/interior/empresa-de-pontes-comeca-a-pagar-56-meses-de-salarios-9959843.html' >3&#46;1&#32;referentes&#32;a&#32;plataforma&#32;empresa&#46;</a>&nbsp;&#32;Ele&#32;pode&#32;cadastrar&#32;as&#32;promo&#231;&#245;es&#32;&nbsp;<a class="lknLight" href='https://documento.site/manual-de-instruoes-elevadores.html' >de&#32;seu&#32;estabelecimento&#32;e&#32;verificar</a>&nbsp;&#32;a&#32;intera&#231;&#227;o&#32;das&#32;&nbsp;<a class="lknLight" href='https://promocoes.telesena.com.br/cadastro-premiado.html' >promo&#231;&#245;es&#32;j&#225;&#32;cadastradas&#32;com&#32;seus</a>&nbsp;&#32;clientes&#44;&#32;uma&#32;vez&#32;que&#32;esteja&#32;&nbsp;<a class="lknLight" href='http://www.anp.gov.br/images/manuais/csa/csa.pdf' >autenticado&#32;no&#32;sistema&#46;<br><br>&#32;<br>&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;Figura&#32;2</a>&nbsp;&#32;&#8211;&#32;Caso&#32;de&#32;uso&#32;&nbsp;<a class="lknLight" href='https://es.scribd.com/document/31773355/apostila-clp-completa' >usu&#225;rio&#32;aplicativo<br>&#32;<br>&#32;&#32;&#32;&#32;&#32;&#32;Figura&#32;3&#32;&#45;&#32;Caso</a>&nbsp;&#32;de&#32;uso&#32;usu&#225;rio&#32;empresa<br><br>3&#46;3&#32;Prot&#243;tipos&#32;&nbsp;<a class="lknHeavy" href='https://www.devmedia.com.br/introducao-a-prototipacao-e-apresentacao-do-axure-rp-6-5/27978' onMouseOver="return addthis_open(this, '<br><br>Um&#32;prot&#243;tipo&#32;&#233;&#32;um&#32;conceito&#32;resultante','1|', vetorWeb, true);" onMouseOut  = "addthis_close();" onClick  = "return addthis_to();" ><br><br>Um&#32;prot&#243;tipo&#32;&#233;&#32;um&#32;conceito&#32;resultante</a>&nbsp;&#32;em&#32;uma&#32;estrutura&#32;&nbsp;<a class="lknLight" href='http://www.okconcursos.com.br/apostilas/apostila-gratis/130-informatica-para-concursos/1687-hardware-e-software-conceitos-basicos' >f&#237;sica&#32;&#40;hardware&#44;&#32;papel&#44;&#32;etc&#46;&#41;&#32;ou&#32;digital</a>&nbsp;&#32;&#40;imagem&#44;&#32;v&#237;deo&#32;&nbsp;<a class="lknHeavy" href='https://www.devmedia.com.br/introducao-a-prototipacao-e-apresentacao-do-axure-rp-6-5/27978' onMouseOver="return addthis_open(this, '3D&#44;&#32;HTML&#44;&#32;etc&#46;&#41;&#44;&#32;que&#32;permite&#32;aos&#32;interessados&#32;uma','1|', vetorWeb, true);" onMouseOut  = "addthis_close();" onClick  = "return addthis_to();" >3D&#44;&#32;HTML&#44;&#32;etc&#46;&#41;&#44;&#32;que&#32;permite&#32;aos&#32;interessados&#32;uma</a>&nbsp;&#32;experi&#234;ncia&#32;de&#32;escolha&#32;de&#32;aspectos&#32;fundamentais&#32;de&#32;um&#32;produto&#32;em&#32;potencial&#32;&nbsp;<a class="lknLight" href='https://descomplica.com.br/gabarito-enem/questoes/2012/segundo-dia/ha-em-virtude-da-demanda-crescente-de-economia-de-agua-equipamentos-e-utensilios/' >&#40;GOMES&#44;&#32;2013&#41;&#44;&#32;<br>Em&#32;virtude&#32;da&#32;crescente</a>&nbsp;&#32;utiliza&#231;&#227;o&#32;de&#32;dispositivos&#32;m&#243;veis&#32;&#40;smatphones&#32;e&#32;tablets&#41;&#32;&#40;PAULO&#44;&#32;2015&#41;&#44;&#32;nessa&#32;proposta&#32;&nbsp;<a class="lknLight" href='https://www.researchgate.net/profile/dilermando_piva_jr/publication/309419344_sistema_de_avaliacao_da_aprendizagem_saa_operacionalizacao_da_metodologia_flipped_classroom/links/580fc41908ae009606bb8c36/sistema-de-avaliacao-da-aprendizagem-saa-operacionalizacao-da-metodologia-flipped-classroom.pdf' >buscou&#45;se&#32;encontrar&#32;um&#32;ambiente</a>&nbsp;&#32;de&#32;programa&#231;&#227;o&#32;onde&#32;fosse&#32;poss&#237;vel&#32;o&#32;desenvolvimento&#32;de&#32;ferramentas&#32;que&#32;independessem&#32;de&#32;plataforma&#44;&#32;mas&#32;que&#32;fossem&#32;adequadas&#32;aos&#32;sistemas&#32;m&#243;veis&#32;atuais&#32;&#40;tamb&#233;m&#32;conhecido&#32;como&#32;&#8220;mobile&#32;first&#8221;&#41;&#44;&#32;onde&#32;todo&#32;o&#32;desenvolvimento&#32;do&#32;projeto&#32;web&#32;&#233;&#32;inicialmente&#32;projetado&#32;com&#32;foco&#32;nos&#32;dispositivos&#32;m&#243;veis&#32;&nbsp;<a class="lknLight" href='https://docplayer.com.br/84673317-claudete-de-jesus-ferreira-da-silva.html' >e&#32;posteriormente&#32;para&#32;a&#32;vis&#227;o&#32;desktop</a>&nbsp;&#32;&#40;MARCOTTE&#44;&#32;2017&#41;&#46;<br>Como&#32;o&#32;projeto&#32;tem&#32;duas&#32;vertentes&#44;&#32;uma&#32;para&#32;usu&#225;rio&#32;aplicativo&#32;e&#32;outra&#32;usu&#225;rio&#32;empresa&#32;&nbsp;<a class="lknLight" href='https://www.ateomomento.com.br/o-que-e-requisito-funcional/' >uma&#32;vez&#32;que&#32;os&#32;requisitos&#32;e&#32;caso</a>&nbsp;&#32;de&#32;uso&#32;foram&#32;&nbsp;<a class="lknLight" href='https://interfusaoti.com.br/blog/como-integrar-o-seu-laboratorio-com-o-sistema-sap/' >definidos&#44;&#32;a&#32;primeira&#32;vers&#227;o&#32;dos</a>&nbsp;&#32;prot&#243;tipos&#32;fora&#32;criada&#46;&#32;Para&#32;a&#32;cria&#231;&#227;o&#32;foi&#32;&nbsp;<a class="lknHeavy" href='https://www.adobe.com/products/xd.html' onMouseOver="return addthis_open(this, 'utilizado&#32;o&#32;software&#32;Adobe&#32;XD&#32;para&#32;o&#32;design','2|', vetorWeb, true);" onMouseOut  = "addthis_close();" onClick  = "return addthis_to();" >utilizado&#32;o&#32;software&#32;Adobe&#32;XD&#32;para&#32;o&#32;design</a>&nbsp;&#32;de&#32;experi&#234;ncia&#32;do&#32;usu&#225;rio&#44;&#32;o&#32;mesmo&#32;&nbsp;<a class="lknLight" href='https://anicrossbr.fandom.com/pt-br/wiki/final_fantasy_i' >&#233;&#32;desenvolvido&#32;e&#32;publicado&#32;pela</a>&nbsp;&#32;Adobe&#32;Systems&#46;&nbsp;<a class="lknLight" href='http://onedaycode.com/mit-app-inventor-portugues-criar-app-android-gratis/' ><br><br>3&#46;3&#46;1&#32;Prot&#243;tipos&#32;Aplicativo<br><br>Nessa</a>&nbsp;&#32;sess&#227;o&#32;teremos&#32;&nbsp;<a class="lknHeavy" href='http://visao.sapo.pt/exame' onMouseOver="return addthis_open(this, 'os&#32;principais&#32;prot&#243;tipos&#32;da&#32;vis&#227;o','3|4|', vetorWeb, true);" onMouseOut  = "addthis_close();" onClick  = "return addthis_to();" >os&#32;principais&#32;prot&#243;tipos&#32;da&#32;vis&#227;o</a>&nbsp;&#32;aplicativo&#46;<br>&#32;<br>3&#46;3&#46;1&#46;1&#32;Tela&#32;de&#32;login&nbsp;<a class="lknLight" href='https://www.apc.com/salestools/elia-9pvgya/elia-9pvgya_r0_br.pdf' ><br><br>Nesta&#32;tela&#44;&#32;observada&#32;na&#32;Figura&#32;4&#44;</a>&nbsp;&#32;&#233;&#32;mostrado&#32;o&#32;&#237;cone&#32;do&#32;aplicativo&#44;&#32;&nbsp;<a class="lknLight" href='https://canaltech.com.br/software/aprenda-a-adicionar-o-login-com-facebook-no-seu-site-usando-javascript-ou-php/' >e&#32;o&#32;bot&#227;o&#32;de&#32;login&#32;com&#32;o&#32;Facebook&#46;</a>&nbsp;&#32;A&#32;&#250;nica&#32;op&#231;&#227;o&#32;no&#32;momento&#32;&nbsp;<a class="lknLight" href='https://documento.site/paula-guerra.html' >para&#32;entrar&#32;na&#32;aplica&#231;&#227;o&#32;&#233;&#32;apertando</a>&nbsp;&#32;o&#32;bot&#227;o&#32;de&#32;login&#46;&#32;Caso&#32;ocorra&#32;algum&#32;erro&#44;&#32;uma&#32;mensagem&#32;&nbsp;<a class="lknLight" href='http://www.desenvolvimentosocial.pr.gov.br/arquivos/file/manual_sipia_celepar.pdf' >&#233;&#32;apresentada&#32;ao&#32;usu&#225;rio&#32;do&#32;aplicativo&#46;</a>&nbsp;&#32;Esta&#32;tela&#32;n&#227;o&#32;&nbsp;<a class="lknHeavy" href='https://www.adobe.com/br/' onMouseOver="return addthis_open(this, '&#233;&#32;mostrada&#32;caso&#32;o&#32;usu&#225;rio&#32;j&#225;&#32;tenha&#32;realizado&#32;o&#32;login&#32;anteriormente&#46;','5|', vetorWeb, true);" onMouseOut  = "addthis_close();" onClick  = "return addthis_to();" >&#233;&#32;mostrada&#32;caso&#32;o&#32;usu&#225;rio&#32;j&#225;&#32;tenha&#32;realizado&#32;o&#32;login&#32;anteriormente&#46;</a>&nbsp;<br><br>&#32;<br>&#32;Figura&#32;4&#32;&#8211;&#32;Tela&#32;de&#32;login<br><br>&#8195;<br>3&#46;3&#46;1&#46;2&#32;Tela&#32;Principal<br><br>Nesta&#32;tela&#44;&#32;observada&#32;na&#32;Figura&#32;5&#44;&#32;O&#32;menu&#32;principal&#32;&#233;&#32;a&#32;tela&#32;base&#32;da&#32;aplica&#231;&#227;o&#44;&#32;&nbsp;<a class="lknLight" href='https://www.2viacontaatrasada.com.br/energisa-2-via/' >por&#32;meio&#32;dela&#32;&#233;&#32;poss&#237;vel&#32;acessar</a>&nbsp;&#32;as&#32;funcionalidades&#32;do&#32;aplicativo&#46;&#32;A&#32;principal&#32;funcionalidade&#32;&nbsp;<a class="lknLight" href='https://www.pelando.com.br/' >&#233;&#32;de&#32;acessar&#32;e&#32;listar&#32;as&#32;promo&#231;&#245;es</a>&nbsp;&#32;pr&#243;ximas&#32;do&#32;usu&#225;rio&#32;do&#32;aplicativo&#44;&#32;ordenadas&#32;pela&#32;proximidade&#32;ao&#32;usu&#225;rio&#46;&#32;Apertando&#32;no&#32;canto&#32;superior&#32;esquerdo&#32;&nbsp;<a class="lknLight" href='http://casamentos.raulcosta.com.br/degustacao-de-menu-va-muito-alem-sabor-saiba-o-que-voce-deve-observar/' >podem&#45;se&#32;observar&#32;as&#32;op&#231;&#245;es&#32;do&#32;menu&#44;</a>&nbsp;&#32;e&#32;apertando&#32;no&#32;canto&#32;&nbsp;<a class="lknLight" href='https://vdocuments.site/apostila-de-informatica-1-55b9fb473c98d.html' >superior&#32;direito&#44;&#32;podem&#45;se&#32;acessar</a>&nbsp;&#32;os&#32;filtros&#32;das&#32;promo&#231;&#245;es&#32;&nbsp;<a class="lknLight" href='http://www.dicasparacomputador.com/windows' >a&#32;serem&#32;mostradas&#46;&#32;Apertando&#32;na&#32;op&#231;&#227;o</a>&nbsp;&#32;check&#45;in&#32;da&#32;promo&#231;&#227;o&#32;&nbsp;<a class="lknLight" href='http://www.opensystem.srv.br/almoxarifado/' >o&#32;usu&#225;rio&#32;tem&#32;acesso&#32;a&#32;informa&#231;&#245;es</a>&nbsp;&#32;mais&#32;detalhadas&#32;&nbsp;<a class="lknLight" href='http://revista.rebia.org.br/artigos/pesquisa-ambiental/234-e-no-meio-do-caminho-ha-muitos-golfinhos' >sobre&#32;a&#32;mesma&#44;&#32;al&#233;m&#32;de&#32;acesso&#32;ao</a>&nbsp;&#32;desconto&#32;cadastrado&#46;&#32;Clicando&#32;no&#32;nome&#32;da&#32;empresa&#32;&nbsp;<a class="lknLight" href='http://www.opensystem.srv.br/almoxarifado/' >o&#32;usu&#225;rio&#32;tem&#32;acesso&#32;a&#32;informa&#231;&#245;es</a>&nbsp;&#32;detalhadas&#32;da&#32;empresa&#32;como&#32;observado&#32;na&#32;Figura&#32;6&#46;<br><br>&#32;<br>&#32;Figura&#32;5&#32;&#8211;&#32;Tela&#32;de&#32;Principal<br><br>&#32;<br>3&#46;3&#46;1&#46;3&#32;&nbsp;<a class="lknLight" href='https://cetesb.sp.gov.br/licenciamentoambiental/wp-content/uploads/sites/32/2013/12/manual-externo.pdf' >Tela&#32;Perfil&#32;Empresa<br><br>Nesta&#32;tela&#44;&#32;observada</a>&nbsp;&#32;na&#32;Figura&#32;6&#44;&#32;o&#32;usu&#225;rio&#32;tem&#32;&nbsp;<a class="lknLight" href='http://manmessias21.blogspot.com/2014/03/' >acesso&#32;as&#32;informa&#231;&#245;es&#32;da&#32;tela&#32;da</a>&nbsp;&#32;empresa&#44;&#32;como&#32;dist&#226;ncia&#32;do&#32;seu&#32;local&#32;calculado&#32;&nbsp;<a class="lknLight" href='http://pt.alpha-nouvelles.com/article/como-localizar-um-telefone-celular-com-gps' >usando&#32;dados&#32;do&#32;GPS&#44;&#32;telefone&#32;para&#32;contato</a>&nbsp;&#32;da&#32;empresa&#44;&#32;&nbsp;<a class="lknLight" href='https://exame.abril.com.br/pme/na-ponta-do-lapis/' >uma&#32;pequena&#32;avalia&#231;&#227;o&#44;&#32;as&#32;ofertas</a>&nbsp;&#32;e&#32;promo&#231;&#245;es&#32;da&#32;empresa&#44;&#32;al&#233;m&#32;do&#32;link&#32;do&#32;website&#32;ou&#32;rede&#32;social&#32;da&#32;empresa&#46;<br>&#32;<br>&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;Figura&#32;6&#32;&#8211;&#32;Tela&#32;de&#32;Perfil&#32;empresa<br><br>3&#46;3&#46;1&#46;4&#32;Tela&#32;Menu&#32;principal<br><br>Nesta&#32;tela&#32;&nbsp;<a class="lknLight" href='http://www.gestaoescolar.diaadia.pr.gov.br/arquivos/file/pde_roteiros/tutorial_sacir_prof_pde_2013_texto.pdf' >&#40;Figura&#32;7&#41;&#44;&#32;o&#32;usu&#225;rio&#32;tem&#32;acesso&#32;&#224;s</a>&nbsp;&#32;informa&#231;&#245;es&#32;do&#32;menu&#32;&nbsp;<a class="lknLight" href='https://pt.advertisercommunity.com/t5/negocios-com-mais-de-10-lugares/imagem-principal-do-google-maps/td-p/245033' >principal&#32;como&#32;foto&#32;de&#32;perfil&#32;e</a>&nbsp;&#32;nome&#32;do&#32;usu&#225;rio&#44;&#32;al&#233;m&#32;das&#32;op&#231;&#245;es&#32;de&#32;interagir&#32;com&#32;&nbsp;<a class="lknLight" href='https://www.techtudo.com.br/dicas-e-tutoriais/noticia/2015/07/como-editar-o-menu-iniciar-do-windows-10-e-deixa-lo-perfeito.html' >itens&#32;do&#32;menu&#46;<br><br>&#32;<br>&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;Figura&#32;7&#32;&#8211;&#32;Tela&#32;de&#32;menu</a>&nbsp;&#32;principal<br>3&#46;3&#46;2&#32;Prot&#243;tipos&#32;empresa<br><br>Nessa&#32;sess&#227;o&#32;teremos&#32;&nbsp;<a class="lknHeavy" href='http://visao.sapo.pt/exame' onMouseOver="return addthis_open(this, 'os&#32;principais&#32;prot&#243;tipos&#32;da&#32;vis&#227;o','3|4|', vetorWeb, true);" onMouseOut  = "addthis_close();" onClick  = "return addthis_to();" >os&#32;principais&#32;prot&#243;tipos&#32;da&#32;vis&#227;o</a>&nbsp;&#32;empresa&#46;&#32;&nbsp;<a class="lknLight" href='https://dextra.com.br/pt/blog/prototipacao-e-sua-importancia-no-desenvolvimento-de-software/' >Os&#32;prot&#243;tipos&#32;foram&#32;criados&#32;diferentes</a>&nbsp;&#32;da&#32;vis&#227;o&#32;aplicativo&#32;utilizando&#32;um&#32;modelo&#32;desktop&#32;de&#32;1280&#32;x&#32;850&#46;<br><br>3&#46;3&#46;2&#46;1&#32;Tela&#32;&nbsp;<a class="lknLight" href='https://www.apc.com/salestools/elia-9pvgya/elia-9pvgya_r0_br.pdf' >principal<br><br>Nesta&#32;tela&#32;&#40;Figura&#32;8&#32;&#45;&#32;Tela&#32;principal&#32;da</a>&nbsp;&#32;vis&#227;o&#32;empresa&#41;&#44;&#32;&nbsp;<a class="lknLight" href='https://pt.wikihow.com/encontrar-ou-mudar-o-administrador-do-meu-computador' >o&#32;usu&#225;rio&#32;empresa&#32;tem&#32;acesso&#32;a&#32;lista</a>&nbsp;&#32;de&#32;todas&#32;as&#32;promo&#231;&#245;es&#32;cadastradas&#46;&#32;Na&#32;lateral&#32;esquerda&#32;h&#225;&#32;um&#32;menu&#32;com&#32;as&#32;op&#231;&#245;es&#32;de&#32;editar&#32;&nbsp;<a class="lknLight" href='https://blog.dito.com.br/6-informacoes-que-voce-precisa-ter-sobre-o-perfil-do-cliente/' >o&#32;perfil&#32;da&#32;empresa&#44;&#32;promo&#231;&#245;es&#32;e</a>&nbsp;&#32;relat&#243;rio&#32;&nbsp;<a class="lknLight" href='http://ftp.betha.com.br/mkt/manual-portal2.pdf' >No&#32;canto&#32;inferior&#32;direito&#32;h&#225;&#32;um</a>&nbsp;&#32;bot&#227;o&#32;flutuante&#32;para&#32;realizar&#32;o&#32;cadastro&#32;&nbsp;<a class="lknLight" href='https://zupi.co/snap-lanca-oculos-que-tiram-fotos-e-gravam-videos/' >de&#32;nova&#32;promo&#231;&#227;o&#44;&#32;e&#32;no&#32;canto&#32;superior</a>&nbsp;&#32;direito&#32;h&#225;&#32;um&#32;&#205;cone&#32;&nbsp;<a class="lknLight" href='https://www.htmlprogressivo.net/2014/01/como-criar-botoes-html-reset-limpar-submit-enviar-formulario.html' >de&#32;lupa&#32;com&#32;um&#32;input&#32;para&#32;realizar</a>&nbsp;&#32;busca&#32;nas&#32;promo&#231;&#245;es&#32;listadas&#46;&nbsp;<a class="lknLight" href='https://www.canva.com/pt_br/aprenda/50-padroes-geometricos-do-design/' ><br>A&#32;listagem&#32;utiliza&#32;o&#32;padr&#227;o&#32;de&#32;design</a>&nbsp;&#32;dos&#32;Cards&#32;do&#32;Angular&#32;Material&#32;&nbsp;<a class="lknLight" href='http://eexponews.com/news/newslistbyurldominio.jsp?url=blogdalu.magazineluiza.com.br' >&#44;&#32;trazendo&#32;v&#225;rias&#32;informa&#231;&#245;es&#32;da&#32;promo&#231;&#227;o&#44;</a>&nbsp;&#32;como&#32;nome&#44;&#32;pre&#231;o&#32;e&#32;imagem&#46;<br>&#32;<br>&#32;Figura&#32;8&#32;&#8211;&#32;Tela&#32;Principal<br><br>3&#46;3&#46;2&#46;2&#32;Tela&#32;de&#32;Relat&#243;rio<br><br>Nesta&#32;tela&#44;&#32;observada&#32;na&#32;Figura&#32;9&#44;&#32;o&#32;usu&#225;rio&#32;empresa&#32;tem&#32;acesso&#32;ao&#32;relat&#243;rio&#32;&nbsp;<a class="lknLight" href='https://issuu.com/rafaelocana/docs/livrarias' >em&#32;tabela&#32;das&#32;intera&#231;&#245;es&#32;dos&#32;clientes</a>&nbsp;&#32;com&#32;suas&#32;promo&#231;&#245;es&#32;publicadas&#46;&#32;&nbsp;<a class="lknLight" href='http://ftp.betha.com.br/mkt/manual-portal2.pdf' >No&#32;canto&#32;inferior&#32;direito&#32;h&#225;&#32;um</a>&nbsp;&#32;bot&#227;o&#32;flutuante&#32;de&#32;cadastro&#32;de&#32;nova&#32;promo&#231;&#227;o&#44;&#32;e&#32;na&#32;esquerda&#32;h&#225;&#32;um&#32;menu&#32;lateral&#32;com&#32;as&#32;op&#231;&#245;es&#32;para&#32;editar&#32;&nbsp;<a class="lknLight" href='https://blog.dito.com.br/6-informacoes-que-voce-precisa-ter-sobre-o-perfil-do-cliente/' >o&#32;perfil&#32;da&#32;empresa&#44;&#32;promo&#231;&#245;es&#32;e</a>&nbsp;&#32;relat&#243;rio&#46;&#32;&nbsp;<a class="lknLight" href='https://www.canva.com/pt_br/aprenda/50-padroes-geometricos-do-design/' ><br>A&#32;listagem&#32;utiliza&#32;o&#32;padr&#227;o&#32;de&#32;design</a>&nbsp;&#32;dos&#32;Table&#32;do&#32;Angular&#32;Material&#32;&nbsp;<a class="lknLight" href='http://eexponews.com/news/newslistbyurldominio.jsp?url=blogdalu.magazineluiza.com.br' >&#44;&#32;trazendo&#32;v&#225;rias&#32;informa&#231;&#245;es&#32;da&#32;promo&#231;&#227;o&#44;</a>&nbsp;&#32;como&#32;nome&#44;&#32;status&#44;&#32;valor&#32;do&#32;desconto&#44;&#32;imagem&#32;atribu&#237;da&#32;a&#32;promo&#231;&#227;o&#32;e&#32;quantidades&#32;de&#32;intera&#231;&#245;es&#32;<br><br>&#32;<br>&#32;Figura&#32;9&#32;&#8211;&#32;Tela&#32;de&#32;Relat&#243;rio<br><br>&#8195;<br><br><p>
+	<hr><b>Links&#32;por&#32;Ocorr&#234;ncia</b><p>  Fragmento: <font color="blue">BABAR&#59;&#32;KRUCHTEN&#44;&#32;2010&#41;&#46;&#32;H&#225;&#32;tamb&#233;m&#32;a</font><br/>URLs:  <br/><a href="https://www.researchgate.net/publication/282769405_modelagem_em_desenvolvimento_agil_de_software_uma_revisao_da_literatura_modeling_in_agile_software_development_a_literature_review_work_in_progress_unpublished_unreviewed"><font color="red">https://www.researchgate.net/publication/282769405_modelagem_em_desenvolvimento_agil_de_software_uma_revisao_da_literatura_modeling_in_agile_software_development_a_literature_review_work_in_progress_unpublished_unreviewed</font></a><br/><br/>  Fragmento: <font color="blue">necessitam&#32;de&#32;um&#32;esfor&#231;o&#32;de&#32;modelagem&#32;maior&#46;&#32;Apesar&#32;da&#32;arquitetura</font><br/>URLs:  <br/><a href="https://www.researchgate.net/publication/282769405_modelagem_em_desenvolvimento_agil_de_software_uma_revisao_da_literatura_modeling_in_agile_software_development_a_literature_review_work_in_progress_unpublished_unreviewed"><font color="red">https://www.researchgate.net/publication/282769405_modelagem_em_desenvolvimento_agil_de_software_uma_revisao_da_literatura_modeling_in_agile_software_development_a_literature_review_work_in_progress_unpublished_unreviewed</font></a><br/><br/>  Fragmento: <font color="blue">
+
+Um&#32;prot&#243;tipo&#32;&#233;&#32;um&#32;conceito&#32;resultante</font><br/>URLs:  <br/><a href="https://www.devmedia.com.br/introducao-a-prototipacao-e-apresentacao-do-axure-rp-6-5/27978"><font color="red">https://www.devmedia.com.br/introducao-a-prototipacao-e-apresentacao-do-axure-rp-6-5/27978</font></a><br/><br/>  Fragmento: <font color="blue">3D&#44;&#32;HTML&#44;&#32;etc&#46;&#41;&#44;&#32;que&#32;permite&#32;aos&#32;interessados&#32;uma</font><br/>URLs:  <br/><a href="https://www.devmedia.com.br/introducao-a-prototipacao-e-apresentacao-do-axure-rp-6-5/27978"><font color="red">https://www.devmedia.com.br/introducao-a-prototipacao-e-apresentacao-do-axure-rp-6-5/27978</font></a><br/><br/>  Fragmento: <font color="blue">utilizado&#32;o&#32;software&#32;Adobe&#32;XD&#32;para&#32;o&#32;design</font><br/>URLs:  <br/><a href="https://www.adobe.com/products/xd.html"><font color="red">https://www.adobe.com/products/xd.html</font></a><br/><br/>  Fragmento: <font color="blue">os&#32;principais&#32;prot&#243;tipos&#32;da&#32;vis&#227;o</font><br/>URLs:  <br/><a href="http://visao.sapo.pt/exame"><font color="red">http://visao.sapo.pt/exame</font></a><br/><a href="http://visao.sapo.pt/atualidade/entrevistas-visao"><font color="red">http://visao.sapo.pt/atualidade/entrevistas-visao</font></a><br/><br/>  Fragmento: <font color="blue">&#233;&#32;mostrada&#32;caso&#32;o&#32;usu&#225;rio&#32;j&#225;&#32;tenha&#32;realizado&#32;o&#32;login&#32;anteriormente&#46;</font><br/>URLs:  <br/><a href="https://www.adobe.com/br/"><font color="red">https://www.adobe.com/br/</font></a><br/><br/><p> 
+</td>
+</tr>
+</table>	
+ 
+
+	</div>
+	<div id="reportHome" style="display: none">
+		##REPORT_HOME##
+	</div>
+	<div id="reportHelp" style="display: none">
+	<table width="900px" align="center"  bgcolor="#FFE1FF">
+	<tr>
+	<td>
+		
+
+	</td>
+	</tr>
+	</table>
+	</div>
+	
+	<hr>Relat&#243;rio&#32;DOCxWEB&#58;&#32;https&#58;&#47;&#47;www&#46;docxweb&#46;com<br>
+	</div>
+</td>
+</tr>
+</table>	
+</body>
+</html>

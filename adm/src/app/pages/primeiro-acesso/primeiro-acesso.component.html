@@ -55,8 +55,14 @@
         <input matInput formControlName="cep" type="text" required
           placeholder="cep">
       </mat-form-field>
-      <agm-map [latitude]="lat" [zoom]="zoom" [longitude]="lng">
-        <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
+      <mat-form-field fxFlex="100" floatPlaceholder="auto"
+        appearance="outline">
+        <mat-label>Localização</mat-label>
+        <input matInput #search formControlName="searchControl" type="text" required disabled="true"
+          placeholder="Localização">
+      </mat-form-field>
+      <agm-map [latitude]="latitude" [zoom]="zoom" [streetViewControl]="false" [longitude]="longitude">
+        <agm-marker [draggable]="false" [latitude]="latitude" [longitude]="longitude"></agm-marker>
       </agm-map>
     </form>
     <button mat-raised-button color="accent" (click)="salvarLogin()">Inscreva-se</button>

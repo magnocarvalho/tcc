@@ -17,6 +17,7 @@ import { environment } from "../environments/environment";
 import { AngularFireModule } from "angularfire2";
 import { AngularFireDatabaseModule } from "angularfire2/database";
 import { AngularFireAuthModule } from "angularfire2/auth";
+import { AngularFireStorageModule } from 'angularfire2/storage';
 import * as moment from "moment";
 // import { CarouselModule } from 'angular4-carousel';
 
@@ -160,10 +161,9 @@ import { AgmCoreModule } from '@agm/core';
     LoadingBarModule,
     LoadingBarHttpClientModule,
     AgmCoreModule.forRoot({
-      apiKey: 'AIzaSyBxWYxuGUitYgQkbfS82Lxwuc5J5i4fI18'
-    })
-
-    // AIzaSyAjOoyjfs5zX1weaGygwUwiyhFcNIR-TuA
+      apiKey: environment.maps,  libraries: ["places"]
+    }),
+    AngularFireStorageModule
   ],
   providers: [
     { provide: MAT_DATE_LOCALE, useValue: "pt-BR" },

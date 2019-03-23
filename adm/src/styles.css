@@ -90,3 +90,7 @@ mat-toolbar#toolbar {
 .next-slide:hover {
     background-position: -24px -53px;
 }
+
+.mat-progress-bar-buffer {
+  background-color: #f5f5f5;
+}

@@ -1,9 +1,13 @@
-import { ViewChild } from "@angular/core";
+import { ViewChild, NgZone, ElementRef } from "@angular/core";
 import { ApiService } from "src/app/services/api.service";
 import { Component, OnInit } from "@angular/core";
 import { FormGroup, FormControl } from "@angular/forms";
 import { Router } from "@angular/router";
-
+import { AgmCoreModule, MapsAPILoader } from '@agm/core';
+import {} from '@types/googlemaps';
+// import {} from '@agm/core/services/google-maps-types';
+// import { google } from '@google/maps';
+declare var google: any;
 @Component({
   selector: "app-primeiro-acesso",
   templateUrl: "./primeiro-acesso.component.html",
@@ -11,11 +15,16 @@ import { Router } from "@angular/router";
 })
 export class PrimeiroAcessoComponent implements OnInit {
   form;
-  texto: string = "Wenceslau Braz - Cuidado com as cargas";
-  lat: number = -23.8779431;
-  lng: number = -49.8046873;
-  zoom: number = 15;
-  constructor(public api: ApiService, public router: Router) {
+  // texto: string = "Wenceslau Braz - Cuidado com as cargas";
+  public latitude: number;
+  public longitude: number;
+  // public searchControl: FormControl;
+  zoom: number = 4;
+  @ViewChild("search")
+  public searchElementRef: ElementRef;
+
+  constructor(public api: ApiService, public router: Router, private mapsAPILoader: MapsAPILoader,
+    private ngZone: NgZone) {
     this.form = new FormGroup({
       nomeFantasia: new FormControl(""),
       cnpj: new FormControl(""),
@@ -25,17 +34,52 @@ export class PrimeiroAcessoComponent implements OnInit {
       bairro: new FormControl(""),
       cidade: new FormControl(""),
       estado: new FormControl(""),
-      ramo: new FormControl("")
+      ramo: new FormControl(""),
+      searchControl: new FormControl("")
     });
   }
 
   ngOnInit() {
-    // var mapProp = {
-    //   center: new google.maps.LatLng(18.5793, 73.8143),
-    //   zoom: 15,
-    //   mapTypeId: google.maps.MapTypeId.ROADMAP
-    // };
-    // this.map = new google.maps.Map(this.gmapElement.nativeElement, mapProp);
+    this.zoom = 4;
+    this.latitude = 39.8282;
+    this.longitude = -98.5795;
+
+    //create search FormControl
+
+    //set current position
+    this.setCurrentPosition();
+
+    //load Places Autocomplete
+    this.mapsAPILoader.load().then(() => {
+      let autocomplete = new google.maps.places.Autocomplete(this.searchElementRef.nativeElement, {
+        types: ["address"]
+      });
+      autocomplete.addListener("place_changed", () => {
+        this.ngZone.run(() => {
+          //get the place result
+          let place: google.maps.places.PlaceResult = autocomplete.getPlace();
+
+          //verify result
+          if (place.geometry === undefined || place.geometry === null) {
+            return;
+          }
+
+          //set latitude, longitude and zoom
+          this.latitude = place.geometry.location.lat();
+          this.longitude = place.geometry.location.lng();
+          this.zoom = 12;
+        });
+      });
+    });
+  }
+  private setCurrentPosition() {
+    if ("geolocation" in navigator) {
+      navigator.geolocation.getCurrentPosition((position) => {
+        this.latitude = position.coords.latitude;
+        this.longitude = position.coords.longitude;
+        this.zoom = 4;
+      });
+    }
   }
   salvarLogin() {
     const obj = {

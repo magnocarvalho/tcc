@@ -4,7 +4,7 @@ import { Component, OnInit } from "@angular/core";
 import { FormGroup, FormControl } from "@angular/forms";
 import { Router } from "@angular/router";
 import { AgmCoreModule, MapsAPILoader } from '@agm/core';
-import {} from '@types/googlemaps';
+import { } from 'googlemaps';
 // import {} from '@agm/core/services/google-maps-types';
 // import { google } from '@google/maps';
 declare var google: any;
@@ -19,9 +19,22 @@ export class PrimeiroAcessoComponent implements OnInit {
   public latitude: number;
   public longitude: number;
   // public searchControl: FormControl;
+  autocomplete;
+  formComplete;
+  componentForm = {
+    street_number: 'short_name',
+    route: 'long_name',
+    locality: 'long_name',
+    administrative_area_level_1: 'short_name',
+    country: 'long_name',
+    postal_code: 'short_name'
+  };
   zoom: number = 4;
   @ViewChild("search")
   public searchElementRef: ElementRef;
+
+  @ViewChild("mapaa")
+  public mapagoogle: ElementRef;
 
   constructor(public api: ApiService, public router: Router, private mapsAPILoader: MapsAPILoader,
     private ngZone: NgZone) {
@@ -39,67 +52,103 @@ export class PrimeiroAcessoComponent implements OnInit {
     });
   }
 
+
+
   ngOnInit() {
-    this.zoom = 4;
+    this.zoom = 16;
     this.latitude = 39.8282;
     this.longitude = -98.5795;
 
-    //create search FormControl
+    // create search FormControl
 
-    //set current position
+    // set current position
     this.setCurrentPosition();
 
-    //load Places Autocomplete
+    // load Places Autocomplete
     this.mapsAPILoader.load().then(() => {
-      let autocomplete = new google.maps.places.Autocomplete(this.searchElementRef.nativeElement, {
-        types: ["address"]
-      });
-      autocomplete.addListener("place_changed", () => {
-        this.ngZone.run(() => {
-          //get the place result
-          let place: google.maps.places.PlaceResult = autocomplete.getPlace();
+      // let pick = new google.maps.places.Autocomplete()
 
-          //verify result
+
+      this.autocomplete = new google.maps.places.Autocomplete(this.searchElementRef.nativeElement, {
+        types: ["establishment"]
+      });
+
+
+
+      this.autocomplete.addListener("place_changed", () => {
+        this.ngZone.run(() => {
+          // get the place result
+          let place: google.maps.places.PlaceResult = this.autocomplete.getPlace();
+          console.log(place);
+          // verify result
           if (place.geometry === undefined || place.geometry === null) {
             return;
           }
 
-          //set latitude, longitude and zoom
+          for (let i = 0; i < place.address_components.length; i++) {
+
+            if (place.address_components[i].types[0] == "street_number") {
+              this.form.get('numero').setValue(place.address_components[i].long_name);
+            } else if (place.address_components[i].types[0] == "route") {
+              this.form.get('rua').setValue(place.address_components[i].long_name);
+            } else if (place.address_components[i].types[0] == "sublocality_level_1") {
+              this.form.get('bairro').setValue(place.address_components[i].long_name);
+            } else if (place.address_components[i].types[0] == "administrative_area_level_2") {
+              this.form.get('cidade').setValue(place.address_components[i].long_name);
+            } else if (place.address_components[i].types[0] == "administrative_area_level_1") {
+              this.form.get('estado').setValue(place.address_components[i].long_name);
+            } else if (place.address_components[i].types[0] == "postal_code") {
+              this.form.get('cep').setValue(place.address_components[i].long_name);
+            }
+          }
+
+
+          // set latitude, longitude and zoom
           this.latitude = place.geometry.location.lat();
           this.longitude = place.geometry.location.lng();
-          this.zoom = 12;
+          this.zoom = 16;
         });
       });
+
+    });
+
+  }
+  public request() {
+  var retorno = {
+    query: this.form.get('rua').value + ' ,' + this.form.get('numero').value ? this.form.get('numero').value : '' + this.form.get('bairro').value ? this.form.get('bairro').value : ' ,' + + this.form.get('cidade').value ? this.form.get('cidade').value : ''+'Brasil',
+    fields: ['administrative_area_level_1', 'administrative_area_level_2', 'administrative_area_level_3', 'postal_code', 'route', 'establishment']
+  }
+  return retorno;
+}
+
+  private setCurrentPosition() {
+  if ("geolocation" in navigator) {
+    navigator.geolocation.getCurrentPosition((position) => {
+      this.latitude = position.coords.latitude;
+      this.longitude = position.coords.longitude;
+      this.zoom = 12;
     });
   }
-  private setCurrentPosition() {
-    if ("geolocation" in navigator) {
-      navigator.geolocation.getCurrentPosition((position) => {
-        this.latitude = position.coords.latitude;
-        this.longitude = position.coords.longitude;
-        this.zoom = 4;
-      });
+}
+salvarLogin() {
+  const obj = {
+    nomeFantasia: this.form.get("nomeFantasia").value,
+    cnpj: this.form.get("cnpj").value,
+    rua: this.form.get("rua").value,
+    numero: this.form.get("numero").value,
+    cep: this.form.get("cep").value,
+    bairro: this.form.get("bairro").value,
+    cidade: this.form.get("cidade").value,
+    estado: this.form.get("estado").value,
+    ramo: this.form.get("ramo").value
+  };
+  this.api.primeiroAcesso(obj).subscribe(
+    res => {
+      console.log(res);
+    },
+    err => {
+      console.error(err);
     }
-  }
-  salvarLogin() {
-    const obj = {
-      nomeFantasia: this.form.get("nomeFantasia").value,
-      cnpj: this.form.get("cnpj").value,
-      rua: this.form.get("rua").value,
-      numero: this.form.get("numero").value,
-      cep: this.form.get("cep").value,
-      bairro: this.form.get("bairro").value,
-      cidade: this.form.get("cidade").value,
-      estado: this.form.get("estado").value,
-      ramo: this.form.get("ramo").value
-    };
-    this.api.primeiroAcesso(obj).subscribe(
-      res => {
-        console.log(res);
-      },
-      err => {
-        console.error(err);
-      }
-    );
-  }
+  );
+}
 }

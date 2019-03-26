@@ -67,14 +67,9 @@ export class PrimeiroAcessoComponent implements OnInit {
     // load Places Autocomplete
     this.mapsAPILoader.load().then(() => {
       // let pick = new google.maps.places.Autocomplete()
-
-
       this.autocomplete = new google.maps.places.Autocomplete(this.searchElementRef.nativeElement, {
         types: ["establishment"]
       });
-
-
-
       this.autocomplete.addListener("place_changed", () => {
         this.ngZone.run(() => {
           // get the place result

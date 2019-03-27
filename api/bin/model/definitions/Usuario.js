@@ -16,8 +16,10 @@ let schema = {
     bairro: { type: String },
     cidade: { type: String },
     estado: { type: String },
-    ramo: { type: String }
+    ramo: { type: String },
+    local: { type: [Number], required: true } // [Long, Lat]
 };
 IDefault_1.Inject(schema);
 exports.UsuarioMasterSchema = new mongoose.Schema(schema);
+exports.UsuarioMasterSchema.index({ local: "2dsphere" });
 exports.UsuarioModel = mongoose.model("Usuario", exports.UsuarioMasterSchema, "usuario", false);

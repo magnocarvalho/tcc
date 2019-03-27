@@ -3,50 +3,51 @@
         <form [formGroup]="form" class="example-container" fxLayout="row wrap">
             <mat-form-field fxFlex="100" floatPlaceholder="auto" appearance="outline">
                 <mat-label>Nome Fantasia</mat-label>
-                <input matInput formControlName="nomeFantasia" type="text" required placeholder="nomeFantasia">
+                <input matInput (keydown)="nomeFantasias($event)" formControlName="nomeFantasia" type="text" required placeholder="nomeFantasia" />
             </mat-form-field>
             <mat-form-field fxFlex="100" floatPlaceholder="auto" appearance="outline">
                 <mat-label>CNPJ</mat-label>
-                <input matInput formControlName="cnpj" type="text" required placeholder="cnpj">
+                <input matInput formControlName="cnpj" type="text" required placeholder="cnpj" />
             </mat-form-field>
-            <mat-form-field fxFlex="100" floatPlaceholder="auto" appearance="outline">
-                <mat-label>Localização</mat-label>
-                <input matInput #search formControlName="searchControl" type="text" required disabled="true" placeholder="Localização">
-            </mat-form-field>
-            <agm-map #mapaa [latitude]="latitude" [zoom]="zoom" [streetViewControl]="false" [longitude]="longitude">
+            <agm-map #mapaa [latitude]="latitude" [zoom]="zoom" [draggable]="true" [streetViewControl]="false" [longitude]="longitude">
                 <agm-marker [draggable]="true" [latitude]="latitude" [longitude]="longitude"></agm-marker>
             </agm-map>
+            <mat-form-field fxFlex="100" floatPlaceholder="auto" appearance="outline">
+                <mat-label>Localização no Google Maps</mat-label>
+                <input matInput #search formControlName="searchControl" type="text" required disabled="true" placeholder="Localização" />
+            </mat-form-field>
             <mat-form-field fxFlex="50" floatPlaceholder="auto" appearance="outline">
                 <mat-label>Estado</mat-label>
-                <input matInput formControlName="estado" type="text" required placeholder="estado">
+                <input matInput formControlName="estado" type="text" required placeholder="estado" />
             </mat-form-field>
             <mat-form-field fxFlex="50" floatPlaceholder="auto" appearance="outline">
                 <mat-label>Ramo</mat-label>
-                <input matInput formControlName="ramo" type="text" required placeholder="ramo">
+                <input matInput formControlName="ramo" type="text" required placeholder="ramo" />
             </mat-form-field>
             <mat-form-field fxFlex="50" floatPlaceholder="auto" appearance="outline">
                 <mat-label>Cidade</mat-label>
-                <input matInput formControlName="cidade" type="text" required placeholder="cidade">
+                <input matInput formControlName="cidade" type="text" required placeholder="cidade" />
             </mat-form-field>
             <mat-form-field fxFlex="50" floatPlaceholder="auto" appearance="outline">
                 <mat-label>Bairro</mat-label>
-                <input matInput formControlName="bairro" type="text" required placeholder="bairro">
+                <input matInput formControlName="bairro" type="text" required placeholder="bairro" />
             </mat-form-field>
             <mat-form-field fxFlex="50" floatPlaceholder="auto" appearance="outline">
                 <mat-label>Rua</mat-label>
-                <input matInput formControlName="rua" type="text" required placeholder="rua">
+                <input matInput formControlName="rua" type="text" required placeholder="rua" />
             </mat-form-field>
             <mat-form-field fxFlex="50" floatPlaceholder="auto" appearance="outline">
                 <mat-label>Numero</mat-label>
-                <input matInput formControlName="numero" type="text" required placeholder="numero">
+                <input matInput formControlName="numero" type="text" required placeholder="numero" />
             </mat-form-field>
             <mat-form-field fxFlex="50" floatPlaceholder="auto" appearance="outline">
                 <mat-label>Cep</mat-label>
-                <input matInput formControlName="cep" type="text" required placeholder="cep">
+                <input matInput formControlName="cep" type="text" required placeholder="cep" />
             </mat-form-field>
-
         </form>
-        <button mat-raised-button color="accent" (click)="salvarLogin()">Inscreva-se</button>
+        <button mat-raised-button color="accent" (click)="salvarLogin()">
+      Inscreva-se
+    </button>
     </div>
     <div class="" fxLayout="column" fxFlex="50" fxLayoutAlign="center center">
         <mat-card>
@@ -55,7 +56,7 @@
                 <mat-card-subtitle>Sua empresa crescendo e alcançando novos clientes</mat-card-subtitle>
             </mat-card-header>
             <mat-card-content>
-                <img matCardImage src="/assets/empresa.png">
+                <img matCardImage src="/assets/empresa.png" />
             </mat-card-content>
         </mat-card>
     </div>

@@ -17,6 +17,7 @@ export interface IUsuarioModel extends IDefault {
   cidade: string;
   estado: string;
   ramo: string;
+  loc: any;
 }
 
 let schema = {
@@ -32,12 +33,14 @@ let schema = {
   cep: { type: String },
   bairro: { type: String },
   cidade: { type: String },
-  estado: {type: String},
-  ramo: {type: String}
+  estado: { type: String },
+  ramo: { type: String },
+  local: { type: [Number], required: true } // [Long, Lat]
 };
 
 Inject(schema);
 export const UsuarioMasterSchema = new mongoose.Schema(schema);
+UsuarioMasterSchema.index({ local: "2dsphere" });
 export const UsuarioModel = mongoose.model<IUsuarioModel>(
   "Usuario",
   UsuarioMasterSchema,

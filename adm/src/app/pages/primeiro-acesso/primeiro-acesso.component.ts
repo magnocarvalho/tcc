@@ -5,7 +5,7 @@ import { Component, OnInit } from "@angular/core";
 import { FormGroup, FormControl } from "@angular/forms";
 import { Router } from "@angular/router";
 import { AgmCoreModule, MapsAPILoader } from "@agm/core";
-import {} from "googlemaps";
+import { } from "googlemaps";
 // import {} from '@agm/core/services/google-maps-types';
 // import { google } from '@google/maps';
 declare var google: any;
@@ -74,7 +74,7 @@ export class PrimeiroAcessoComponent implements OnInit {
       this.autocomplete = new google.maps.places.Autocomplete(
         this.searchElementRef.nativeElement,
         {
-          types: ['establishment'], componentRestrictions: {country: 'br'}
+          types: ['establishment'], componentRestrictions: { country: 'br' }
         }
       );
 
@@ -138,10 +138,10 @@ export class PrimeiroAcessoComponent implements OnInit {
         this.form.get('rua').value + ' ,' + this.form.get('numero').value
           ? this.form.get('numero').value
           : '' + this.form.get('bairro').value
-          ? this.form.get('bairro').value
-          : ' ,' + +this.form.get('cidade').value
-          ? this.form.get('cidade').value
-          : '' + 'Brasil',
+            ? this.form.get('bairro').value
+            : ' ,' + +this.form.get('cidade').value
+              ? this.form.get('cidade').value
+              : '' + 'Brasil',
       fields: [
         'administrative_area_level_1',
         'administrative_area_level_2',
@@ -154,8 +154,8 @@ export class PrimeiroAcessoComponent implements OnInit {
     return retorno;
   }
   nomeFantasias(event) {
-    console.log(event);
-    debugger;
+    // console.log(event);
+    // debugger;
     this.form
       .get('searchControl')
       .setValue(this.form.get('nomeFantasia').value);
@@ -170,9 +170,12 @@ export class PrimeiroAcessoComponent implements OnInit {
       });
     }
   }
-  salvarLogin() {
-    if(!this.form.isValid())
-    {
+  salvarLogin(event) {
+    event.preventDefault();
+    // this.form.
+    console.log(event);
+    // debugger;
+    if (!this.form.valid) {
       this.tubarao.open('Preenche todo o formulario!');
       return;
     }

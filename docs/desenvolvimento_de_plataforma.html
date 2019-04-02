@@ -1,302 +1,0 @@
-<html>
-<head>
-<title>Relat&#243;rio&#32;DOCxWEB&#58;&#32;https&#58;&#47;&#47;www&#46;docxweb&#46;com</title>
-
-<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
-
-<style>
-BODY {
-	FONT-SIZE: 14px; FONT-FAMILY: verdana,arial,helvetica; BACKGROUND-COLOR: #ffffff
-}
-TABLE {
-	FONT-SIZE: 14px;
-	COLOR: #444444;
-	FONT-FAMILY: verdana,arial,helvetica;
-   
-}
-TD {
-	FONT-SIZE: 14px; COLOR: #444444; FONT-FAMILY: verdana,arial,helvetica; 
-}
-TR {
-	FONT-SIZE: 14px; COLOR: #444444; FONT-FAMILY: verdana,arial,helvetica;  
-	                                              
-}
-SPAN {
-	FONT-SIZE: 14px; COLOR: #444444; FONT-FAMILY: verdana,arial,helvetica
-}
-DIV {
-	FONT-SIZE: 14px; COLOR: #444444; FONT-FAMILY: verdana,arial,helvetica
-}
-P {
-	FONT-SIZE: 14px; COLOR: #444444; FONT-FAMILY: verdana,arial,helvetica
-}
-A {
-	padding-left:3px;
-	TEXT-DECORATION: none
-}
-A:hover {
-	TEXT-DECORATION: underline
-}
-
-#addthis_services {
-  background-color: #FFFFFF;
-}
-#addthis_services a {
-  padding: 0px 0px 0px 4px;
-  color:#333333;
-  display: block;
-  font-weight: normal;
-}
-#addthis_services td{
-  padding: 1px 0px 1px 0px;
-}
-#addthis_dropdown a:hover {
-  background-color: #F5F5F5;
-}
-#addthis_dropdown a {
-  text-decoration: none;
-  FONT-SIZE: 14px;
-}
-#addthis_dropdown img {
-  border:none;
-  vertical-align:middle;
-  width: 16px;
-  height: 16px;
-}
-#addthis_dropdown {
-  z-index: 1000000;
-  text-align: left;
-  width: 500px;
-  position: absolute;
-  display: none;
-  border: #CCCCCC solid 1px;
-  padding: 1px 1px 0px 1px;
-  overflow: hidden;
-  background-color: #FFFFFF;
-}
-a:link{
-	FONT-SIZE: 14px;
-	color: #111111;
-	padding-left:3px;
-	text-decoration: none;
-
-}
-a.lknLight{
-	color: #111111;
-        font:bold 1.1em arial;
-}
-a.lknHeavy  {
-	color: red;
-	font:bold 1.1em arial;
-        onMouseOut: addthis_close();
-        onClick: return addthis_to();
-}
-
-</style>
-
-<script >
-  
-
-    function acionaView(view) { 
-		document.getElementById("reportWeb").style.display = "none";
-		var rh = document.getElementById("reportHome");
-		if (rh != null) rh.style.display = "none";
-		document.getElementById(view).style.display = "block";
-				
-    }
-
-	function getElemento(getElemento){
-		return document.getElementById(getElemento);
-	}
-
-	function addthis_clearclosewin( ){
-		if (typeof at15A!="undefined")clearTimeout(at15A);
-	}
-
-	function addthis_open(at15a,title_window, p_links, vetor, tipoWeb){
-		var vetorLinks = p_links.split('|');
-		var textoLinks = '';
-		var i = 0;
-		for (i; i < vetorLinks.length; i++) {
-			if (vetor[vetorLinks[i]] != null) {
-				if (tipoWeb) { 
-					textoLinks += '<a href="'+vetor[vetorLinks[i]]+'">'+vetor[vetorLinks[i]]+'</a>'
-				} else {
-					textoLinks += '<a href="#">'+vetor[vetorLinks[i]]+'</a>'
-				}	
-			}	
-		}
-		document.getElementById("links").innerHTML=textoLinks;
-		document.getElementById("caption_title").innerHTML=title_window;
-
-		addthis_clearclosewin( );
-
-		var at15u=020;
-		var at15Z=at15a.getElementsByTagName('img');
-		if (at15Z && at15Z[0]){at15a=at15Z[0]; at15u=0; }
-
-		var at15z=at15X(at15a);
-		var at15x=at15z[0]+0;
-		var at15W=at15z[1]+at15u+1+0;
-		var at15w=at15V( );
-		var at15v=at15T( );
-		var at15t=getElemento('addthis_dropdown');
-		at15t.style.display='block';
-		if (at15x-at15v[0]+at15t.clientWidth+024>at15w[0])
-			at15x=at15x-at15t.clientWidth;
-		if (at15W-at15v[1]+at15t.clientHeight+at15a.clientHeight+024>at15w[1])
-			at15W=at15W-at15t.clientHeight-024; at15t.style.left=at15x+'px';
-		at15t.style.top=(at15W+at15a.clientHeight)+'px';
-
-		return false;
-	}
-
-	function addthis_close( ){
-		addthis_closewinwait( );
-	}
-
-	function addthis_closewinwait( ){
-		at15A=setTimeout("addthis_closewin()",0764);
-	}
-
-	function addthis_closewin( ){
-		var at15t=getElemento('addthis_dropdown');
-		at15t.style.display='none';
-		return false;
-	}
-
-	function at15X(at15L){
-		var at15l=0,at15K=0;
-		do {
-			at15l+=at15L.offsetTop || 0;
-			at15K+=at15L.offsetLeft || 0;
-			at15L=at15L.offsetParent;
-		}while (at15L);
-		return [at15K,at15l];
-	}
-
-	function at15V( ){
-		var at15k=0; var at15J=0;
-		if (typeof(window.innerWidth)=='number'){
-			at15k=window.innerWidth;
-			at15J=window.innerHeight;
-		}else if (document.documentElement && (document.documentElement.clientWidth || document.documentElement.clientHeight)){
-			at15k=document.documentElement.clientWidth;
-			at15J=document.documentElement.clientHeight;
-		}else if (document.body && (document.body.clientWidth || document.body.clientHeight)){
-			at15k=document.body.clientWidth;
-			at15J=document.body.clientHeight;
-		}
-		return [at15k,at15J];
-	}
-
-	function at15T( ){
-		var at15j=0;
-		var at15H=0;
-		if (typeof(window.pageYOffset)=='number'){
-			at15H=window.pageYOffset;
-			at15j=window.pageXOffset;
-		}else if (document.body && (document.body.scrollLeft || document.body.scrollTop)){
-			at15H=document.body.scrollTop;
-			at15j=document.body.scrollLeft;
-		}else if (document.documentElement && (document.documentElement.scrollLeft || document.documentElement.scrollTop)){
-			at15H=document.documentElement.scrollTop;
-			at15j=document.documentElement.scrollLeft;
-		}
-		return [at15j,at15H];
-	}
-
-
-</script>
-
-
-<div id="addthis_dropdown" onmouseover="addthis_clearclosewin()" onmouseout="addthis_close()" >
-	<table width="100%" cellpadding="2" cellspacing="0" style="background-color: #EEEEEE; height: 18px">
-		<tr><td style="FONT-SIZE: 14px; color: #666666; padding-left:3px">
-			<span id="caption_title"> </span>
-		</td></tr>
-	</table>
-	<table id="addthis_services" width="100%" cellpadding="0" >
-		<tr><td id="links">
-		</td></tr>
-	</table>
-</div>
-
-
-</head>
-<body>
-<table width="900px" align="center"  bgcolor="#E0EEE0">
-<tr>
-<td>
-	<center>
-	<br><font size="4">Relat&#243;rio&#32;DOCxWEB&#58;&#32;https&#58;&#47;&#47;www&#46;docxweb&#46;com</font><p/> 
-	</center>
-	<div align="justify">
-	<br><font size="3">
-	<b>T&#237;tulo: desenvolvimento&#32;de&#32;plataforma</b>
-	<br>Data: Mar 19, 2019 2:29:45 AM 
-	<br>Usu&#225;rio: Magno&#32;Carvalho&#32;Dos&#32;Santos 
-	<br>Email: magnosantos&#64;alunos&#46;utfpr&#46;edu&#46;br <br><br>
-	<p />
-	<table bgcolor="#F08080"><tr><td>
-	<input type="button" value="WEB"  onClick="acionaView('reportWeb');" />
-	
-	<input type="button" value="Ajuda"  
-	onClick="javascript: window.open('http://www.docxweb.com/pages/help/reportHelp.jsf', '_blank', 'width=700,height=500,scrollbars=1,screenX=50,screenY=50, resizable=yes, toolbar=yes,location=no,directories=yes,status=yes,menubar=yes,scrollbars=yes');" />
-	</td></tr></table>
-	<p />
-	<div id="reportWeb" style="display: block">
-		<script>
-var vetorWeb = new Array ();
-vetorWeb[0] = 'https://link.estadao.com.br/noticias/geral,brasil-ja-tem-mais-de-um-smartphone-ativo-por-habitante-diz-estudo-da-fgv,70002275238';
-vetorWeb[1] = 'http://eaesp.fgv.br/sites/eaesp.fgv.br/files/pesti2018gvciappt.pdf';
-vetorWeb[2] = 'http://www.administradores.com.br/artigos/marketing/estrutura-organizacional-influencia-da-estrutura-na-eficiencia-da-organizacao-de-acordo/62071/';
-vetorWeb[3] = 'http://www.tecsi.fea.usp.br/pastcontecsi/arquivos/4contecsi.pdf';
-vetorWeb[4] = 'http://www.tecsi.fea.usp.br/pastcontecsi/arquivos/7contecsi.pdf';
-vetorWeb[5] = 'https://revista.fatectq.edu.br/index.php/interfacetecnologica/article/download/337/215/';
- 
-</script>
-<table width="900px" align="center"  bgcolor="#FFFFE0">
-<tr>
-<td>
-	<center>
-	<br><font size="4">Autenticidade&#32;em&#32;rela&#231;&#227;o&#32;a&#32;INTERNET</font><p/> 
-	</center>
-	<br>  Autenticidade&#32;Calculada:  </font><b><font size="5" color="blue">82 %</font></b><br>
-	<br>  Autenticidade&#32;Total:  63 %<p>
-	<hr><b>Ocorr&#234;ncia&#32;de&#32;Links</b><p><table><tr><td>Ocorr&#234;ncia</td><td>Fragmento</td></tr><tr><td width="100" align="center">17%</td><td><a href="https://revista.fatectq.edu.br/index.php/interfacetecnologica/article/download/337/215/">https://revista.fatectq.edu.br/index.php/interfacetecnologica/article/download/337/215/</a><td><tr></table><p>
-	<hr><b>Texto&#32;Pesquisado</b><p>Desde&#32;que&#32;a&#32;Internet&#32;emergiu&#32;&nbsp;<a class="lknLight" href='https://view.officeapps.live.com/op/view.aspx?src=http://www.azores.gov.pt/nr/rdonlyres/d23c8509-8716-4ba8-863c-9a89d27e163a/49790/resoluçãon13de1982.doc' >para&#32;o&#32;p&#250;blico&#32;em&#32;1984&#32;atrav&#233;s&#32;das</a>&nbsp;&#32;BBS&#32;&#40;Bulletin&#32;Board&#32;System&#41;&#32;e&#32;se&#32;popularizou&#32;a&#32;partir&#32;de&#32;1995&#32;com&#32;a&#32;emerg&#234;ncia&#32;da&#32;web&#44;&#32;&nbsp;<a class="lknLight" href='http://www.w3c.es/' >a&#32;World&#32;Wide&#32;Web&#32;&#40;WWW&#41;&#32;evoluiu&#32;de</a>&nbsp;&#32;uma&#32;enciclop&#233;dia&#32;unidirecional&#32;de&#32;informa&#231;&#227;o&#32;para&#32;um&#32;meio&#32;&nbsp;<a class="lknLight" href='http://bdm.unb.br/bitstream/10483/11008/1/2015_brenodiogodecarvalhocamargos.pdf' >mais&#32;din&#226;mico&#44;&#32;interativo&#32;e&#32;participativo</a>&nbsp;&#32;&#40;ANTOUN&#44;&#32;2014&#41;&#46;&#32;Essa&#32;evolu&#231;&#227;o&#32;&nbsp;<a class="lknLight" href='https://dicionario.priberam.org/refinamento' >coincidiu&#32;com&#32;um&#32;refinamento&#32;dos&#32;padr&#245;es&#32;de</a>&nbsp;&#32;troca&#32;de&#32;dados&#32;geogr&#225;ficos&#44;&#32;&nbsp;<a class="lknLight" href='https://repositorioaberto.uab.pt/bitstream/10400.2/1970/1/actasartech2004.pdf' >particularmente&#44;&#32;com&#32;o&#32;advento&#32;do</a>&nbsp;&#32;Sistema&#32;de&#32;Posicionamento&#32;&nbsp;<a class="lknLight" href='https://docplayer.com.br/57277752-matrizes-determinantes-e-sistemas-lineares-aplicacoes-na-engenharia-e-economia.html' >Global&#32;&#8211;&#32;GPS&#32;&#40;Global&#32;Positioning&#32;System&#41;&#46;</a>&nbsp;&#32;As&#32;tecnologias&#32;capazes&#32;de&#32;lidar&#32;com&#32;dados&#32;espaciais&#32;deixaram&#32;de&#32;ser&#32;de&#32;alto&#32;custo&#32;e&#32;restritas&#32;&#224;s&#32;institui&#231;&#245;es&#32;formais&#32;e&#32;passaram&#32;a&#32;ser&#32;mais&#32;acess&#237;veis&#32;&nbsp;<a class="lknLight" href='https://discutapolitica.wordpress.com/2007/12/' >ao&#32;cidad&#227;o&#32;comum&#32;&#40;GOODCHILD&#44;&#32;2007&#41;&#46;<br>Por&#32;outro&#32;lado&#44;</a>&nbsp;&#32;temos&#32;220&#32;milh&#245;es&#32;de&#32;celulares&#32;avan&#231;ados&#32;&nbsp;<a class="lknHeavy" href='https://link.estadao.com.br/noticias/geral,brasil-ja-tem-mais-de-um-smartphone-ativo-por-habitante-diz-estudo-da-fgv,70002275238' onMouseOver="return addthis_open(this, '&#40;smartphones&#41;&#32;no&#32;Brasil&#44;&#32;mais&#32;de&#32;1','0|', vetorWeb, true);" onMouseOut  = "addthis_close();" onClick  = "return addthis_to();" >&#40;smartphones&#41;&#32;no&#32;Brasil&#44;&#32;mais&#32;de&#32;1</a>&nbsp;&#32;por&#32;habitante&#46;&#32;Somando&#32;&nbsp;<a class="lknHeavy" href='http://eaesp.fgv.br/sites/eaesp.fgv.br/files/pesti2018gvciappt.pdf' onMouseOver="return addthis_open(this, 'os&#32;notebooks&#32;e&#32;os&#32;tablets&#32;s&#227;o&#32;306&#32;milh&#245;es&#32;de&#32;dispositivos&#32;port&#225;teis','1|', vetorWeb, true);" onMouseOut  = "addthis_close();" onClick  = "return addthis_to();" >os&#32;notebooks&#32;e&#32;os&#32;tablets&#32;s&#227;o&#32;306&#32;milh&#245;es&#32;de&#32;dispositivos&#32;port&#225;teis</a>&nbsp;&#32;em&#32;maio&#32;de&#32;2018&#44;&#32;&nbsp;<a class="lknLight" href='https://estaciofap.blogspot.com/2012/01/nova-interface-do-windows-8-e-melhor.html' >ou&#32;seja&#44;&#32;1&#44;5&#32;dispositivo&#32;port&#225;til</a>&nbsp;&#32;por&#32;habitante&#32;&#40;MEIRELLES&#44;&#32;2018&#41;&#46;&#32;Os&#32;celulares&#32;atuais&#32;aumentaram&#32;a&#32;capacidade&#32;do&#32;usu&#225;rio&#32;de&#32;criar&#32;&nbsp;<a class="lknLight" href='https://www.minhaserie.com.br/novidades/43973-station-19-garante-2-temporada-completa' >conte&#250;do&#32;e&#32;interagir&#32;com&#32;outros</a>&nbsp;&#32;usu&#225;rios&#32;em&#32;tempo&#32;&nbsp;<a class="lknLight" href='https://www.pinterest.pt/pin/573716440017946882/' >real&#44;&#32;al&#233;m&#32;de&#32;permitirem&#32;o&#32;uso&#32;do</a>&nbsp;&#32;GPS&#32;e&#32;outras&#32;tecnologias&#32;emergentes&#46;&#32;Os&#32;smartphones&#32;tamb&#233;m&#32;permitiram&#32;&nbsp;<a class="lknLight" href='https://pt.stackoverflow.com/questions/245182/associa����o-entre-classes-ou-heran��a' >o&#32;georreferenciamento&#44;&#32;isto&#32;&#233;&#44;&#32;a&#32;associa&#231;&#227;o</a>&nbsp;&#32;de&#32;alguma&#32;&nbsp;<a class="lknLight" href='http://tudosobrerede.blogspot.com/' >informa&#231;&#227;o&#32;a&#32;uma&#32;localiza&#231;&#227;o&#32;no</a>&nbsp;&#32;espa&#231;o&#44;&#32;geralmente&#32;por&#32;meio&#32;&nbsp;<a class="lknLight" href='http://www.mundogump.com.br/uvb-76-misteriosa-radio-russa-so-transmite-numeros/' >das&#32;coordenadas&#32;de&#32;latitude&#32;e&#32;longitude</a>&nbsp;&#32;&#40;GOODCHILD&#44;&#32;2007&#41;&#46;&nbsp;<a class="lknLight" href='https://www.youtube.com/watch?v=jvrisfjzdxc' ><br>Nesse&#32;contexto&#32;a&#32;ind&#250;stria&#32;de&#32;publicidade</a>&nbsp;&#32;na&#32;Internet&#44;&#32;conhecida&#32;como&#32;publicidade&#32;digital&#32;ou&#32;publicidade&#32;online&#44;&#32;continua&#32;em&#32;grande&#32;e&#32;r&#225;pida&#32;expans&#227;o&#44;&#32;acompanhando&#32;o&#32;crescimento&#32;da&#32;pr&#243;pria&#32;Internet&#46;&#32;Essa&#32;publicidade&#32;&#233;&#32;a&#32;principal&#32;fonte&#32;de&#32;receita&#32;de&#32;muitas&#32;&nbsp;<a class="lknLight" href='https://exame.abril.com.br/revista-exame/nao-somos-um-site-de-empregos-diz-presidente-do-linkedin/' >das&#32;grandes&#32;empresas&#32;de&#32;Internet&#44;</a>&nbsp;&#32;como&#32;o&#32;Google&#32;e&#32;o&#32;Yahoo&#33;&#32;&nbsp;<a class="lknLight" href='http://blogdosargentotavares.blogspot.com/2015/11/o-brasil-e-os-brasileiros-tem-muito-o.html' >&#40;BROINIZI&#44;&#32;2015&#41;&#46;&#32;O&#32;Brasil&#32;tem&#32;muito&#32;espa&#231;o&#32;para</a>&nbsp;&#32;se&#32;desenvolver&#32;nesse&#32;segmento&#46;<br>Essas&#32;tecnologias&#32;proporcionam&#32;um&#32;ambiente&#32;&nbsp;<a class="lknLight" href='https://overbr.com.br/category/games-2' >de&#32;infinitas&#32;possibilidades&#32;para</a>&nbsp;&#32;as&#32;empresas&#32;fazerem&#32;suas&#32;a&#231;&#245;es&#32;publicit&#225;rias&#32;&nbsp;<a class="lknLight" href='http://cartasdepolitica.blogspot.com/2010/07/' >alcan&#231;arem&#32;o&#32;cidad&#227;o&#32;comum&#44;&#32;que&#32;a</a>&nbsp;&#32;cada&#32;dia&#44;&#32;passa&#32;&nbsp;<a class="lknLight" href='https://eagletechz.com.br/blog/qual-o-tempo-de-vida-util-de-um-celular' >mais&#32;tempo&#32;com&#32;seu&#32;celular&#32;em&#32;uso</a>&nbsp;&#32;&#40;PAULO&#44;&#32;2018&#41;&#46;&#32;<br>1&#46;2&#32;&nbsp;<a class="lknHeavy" href='http://www.administradores.com.br/artigos/marketing/estrutura-organizacional-influencia-da-estrutura-na-eficiencia-da-organizacao-de-acordo/62071/' onMouseOver="return addthis_open(this, 'Objetivos&#32;gerais<br><br>O&#32;objetivo&#32;deste&#32;trabalho','2|', vetorWeb, true);" onMouseOut  = "addthis_close();" onClick  = "return addthis_to();" >Objetivos&#32;gerais<br><br>O&#32;objetivo&#32;deste&#32;trabalho</a>&nbsp;&#32;&#233;&#32;aplicar&#32;conceitos&#32;&nbsp;<a class="lknLight" href='https://www.devmedia.com.br/conceitos-de-software-e-engenharia-de-software/15730' >da&#32;Engenharia&#32;de&#32;Software&#32;no&#32;desenvolvimento</a>&nbsp;&#32;de&#32;um&#32;aplicativo&#32;mobile&#32;multiplataforma&#32;capaz&#32;de&#32;obter&#32;&nbsp;<a class="lknLight" href='https://www.cnpd.pt/bin/orientacoes/del_7680-2014_geo_laboral.pdf' >dados&#32;da&#32;localiza&#231;&#227;o&#32;dos&#32;dispositivos</a>&nbsp;&#32;do&#32;usu&#225;rio&#44;&#32;a&#32;fim&#32;&nbsp;<a class="lknLight" href='http://passageirodeprimeira.com/passagens-em-classe-executiva-de-sao-paulo-para-o-peru-a-partir-de-r1-921-ida-e-volta/' >de&#32;calcular&#32;quais&#32;promo&#231;&#245;es&#32;publicadas</a>&nbsp;&#32;na&#32;plataforma&#32;est&#227;o&#32;pr&#243;ximas&#32;do&#32;local&#32;&nbsp;<a class="lknLight" href='https://manualdousuario.net/' >do&#32;usu&#225;rio&#44;&#32;e&#32;assim&#32;pesquisar&#32;por</a>&nbsp;&#32;produtos&#32;em&#32;promo&#231;&#245;es&#32;em&#32;sua&#32;regi&#227;o&#44;&#32;dando&#32;&#224;s&#32;empresas&#32;uma&#32;plataforma&#32;online&#32;onde&#32;ela&#32;possa&#32;postar&#32;as&#32;promo&#231;&#245;es&#32;de&#32;seu&#32;estabelecimento&#32;e&#32;acompanhar&#32;a&#32;intera&#231;&#227;o&#32;com&#32;os&#32;clientes&#46;&#32;&nbsp;<a class="lknLight" href='http://aberto.univem.edu.br/bitstream/handle/11077/1450/lucas_marques_almeida.pdf?sequence=1' ><br><br>1&#46;3&#32;Objetivos&#32;espec&#237;ficos&#32;<br><br>Os&#32;objetivos&#32;espec&#237;ficos</a>&nbsp;&#32;a&#32;serem&#32;alcan&#231;ados&#32;nesta&#32;&nbsp;<a class="lknLight" href='http://g1.globo.com/jornaldaglobo/0,,mul1511409-16021,00-proposta de criar novas estatais divide especialistas.html' >proposta&#32;de&#32;desenvolvimento&#32;s&#227;o&#58;</a>&nbsp;<br>&#9679;&#9;Desenvolvimento&#32;de&#32;aplica&#231;&#227;o&#32;multiplataforma&#44;&#32;onde&#32;o&#32;usu&#225;rio&#32;possa&#32;consultar&#32;pela&#32;sua&#32;localiza&#231;&#227;o&#44;&#32;as&#32;promo&#231;&#245;es&#32;divulgadas&#32;mais&#32;&nbsp;<a class="lknLight" href='https://eadbox.com/pdi-plano-de-desenvolvimento-individual/' >pr&#243;ximas&#46;<br>&#9679;&#9;Desenvolvimento&#32;de&#32;uma</a>&nbsp;&#32;aplica&#231;&#227;o&#32;WEB&#32;para&#32;divulga&#231;&#227;o&#32;das&#32;promo&#231;&#245;es&#32;&nbsp;<a class="lknLight" href='https://pplware.sapo.pt/smartphones-tablets/android/android-apps-de-navegacao-play-store/' >e&#32;publicidades&#32;pelas&#32;empresas&#46;<br>&#9679;&#9;&#40;API&#41;</a>&nbsp;&#32;backend&#32;para&#32;concentra&#231;&#227;o&#32;e&#32;manipula&#231;&#227;o&#32;dos&#32;dados&#32;de&#32;ambas&#32;&nbsp;<a class="lknLight" href='https://psicologiaps2p52.blogspot.com/feeds/posts/default?orderby=updated' >as&#32;vis&#245;es&#46;<br><br><br>1&#46;4&#32;Problemas&#32;e&#32;premissas</a>&nbsp;<br><br>No&#32;ano&#32;de&#32;2018&#44;&#32;com&#32;o&#32;acesso&#32;&nbsp;<a class="lknLight" href='https://www.tecmundo.com.br/linux/13471-por-que-o-linux-como-voce-conhece-hoje-vai-desaparecer-.htm' >&#224;&#32;internet&#32;em&#32;dispositivos&#32;m&#243;veis</a>&nbsp;&#32;cada&#32;vez&#32;maior&#32;entre&#32;o&#32;p&#250;blico&#44;&#32;temos&#32;um&#32;cen&#225;rio&#32;atrativo&#32;para&#32;a&#32;publicidade&#32;&#40;MEDIA&#44;&#32;2018&#41;&#46;&#32;Antes&#32;da&#32;populariza&#231;&#227;o&#32;da&#32;inform&#225;tica&#44;&#32;as&#32;empresas&#32;em&#32;geral&#32;usavam&#32;meios&#32;&nbsp;<a class="lknLight" href='http://www.histedbr.fe.unicamp.br/revista/edicoes/22e/art11_22e.pdf' >tradicionais&#32;de&#32;comunica&#231;&#227;o&#32;como</a>&nbsp;&#32;as&#32;redes&#32;de&#32;televis&#227;o&#44;&#32;r&#225;dio&#44;&#32;jornais&#32;e&#32;revistas&#32;para&#32;veicula&#231;&#227;o&#32;de&#32;publicidade&#32;para&#32;o&#32;grande&#32;p&#250;blico&#46;&#32;&nbsp;<a class="lknLight" href='http://www.fofocandoblog.com.br/' >Entretanto&#32;com&#32;o&#32;avan&#231;o&#32;da&#32;tecnologia&#44;</a>&nbsp;&#32;todo&#32;o&#32;comportamento&#32;do&#32;consumo&#32;mudou&#46;&#32;&nbsp;<a class="lknLight" href='https://postcron.com/pt/blog/publicidade-na-internet/' >A&#32;publicidade&#32;tradicional&#32;como&#32;meio</a>&nbsp;&#32;de&#32;informa&#231;&#227;o&#44;&#32;atra&#231;&#227;o&#44;&#32;&nbsp;<a class="lknLight" href='http://livrozilla.com/doc/602445/apostilas-���-comunica����o-verbal--persuas��o-e-carisma' >persuas&#227;o&#32;e&#32;recorda&#231;&#227;o&#32;talvez&#32;j&#225;</a>&nbsp;&#32;n&#227;o&#32;funcione&#32;h&#225;&#32;muito&#32;tempo&#44;&#32;sendo&#32;a&#32;hora&#32;dos&#32;profissionais&#32;de&#32;publicidade&#32;irem&#32;&nbsp;<a class="lknLight" href='https://issuu.com/fne82/docs/online_5-2018/20' >na&#32;dire&#231;&#227;o&#32;de&#32;outras&#32;solu&#231;&#245;es&#32;e</a>&nbsp;&#32;m&#237;dias&#44;&#32;revendo&#32;&nbsp;<a class="lknLight" href='http://www.educacao.ba.gov.br/system/files/private/midiateca/documentos/2018/tecnico-em-publicidadeementas2018.pdf' >as&#32;t&#233;cnicas&#32;de&#32;produ&#231;&#227;o&#32;publicit&#225;ria</a>&nbsp;&#32;e&#32;reinventando&#32;a&#32;publicidade&#32;&#40;Figueredo&#44;&#32;2017&#41;&#46;<br>A&#32;proposta&#32;de&#32;software&#32;pretende&#32;atender&#32;exatamente&#32;essa&#32;&nbsp;<a class="lknLight" href='https://viridis.energy/pt/blog/nao-caia-na-armadilha-falacias-das-metricas-de-eficiencia' >demanda&#44;&#32;fazendo&#32;com&#32;que&#32;as&#32;empresas</a>&nbsp;&#32;estejam&#32;cada&#32;vez&#32;mais&#32;&nbsp;<a class="lknLight" href='https://docplayer.com.br/5601561-avaliacao-da-qualidade-do-servico-no-comercio-eletronico-um-estudo-em-sites-de-vendas-de-cds.html' >presentes&#32;no&#32;meio&#32;virtual&#46;&#32;Por&#32;outro</a>&nbsp;&#32;lado&#44;&#32;o&#32;atual&#32;momento&#32;da&#32;economia&#32;brasileira&#32;se&#32;mostra&#32;prop&#237;cio&#32;para&#32;o&#32;incremento&#32;&nbsp;<a class="lknLight" href='https://pt.scribd.com/document/351762806/oliveira-viana-o-ocaso-do-imperio-senado-pdf' >da&#32;publicidade&#44;&#32;pois&#32;cerca&#32;de&#32;72&#37;</a>&nbsp;&#32;da&#32;popula&#231;&#227;o&#32;declara&#32;que&#32;mudou&#32;sua&#32;rotina&#32;financeira&#44;&#32;&nbsp;<a class="lknLight" href='http://www.cemig.com.br/pt-br/a_cemig_e_o_futuro/inovacao/alternativas_energeticas/documents/urae.pdf' >buscando&#32;alternativas&#32;e&#32;menores</a>&nbsp;&#32;pre&#231;os&#32;&#40;SPC&#32;Brasil&#32;e&#32;CNDL&#44;&#32;2018&#41;&#46;<br><br>1&#46;5&#32;Organiza&#231;&#227;o&#32;do&#32;trabalho&#32;&nbsp;<a class="lknHeavy" href='http://www.tecsi.fea.usp.br/pastcontecsi/arquivos/4contecsi.pdf' onMouseOver="return addthis_open(this, '<br><br>A&#32;estrutura&#32;do&#32;presente&#32;trabalho','3|2|', vetorWeb, true);" onMouseOut  = "addthis_close();" onClick  = "return addthis_to();" ><br><br>A&#32;estrutura&#32;do&#32;presente&#32;trabalho</a>&nbsp;&#32;divide&#45;se&#32;&nbsp;<a class="lknLight" href='http://docslide.com.br/category/documents.html' >da&#32;seguinte&#32;maneira&#58;&#32;<br>O&#32;cap&#237;tulo&#32;1</a>&nbsp;&#32;cont&#233;m&#32;a&#32;Introdu&#231;&#227;o&#44;&#32;na&#32;qual&#32;&#233;&#32;apresentada&#32;a&#32;motiva&#231;&#227;o&#32;e&#32;justificativa&#32;do&#32;trabalho&#32;al&#233;m&#32;de&#32;uma&#32;vis&#227;o&#32;geral&#32;do&#32;problema&#46;&#32;<br>O&#32;cap&#237;tulo&#32;&nbsp;<a class="lknLight" href='http://www.scielo.br/scielo.php?script=sci_arttext&amp;pid=s0104-530x2007000100002' >2&#32;trata&#32;da&#32;Fundamenta&#231;&#227;o&#32;Te&#243;rica</a>&nbsp;&#32;que&#32;envolve&#32;o&#32;tema&#32;&nbsp;<a class="lknLight" href='http://ticscameta.blogspot.com/2014/12/blog-post.html' >do&#32;trabalho&#44;&#32;as&#32;tecnologias&#32;e&#32;metodologias</a>&nbsp;&#32;utilizadas&#46;&#32;&nbsp;<a class="lknLight" href='https://issuu.com/grupogen/docs/introducao_a_pesquisa_operacional/11' ><br>O&#32;cap&#237;tulo&#32;3&#32;trata&#32;dos&#32;m&#233;todos&#32;de&#32;programa&#231;&#227;o</a>&nbsp;&#32;e&#32;conhecimentos&#32;utilizados&#32;pelo&#32;sistema&#44;&#32;apresentando&#32;&nbsp;<a class="lknLight" href='http://www.revistas.udesc.br/index.php/reavi/article/download/2316419005072016088/5570' >os&#32;requisitos&#32;funcionais&#32;e&#32;n&#227;o&#32;funcionais</a>&nbsp;&#32;do&#32;software&#44;&#32;diagramas&#32;UML&#32;e&#32;prot&#243;tipos&#46;&#32;<br>O&#32;cap&#237;tulo&#32;4&#32;trata&#32;do&#32;cronograma&#32;previsto&#32;para&#32;&nbsp;<a class="lknLight" href='http://uninter.com/pos-graduacao-ead/cursos/educacionais/educacao-infantil' >a&#32;conclus&#227;o&#32;&#32;do&#32;trabalho&#32;de&#32;conclus&#227;o</a>&nbsp;&#32;de&#32;curso&#46;<br>O&#32;cap&#237;tulo&#32;5&#44;&#32;Conclus&#227;o&#44;&#32;apresenta&#32;a&#32;dificuldades&#32;&nbsp;<a class="lknLight" href='http://tede2.pucrs.br/tede2/bitstream/tede/3981/1/459732.pdf' >encontradas&#44;&#32;juntamente&#32;com&#32;os&#32;resultados</a>&nbsp;&#32;j&#225;&#32;obtidos&#46;&#8195;<br>2&#32;FUNDAMENTA&#199;&#195;O&#32;&nbsp;<a class="lknLight" href='https://pt.scribd.com/document/103073244/livro-ponto' >TE&#211;RICA&#32;<br><br>&#9;A&#32;ideia&#32;do&#32;software&#32;proposto</a>&nbsp;&#32;aqui&#32;surgiu&#32;em&#32;uma&#32;competi&#231;&#227;o&#32;de&#32;empreendedorismo&#32;&nbsp;<a class="lknLight" href='https://www.bonde.com.br/economia/noticias/inscricoes-para-2-edicao-do-startup-weekend-comecam-nesta-sexta-408330.html' >em&#32;Londrina&#32;&#40;Startup&#32;Weekend&#32;2016&#41;&#44;</a>&nbsp;&#32;onde&#32;a&#32;equipe&#32;formada&#32;por&#32;alunos&#32;da&#32;UTFPR&#32;&nbsp;<a class="lknLight" href='https://paranaportal.uol.com.br/cidades/diretor-morre-apos-ser-agredido-dentro-de-campus-da-universidade-estadual-do-norte-do-pr/' >do&#32;campus&#32;de&#32;Corn&#233;lio&#32;Proc&#243;pio&#32;foi</a>&nbsp;&#32;a&#32;grande&#32;campe&#227;&#32;&#46;&#32;<br>&#9;Para&#32;implementar&#32;esse&#32;projeto&#32;ser&#227;o&#32;aplicadas&#32;diversas&#32;tecnologias&#32;e&#32;conceitos&#44;&#32;&nbsp;<a class="lknLight" href='https://app.tororadar.com.br/acoes/pdgr3/' >come&#231;ando&#32;pelo&#32;desenvolvimento&#32;de</a>&nbsp;&#32;software&#32;hibrido&#44;&#32;utilizando&#32;TypeScript&#32;para&#32;codifica&#231;&#227;o&#32;geral&#32;e&#32;banco&#32;de&#32;dados&#32;NoSQL&#32;MongoDB&#46;&nbsp;<a class="lknLight" href='http://dab.saude.gov.br/portaldab/esus/manual_pec_1.3/index.php?conteudo=cap07/manualv1.3cap07' ><br>&#9;Este&#32;cap&#237;tulo&#32;apresenta&#32;informa&#231;&#245;es</a>&nbsp;&#32;resultantes&#32;&nbsp;<a class="lknLight" href='https://docplayer.com.br/32272929-bionegocios-no-nordeste-a-producao-agricola-suas-potencialidades-e-desafios.html' >do&#32;levantamento&#32;bibliogr&#225;fico&#32;realizado</a>&nbsp;&#32;para&#32;o&#32;desenvolvimento&#32;desta&#32;proposta&#46;&#32;&nbsp;<a class="lknHeavy" href='http://www.tecsi.fea.usp.br/pastcontecsi/arquivos/4contecsi.pdf' onMouseOver="return addthis_open(this, 'S&#227;o&#32;apresentados&#32;alguns&#32;conceitos&#32;e','3|4|', vetorWeb, true);" onMouseOut  = "addthis_close();" onClick  = "return addthis_to();" >S&#227;o&#32;apresentados&#32;alguns&#32;conceitos&#32;e</a>&nbsp;&#32;informa&#231;&#245;es&#32;utilizados&#32;para&#32;uma&#32;&nbsp;<a class="lknLight" href='https://dokument.site/hidropneumatica-central-do-aluno.html' >melhor&#32;vis&#227;o&#32;do&#32;projeto&#46;&#32;<br><br><br>2&#46;1&#46;&#32;Desenvolvimento</a>&nbsp;&#32;h&#237;brido&#32;de&#32;software&#32;<br><br>O&#32;desenvolvimento&#32;h&#237;brido&#32;&#233;&#32;a&#32;cria&#231;&#227;o&#32;de&#32;um&#32;aplicativo&#32;que&#32;possa&#32;ser&#32;&nbsp;<a class="lknLight" href='http://www.uff.br/cdme/matrix/matrix-html/guia-do-professor.html' >executado&#32;em&#32;qualquer&#32;sistema&#32;operacional&#44;</a>&nbsp;&#32;ou&#32;pelo&#32;menos&#32;em&#32;mais&#32;de&#32;um&#32;&nbsp;<a class="lknLight" href='https://becode.com.br/por-que-aprender-ruby-on-rails/' >deles&#46;&#32;Com&#32;isso&#32;o&#32;desenvolvedor&#32;diminui</a>&nbsp;&#32;o&#32;tempo&#32;de&#32;programa&#231;&#227;o&#44;&#32;que&#32;seria&#32;aumentado&#32;&nbsp;<a class="lknLight" href='https://pt.wikipedia.org/wiki/software_aplicativo#categoria' >para&#32;cada&#32;sistema&#32;em&#32;que&#32;o&#32;aplicativo</a>&nbsp;&#32;pudesse&#32;ser&#32;executado&#32;&#40;XANTHOPOULOS&#59;&#32;XINOGALOS&#44;&#32;2013&#41;&#46;&nbsp;<a class="lknHeavy" href='https://revista.fatectq.edu.br/index.php/interfacetecnologica/article/download/337/215/' onMouseOver="return addthis_open(this, '<br>De&#32;acordo&#32;com&#32;Madureira&#32;&#40;2017&#41;&#44;&#32;o&#32;aplicativo&#32;nativo&#32;&#233;&#32;programado&#32;na&#32;linguagem&#32;de&#32;cada&#32;sistema&#32;opera&#46;&#46;&#46;','5', vetorWeb, true);" onMouseOut  = "addthis_close();" onClick  = "return addthis_to();" ><br>De&#32;acordo&#32;com&#32;Madureira&#32;&#40;2017&#41;&#44;&#32;o&#32;aplicativo&#32;nativo&#32;&#233;&#32;programado&#32;na&#32;linguagem&#32;de&#32;cada&#32;sistema&#32;operacional&#44;&#32;como&#32;Java&#32;no&#32;Android&#32;e&#32;Objective&#45;C&#32;no&#32;iOS&#44;&#32;&#32;cada&#32;&#32;plataforma&#32;apresentando&#32;&#32;&#32;suas&#32;&#32;&#32;pr&#243;prias&#32;&#32;&#32;ferramentas&#32;&#32;&#32;e&#32;&#32;&#32;elementos&#32;&#32;&#32;de&#32;&#32;&#32;interface&#46;&#32;&#32;&#32;Mediante&#32;essas&#32;caracter&#237;sticas&#44;&#32;o&#32;app&#32;nativo&#32;&#233;&#32;desenvolvido&#32;para&#32;utiliza&#231;&#227;o&#32;em&#32;uma&#32;plataforma&#32;espec&#237;fica&#44;&#32;como&#32;iOS&#32;ou&#32;Android&#44;&#32;sendo&#32;capaz&#32;de&#32;explorar&#32;todas&#32;as&#32;potencialidades&#32;da&#32;plataforma&#32;para&#32;a&#32;qual&#32;foi&#32;criado&#44;&#32;conseguindo&#32;ter&#32;acesso&#32;a&#32;diversos&#32;recursos&#32;dos&#32;aparelhos&#32;como&#32;GPS&#44;&#32;c&#226;mera&#44;&#32;calend&#225;rio&#44;&#32;lista&#32;de&#32;contatos&#44;&#32;entre&#32;outros&#46;<br>&#201;&#32;importante&#32;salientar&#32;que&#32;nem&#32;sempre&#32;os&#32;aplicativos&#32;nativos&#32;precisam&#32;da&#32;internet&#32;para&#32;seu&#32;funcionamento&#46;&#32;Madureira&#32;&#40;2017&#41;&#32;afirma&#32;ainda&#32;que&#32;os&#32;desenvolvedores&#32;respeitam&#32;a&#32;um&#32;padr&#227;o&#32;de&#32;design&#32;que&#32;s&#227;o&#32;oferecidos&#32;para&#32;cada&#32;sistema&#32;operacional&#44;&#32;como&#32;um&#32;guia&#46;</a>&nbsp;&#32;A&#32;Figura&#32;1&#32;a&#32;seguir&#32;mostra&#32;a&#32;diferen&#231;a&#32;entre&#32;o&#32;desenvolvimento&#32;nativo&#32;&nbsp;<a class="lknLight" href='https://documento.site/estudos-sobre-o-pre-sal.html' >e&#32;h&#237;brido&#46;<br><br>Analisando&#32;a&#32;Figura&#32;1&#44;</a>&nbsp;&#32;observa&#45;se&#32;&nbsp;<a class="lknHeavy" href='https://revista.fatectq.edu.br/index.php/interfacetecnologica/article/download/337/215/' onMouseOver="return addthis_open(this, 'que&#32;uma&#32;das&#32;caracter&#237;sticas&#32;que&#32;mais&#32;diferenciam&#32;o&#32;aplicativo&#32;nativo&#32;do&#32;aplicativo&#32;h&#237;brido&#32;&#233;&#32;o&#32;proce&#46;&#46;&#46;','5|', vetorWeb, true);" onMouseOut  = "addthis_close();" onClick  = "return addthis_to();" >que&#32;uma&#32;das&#32;caracter&#237;sticas&#32;que&#32;mais&#32;diferenciam&#32;o&#32;aplicativo&#32;nativo&#32;do&#32;aplicativo&#32;h&#237;brido&#32;&#233;&#32;o&#32;processo&#32;de&#32;desenvolvimento&#46;&#32;&#32;Para&#32;desenvolver&#32;uma&#32;aplica&#231;&#227;o&#32;nativa&#44;&#32;como&#32;mencionado&#32;na&#32;defini&#231;&#227;o</a>&nbsp;&#32;e&#32;ilustrado&#32;na&#32;Figura&#44;&#32;&nbsp;<a class="lknHeavy" href='https://revista.fatectq.edu.br/index.php/interfacetecnologica/article/download/337/215/' onMouseOver="return addthis_open(this, 'cada&#32;dispositivo&#32;tem&#32;seu&#32;pr&#243;prio&#32;processo&#32;de&#32;desenvolvimento&#32;exclusivo','5', vetorWeb, true);" onMouseOut  = "addthis_close();" onClick  = "return addthis_to();" >cada&#32;dispositivo&#32;tem&#32;seu&#32;pr&#243;prio&#32;processo&#32;de&#32;desenvolvimento&#32;exclusivo</a>&nbsp;&#32;&#40;RADEJ&#44;&#32;2017&#41;&#46;&#32;<br>Em&#32;&nbsp;<a class="lknHeavy" href='https://revista.fatectq.edu.br/index.php/interfacetecnologica/article/download/337/215/' onMouseOver="return addthis_open(this, 'contrapartida&#32;para&#32;desenvolver&#32;uma&#32;aplica&#231;&#227;o&#32;h&#237;brida&#44;&#32;o&#32;desenvolvimento&#32;&#233;&#32;iniciado&#32;com&#32;uma&#32;&#250;nica&#32;pro&#46;&#46;&#46;','5', vetorWeb, true);" onMouseOut  = "addthis_close();" onClick  = "return addthis_to();" >contrapartida&#32;para&#32;desenvolver&#32;uma&#32;aplica&#231;&#227;o&#32;h&#237;brida&#44;&#32;o&#32;desenvolvimento&#32;&#233;&#32;iniciado&#32;com&#32;uma&#32;&#250;nica&#32;programa&#231;&#227;o&#44;&#32;essa&#32;programa&#231;&#227;o&#32;&#233;&#32;testada&#32;e&#32;compilada&#32;de&#32;forma&#32;&#250;nica&#44;</a>&nbsp;&#32;e&#32;atribu&#237;da&#32;&nbsp;<a class="lknHeavy" href='https://revista.fatectq.edu.br/index.php/interfacetecnologica/article/download/337/215/' onMouseOver="return addthis_open(this, 'simultaneamente&#32;&#224;s&#32;plataformas&#46;&#32;Caso&#32;o&#32;desenvolvedor&#32;queira&#32;acrescentar','5', vetorWeb, true);" onMouseOut  = "addthis_close();" onClick  = "return addthis_to();" >simultaneamente&#32;&#224;s&#32;plataformas&#46;&#32;Caso&#32;o&#32;desenvolvedor&#32;queira&#32;acrescentar</a>&nbsp;&#32;ou&#32;alterar&#32;&nbsp;<a class="lknHeavy" href='https://revista.fatectq.edu.br/index.php/interfacetecnologica/article/download/337/215/' onMouseOver="return addthis_open(this, 'algum&#32;detalhe&#32;ou&#32;requisito&#32;do&#32;aplicativo&#44;&#32;apenas&#32;modifica&#45;se&#32;todos&#32;os&#32;c&#243;digos&#32;fonte&#44;&#32;de&#32;uma&#32;s&#243;&#32;vez&#44;&#32;&#46;&#46;&#46;','5', vetorWeb, true);" onMouseOut  = "addthis_close();" onClick  = "return addthis_to();" >algum&#32;detalhe&#32;ou&#32;requisito&#32;do&#32;aplicativo&#44;&#32;apenas&#32;modifica&#45;se&#32;todos&#32;os&#32;c&#243;digos&#32;fonte&#44;&#32;de&#32;uma&#32;s&#243;&#32;vez&#44;&#32;n&#227;o&#32;precisando&#32;alterar&#32;todos&#32;um&#32;a&#32;um</a>&nbsp;&#32;&#40;VENTEU&#59;&#32;PINTO&#44;&#32;2018&#41;&#46;<br><br><br><p>
-	<hr><b>Links&#32;por&#32;Ocorr&#234;ncia</b><p>  Fragmento: <font color="blue">&#40;smartphones&#41;&#32;no&#32;Brasil&#44;&#32;mais&#32;de&#32;1</font><br/>URLs:  <br/><a href="https://link.estadao.com.br/noticias/geral,brasil-ja-tem-mais-de-um-smartphone-ativo-por-habitante-diz-estudo-da-fgv,70002275238"><font color="red">https://link.estadao.com.br/noticias/geral,brasil-ja-tem-mais-de-um-smartphone-ativo-por-habitante-diz-estudo-da-fgv,70002275238</font></a><br/><br/>  Fragmento: <font color="blue">os&#32;notebooks&#32;e&#32;os&#32;tablets&#32;s&#227;o&#32;306&#32;milh&#245;es&#32;de&#32;dispositivos&#32;port&#225;teis</font><br/>URLs:  <br/><a href="http://eaesp.fgv.br/sites/eaesp.fgv.br/files/pesti2018gvciappt.pdf"><font color="red">http://eaesp.fgv.br/sites/eaesp.fgv.br/files/pesti2018gvciappt.pdf</font></a><br/><br/>  Fragmento: <font color="blue">Objetivos&#32;gerais
-
-O&#32;objetivo&#32;deste&#32;trabalho</font><br/>URLs:  <br/><a href="http://www.administradores.com.br/artigos/marketing/estrutura-organizacional-influencia-da-estrutura-na-eficiencia-da-organizacao-de-acordo/62071/"><font color="red">http://www.administradores.com.br/artigos/marketing/estrutura-organizacional-influencia-da-estrutura-na-eficiencia-da-organizacao-de-acordo/62071/</font></a><br/><br/>  Fragmento: <font color="blue">
-
-A&#32;estrutura&#32;do&#32;presente&#32;trabalho</font><br/>URLs:  <br/><a href="http://www.tecsi.fea.usp.br/pastcontecsi/arquivos/4contecsi.pdf"><font color="red">http://www.tecsi.fea.usp.br/pastcontecsi/arquivos/4contecsi.pdf</font></a><br/><a href="http://www.administradores.com.br/artigos/marketing/estrutura-organizacional-influencia-da-estrutura-na-eficiencia-da-organizacao-de-acordo/62071/"><font color="red">http://www.administradores.com.br/artigos/marketing/estrutura-organizacional-influencia-da-estrutura-na-eficiencia-da-organizacao-de-acordo/62071/</font></a><br/><br/>  Fragmento: <font color="blue">S&#227;o&#32;apresentados&#32;alguns&#32;conceitos&#32;e</font><br/>URLs:  <br/><a href="http://www.tecsi.fea.usp.br/pastcontecsi/arquivos/4contecsi.pdf"><font color="red">http://www.tecsi.fea.usp.br/pastcontecsi/arquivos/4contecsi.pdf</font></a><br/><a href="http://www.tecsi.fea.usp.br/pastcontecsi/arquivos/7contecsi.pdf"><font color="red">http://www.tecsi.fea.usp.br/pastcontecsi/arquivos/7contecsi.pdf</font></a><br/><br/>  Fragmento: <font color="blue">
-De&#32;acordo&#32;com&#32;Madureira&#32;&#40;2017&#41;&#44;&#32;o&#32;aplicativo&#32;nativo&#32;&#233;&#32;programado&#32;na&#32;linguagem&#32;de&#32;cada&#32;sistema&#32;operacional&#44;&#32;como&#32;Java&#32;no&#32;Android&#32;e&#32;Objective&#45;C&#32;no&#32;iOS&#44;&#32;&#32;cada&#32;&#32;plataforma&#32;apresentando&#32;&#32;&#32;suas&#32;&#32;&#32;pr&#243;prias&#32;&#32;&#32;ferramentas&#32;&#32;&#32;e&#32;&#32;&#32;elementos&#32;&#32;&#32;de&#32;&#32;&#32;interface&#46;&#32;&#32;&#32;Mediante&#32;essas&#32;caracter&#237;sticas&#44;&#32;o&#32;app&#32;nativo&#32;&#233;&#32;desenvolvido&#32;para&#32;utiliza&#231;&#227;o&#32;em&#32;uma&#32;plataforma&#32;espec&#237;fica&#44;&#32;como&#32;iOS&#32;ou&#32;Android&#44;&#32;sendo&#32;capaz&#32;de&#32;explorar&#32;todas&#32;as&#32;potencialidades&#32;da&#32;plataforma&#32;para&#32;a&#32;qual&#32;foi&#32;criado&#44;&#32;conseguindo&#32;ter&#32;acesso&#32;a&#32;diversos&#32;recursos&#32;dos&#32;aparelhos&#32;como&#32;GPS&#44;&#32;c&#226;mera&#44;&#32;calend&#225;rio&#44;&#32;lista&#32;de&#32;contatos&#44;&#32;entre&#32;outros&#46;
-&#201;&#32;importante&#32;salientar&#32;que&#32;nem&#32;sempre&#32;os&#32;aplicativos&#32;nativos&#32;precisam&#32;da&#32;internet&#32;para&#32;seu&#32;funcionamento&#46;&#32;Madureira&#32;&#40;2017&#41;&#32;afirma&#32;ainda&#32;que&#32;os&#32;desenvolvedores&#32;respeitam&#32;a&#32;um&#32;padr&#227;o&#32;de&#32;design&#32;que&#32;s&#227;o&#32;oferecidos&#32;para&#32;cada&#32;sistema&#32;operacional&#44;&#32;como&#32;um&#32;guia&#46;</font><br/>URLs:  <br/><a href="https://revista.fatectq.edu.br/index.php/interfacetecnologica/article/download/337/215/"><font color="red">https://revista.fatectq.edu.br/index.php/interfacetecnologica/article/download/337/215/</font></a><br/><br/>  Fragmento: <font color="blue">que&#32;uma&#32;das&#32;caracter&#237;sticas&#32;que&#32;mais&#32;diferenciam&#32;o&#32;aplicativo&#32;nativo&#32;do&#32;aplicativo&#32;h&#237;brido&#32;&#233;&#32;o&#32;processo&#32;de&#32;desenvolvimento&#46;&#32;&#32;Para&#32;desenvolver&#32;uma&#32;aplica&#231;&#227;o&#32;nativa&#44;&#32;como&#32;mencionado&#32;na&#32;defini&#231;&#227;o</font><br/>URLs:  <br/><a href="https://revista.fatectq.edu.br/index.php/interfacetecnologica/article/download/337/215/"><font color="red">https://revista.fatectq.edu.br/index.php/interfacetecnologica/article/download/337/215/</font></a><br/><br/>  Fragmento: <font color="blue">cada&#32;dispositivo&#32;tem&#32;seu&#32;pr&#243;prio&#32;processo&#32;de&#32;desenvolvimento&#32;exclusivo</font><br/>URLs:  <br/><a href="https://revista.fatectq.edu.br/index.php/interfacetecnologica/article/download/337/215/"><font color="red">https://revista.fatectq.edu.br/index.php/interfacetecnologica/article/download/337/215/</font></a><br/><br/>  Fragmento: <font color="blue">contrapartida&#32;para&#32;desenvolver&#32;uma&#32;aplica&#231;&#227;o&#32;h&#237;brida&#44;&#32;o&#32;desenvolvimento&#32;&#233;&#32;iniciado&#32;com&#32;uma&#32;&#250;nica&#32;programa&#231;&#227;o&#44;&#32;essa&#32;programa&#231;&#227;o&#32;&#233;&#32;testada&#32;e&#32;compilada&#32;de&#32;forma&#32;&#250;nica&#44;</font><br/>URLs:  <br/><a href="https://revista.fatectq.edu.br/index.php/interfacetecnologica/article/download/337/215/"><font color="red">https://revista.fatectq.edu.br/index.php/interfacetecnologica/article/download/337/215/</font></a><br/><br/>  Fragmento: <font color="blue">simultaneamente&#32;&#224;s&#32;plataformas&#46;&#32;Caso&#32;o&#32;desenvolvedor&#32;queira&#32;acrescentar</font><br/>URLs:  <br/><a href="https://revista.fatectq.edu.br/index.php/interfacetecnologica/article/download/337/215/"><font color="red">https://revista.fatectq.edu.br/index.php/interfacetecnologica/article/download/337/215/</font></a><br/><br/>  Fragmento: <font color="blue">algum&#32;detalhe&#32;ou&#32;requisito&#32;do&#32;aplicativo&#44;&#32;apenas&#32;modifica&#45;se&#32;todos&#32;os&#32;c&#243;digos&#32;fonte&#44;&#32;de&#32;uma&#32;s&#243;&#32;vez&#44;&#32;n&#227;o&#32;precisando&#32;alterar&#32;todos&#32;um&#32;a&#32;um</font><br/>URLs:  <br/><a href="https://revista.fatectq.edu.br/index.php/interfacetecnologica/article/download/337/215/"><font color="red">https://revista.fatectq.edu.br/index.php/interfacetecnologica/article/download/337/215/</font></a><br/><br/><p> 
-</td>
-</tr>
-</table>	
- 
-
-	</div>
-	<div id="reportHome" style="display: none">
-		##REPORT_HOME##
-	</div>
-	<div id="reportHelp" style="display: none">
-	<table width="900px" align="center"  bgcolor="#FFE1FF">
-	<tr>
-	<td>
-		
-
-	</td>
-	</tr>
-	</table>
-	</div>
-	
-	<hr>Relat&#243;rio&#32;DOCxWEB&#58;&#32;https&#58;&#47;&#47;www&#46;docxweb&#46;com<br>
-	</div>
-</td>
-</tr>
-</table>	
-</body>
-</html>

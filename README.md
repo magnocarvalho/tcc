@@ -12,7 +12,7 @@ o MEAN Stack é o conjunto de tecnologias que juntas possibilitam o desenvolvime
 
 A Figura apresenta a arquitetura MEAN e a relação com as tecnologias.
 
-![](https://blog.octalmind.com/wp-content/uploads/2018/07/blog-post1_1-1024x440.png)
+![](https://blog.octalmind.com/wp-content/uploads/2018/07/blog-post.png)
  
 ### 1.api
 Api de microservicos, construido em node.js e express, conectando com um banco mongodb, fornecendo estrutura de back-end para todas as visões 

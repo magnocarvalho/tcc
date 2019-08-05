@@ -1,41 +1,41 @@
 {
-    "name": "tcc-magno",
-    "version": "1.0.0",
-    "description": "",
-    "main": "index.js",
-    "scripts": {
-        "start": "gulp",
-        "debug": "node --nolazy --inspect-brk=9229 bin/index.js"
-    },
-    "author": "Magno Carvalho",
-    "license": "ISC",
-    "devDependencies": {
-        "chai": "^4.2.0",
-        "gulp": "^4.0.2",
-        "gulp-mocha": "^6.0.0",
-        "gulp-nodemon": "^2.4.2",
-        "gulp-typescript": "^5.0.1",
-        "merge2": "^1.2.3",
-        "mocha": "^6.1.4",
-        "typescript": "^3.5.2"
-    },
-    "dependencies": {
-        "@types/async": "^3.0.0",
-        "@types/express": "^4.17.0",
-        "@types/mongoose": "^5.5.6",
-        "@types/node": "^12.0.10",
-        "async": "^3.1.0",
-        "async-waterfall": "^0.1.5",
-        "chai-http": "^4.3.0",
-        "compression": "^1.6.0",
-        "del": "^4.1.1",
-        "dotenv": "^8.0.0",
-        "express": "^4.17.1",
-        "mongoose": "^5.6.0",
-        "mongoose-double": "0.0.1",
-        "mongoose-transactions": "^1.1.1",
-        "node": "^10.16.0",
-        "path": "^0.12.7",
-        "suspend": "^0.7.0"
-    }
+  "name": "tcc-magno",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "gulp",
+    "debug": "node --nolazy --inspect-brk=9229 bin/index.js"
+  },
+  "author": "Magno Carvalho",
+  "license": "ISC",
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "gulp": "^4.0.2",
+    "gulp-mocha": "^6.0.0",
+    "gulp-nodemon": "^2.4.2",
+    "gulp-typescript": "^5.0.1",
+    "merge2": "^1.2.3",
+    "mocha": "^6.1.4",
+    "typescript": "^3.5.2"
+  },
+  "dependencies": {
+    "@types/async": "^3.0.0",
+    "@types/express": "^4.17.0",
+    "@types/mongoose": "^5.5.6",
+    "@types/node": "^12.0.10",
+    "async": "^3.1.0",
+    "async-waterfall": "^0.1.5",
+    "chai-http": "^4.3.0",
+    "compression": "^1.6.0",
+    "del": "^4.1.1",
+    "dotenv": "^8.0.0",
+    "express": "^4.17.1",
+    "mongoose": "^5.6.0",
+    "mongoose-double": "0.0.1",
+    "mongoose-transactions": "^1.1.1",
+    "node": "^10.16.0",
+    "path": "^0.12.7",
+    "suspend": "^0.7.0"
+  }
 }

@@ -5,9 +5,10 @@ import { LogoutComponent } from "./logout/logout.component";
 import { LoginComponent } from "./login/login.component";
 
 const routes: Routes = [
-  { path: "", component: MainComponent },
+  { path: "dashboard", component: MainComponent, children: [] },
   { path: "logout", component: LogoutComponent },
-  { path: "login", component: LoginComponent }
+  { path: "login", component: LoginComponent },
+  { path: "", redirectTo: "dashboard", pathMatch: "full" }
 ];
 
 @NgModule({

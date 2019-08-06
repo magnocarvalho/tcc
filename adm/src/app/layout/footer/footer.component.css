@@ -1,0 +1,6 @@
+.footer {
+  display: inline-block;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}

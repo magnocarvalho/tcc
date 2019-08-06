@@ -1,0 +1,20 @@
+.menu-left {
+  position: sticky;
+  top: 25px;
+  margin: 25px;
+  width: 240px;
+  max-height: 75vh;
+  overflow: auto;
+  background-color: aliceblue;
+  /* border: #2a6bf8 solid 1px; */
+  transition: box-shadow 280ms cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 2px 1px -1px rgba(0, 0, 0, 0.2), 0 1px 1px 0 rgba(0, 0, 0, 0.14),
+    0 1px 3px 0 rgba(0, 0, 0, 0.12);
+}
+.menu-left::-webkit-scrollbar {               
+  height: 4px;
+  width: 4px;
+}
+.menu-left::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.26);
+}

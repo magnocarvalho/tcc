@@ -1,34 +1,42 @@
-import { BrowserModule } from "@angular/platform-browser";
-import { NgModule } from "@angular/core";
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
+import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
 
-import { AppRoutingModule } from "./app-routing.module";
-import { AppComponent } from "./app.component";
-import { MainComponent } from "./main/main.component";
-import { LogoutComponent } from "./logout/logout.component";
-import { LoginComponent } from "./login/login.component";
-import { HeaderComponent } from "./layout/header/header.component";
-import { FooterComponent } from "./layout/footer/footer.component";
-import { MenuComponent } from "./layout/menu/menu.component";
-import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
-import { MaterialModule } from "./material/material.module";
+import { AuthInterceptor, AuthService, FakeBackendInterceptor } from '@services/*';
+
+import { AppRoutingModule } from './app-routing.module';
+import { AppComponent } from './app.component';
+import { ChartsModule } from './pages/charts';
+import { ComponentsModule } from './pages/components';
+import { DashboardModule } from './pages/dashboard';
+import { Dashboard2Module } from './pages/dashboard2';
+import { FormsModule } from './pages/forms';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    MainComponent,
-    LogoutComponent,
-    LoginComponent,
-    HeaderComponent,
-    FooterComponent,
-    MenuComponent
-  ],
+  declarations: [AppComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    MaterialModule,
-    BrowserAnimationsModule
+    ComponentsModule,
+    DashboardModule,
+    Dashboard2Module,
+    FormsModule,
+    ChartsModule,
+    HttpClientModule,
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  providers: [
+    AuthService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi: true,
+    },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: FakeBackendInterceptor,
+      multi: true,
+    },
+  ],
+  bootstrap: [AppComponent],
 })
 export class AppModule {}

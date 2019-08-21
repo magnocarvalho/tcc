@@ -42,7 +42,7 @@ export class PieChartComponent extends BasePieChartComponent implements OnInit {
     ];
 
     nv.addGraph(() => {
-      const innerRadius = 0.86;
+      const innerRadius = 0.86; 
       const outerRadius = 1.02;
 
       const pieChart = nv.models.pieChart()

@@ -1,4 +1,4 @@
-import 'material-design-lite/material';
+import "material-design-lite/material";
 
 import {
   AfterViewInit,
@@ -8,45 +8,53 @@ import {
   OnDestroy,
   QueryList,
   ViewChild,
-  ViewChildren,
-} from '@angular/core';
+  ViewChildren
+} from "@angular/core";
 
-import { TodoListService } from './todo-list.service';
+import { TodoListService } from "./todo-list.service";
 
 @Component({
-  selector: 'app-todo-list',
-  styleUrls: ['./todo-list.component.scss'],
-  templateUrl: './todo-list.component.html',
-  providers: [TodoListService],
+  selector: "app-todo-list",
+  styleUrls: ["./todo-list.component.scss"],
+  templateUrl: "./todo-list.component.html",
+  providers: [TodoListService]
 })
 export class TodoListComponent implements AfterViewInit, OnDestroy {
-  @HostBinding('class.todo') private readonly todo = true;
+  @HostBinding("class.todo") private readonly todo = true;
 
   private items;
   private createdItem = null;
   private todoItemsSubscription;
 
-  @ViewChild('todoInput') private set todoInput(element: ElementRef) {
+  @ViewChild("todoInput", { static: false }) private set todoInput(
+    element: ElementRef
+  ) {
     if (element) {
       element.nativeElement.focus();
     }
   }
-  @ViewChildren('listItem') private todoItems: QueryList<ElementRef>;
+  @ViewChildren("listItem") private todoItems: QueryList<ElementRef>;
 
   constructor(todoListService: TodoListService) {
     this.items = todoListService.getItems();
   }
 
   public ngAfterViewInit(): void {
-    this.todoItemsSubscription = this.todoItems.changes.subscribe((todoItems) => {
-      if (todoItems.last) {
-        componentHandler.upgradeElement(todoItems.last.nativeElement.querySelector('[checkboxitem]'));
-        const textField = todoItems.last.nativeElement.querySelector('.mdl-textfield');
-        if (textField) {
-          componentHandler.upgradeElement(textField);
+    this.todoItemsSubscription = this.todoItems.changes.subscribe(
+      (todoItems) => {
+        if (todoItems.last) {
+          componentHandler.upgradeElement(
+            todoItems.last.nativeElement.querySelector("[checkboxitem]")
+          );
+          const textField = todoItems.last.nativeElement.querySelector(
+            ".mdl-textfield"
+          );
+          if (textField) {
+            componentHandler.upgradeElement(textField);
+          }
         }
       }
-    });
+    );
   }
 
   public ngOnDestroy(): void {
@@ -54,14 +62,14 @@ export class TodoListComponent implements AfterViewInit, OnDestroy {
   }
 
   private deleteItem(item): void {
-    this.items = this.items.filter(i => i !== item);
+    this.items = this.items.filter((i) => i !== item);
   }
 
   private createItem(): void {
     this.createdItem = {
-      title: '',
+      title: "",
       id: Date.now(),
-      completed: false,
+      completed: false
     };
   }
 

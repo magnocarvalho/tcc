@@ -12,7 +12,6 @@ app.use(bodyParser.urlencoded({ extended: true }));
 mongoose.set('useFindAndModify', false); // biblioteca depreciada
 mongoose.connect('mongodb://localhost:27017/tcc', { useNewUrlParser: true });
 
-
 app.use(function (req, res, next) {
     res.setHeader('Access-Control-Allow-Origin', '*');
     res.setHeader('Access-Control-Allow-Method', 'PUT, POST, DELETE, GET');
@@ -27,8 +26,6 @@ app.options('*', function (req, res, next) {
         res.sendStatus(200);
 
 });
-
-// app.use('/', routes);
 
 app.use(function (req, res, next) {
     let err: any;

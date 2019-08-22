@@ -1,15 +1,11 @@
 {
-  "name": "material-angular-dashboard",
+  "name": "tcc-magno",
   "version": "1.0.0",
-  "description": "Free material angular dashboard template with Google Material Design",
+  "description": "Tcc magno",
   "keywords": [
     "dashboard",
     "angular",
-    "admin template",
-    "Material Design",
-    "Dark",
-    "google material design",
-    "ng"
+    "Material Design"
   ],
   "license": "MIT",
   "scripts": {
@@ -44,7 +40,7 @@
     "@angular/router": "8.2.2",
     "@types/googlemaps": "^3.30.18",
     "classlist.js": "1.1.20150312",
-    "core-js": "3.2.1",
+    "core-js": "^2.5.7",
     "d3": "^3.5.17",
     "firebase": "^6.3.5",
     "material-angular-select": "1.0.0",

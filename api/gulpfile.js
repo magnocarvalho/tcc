@@ -38,18 +38,19 @@ gulp.task('server', function (done) {
             stream.emit('restart', 10);  // restart the server in 10 seconds
         });
 });
-gulp.task('test', function () {
-    gulp.src('test/test.js')
-        .pipe(mocha({reporter: 'list'}))
-        .once('error', err => {
-            console.error(err);
-            // process.exit(0);
-        })
-        .once('end', () => {
-            process.exit();
-        })
-});
+// gulp.task('test', function () {
+//     gulp.src('test/test.js')
+//         .pipe(mocha({reporter: 'list'}))
+//         .once('error', err => {
+//             console.error(err);
+//             // process.exit(0);
+//         })
+//         .once('end', () => {
+//             process.exit();
+//         })
+// });
 gulp.task('watch', gulp.parallel('compile'));
-gulp.task('default', gulp.series('clean', 'watch', gulp.parallel('server', 'test')));
+gulp.task('default', gulp.series('clean', 'watch', gulp.parallel('server')));
+// gulp.task('default', gulp.series('clean', 'watch', gulp.parallel('server', 'test')));
 
 

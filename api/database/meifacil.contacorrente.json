@@ -1,2 +1,0 @@
-{ "_id" : { "$oid" : "5d1428c1ccc3682c880a67c8" }, "isDeleted" : false, "saldo" : 45000.5, "titular" : "Magno", "createdon" : { "$date" : "2019-06-27T02:27:01.173+0000" }, "__v" : 0 }
-{ "_id" : { "$oid" : "5d1428c1ccc3682c880a67c2" }, "isDeleted" : false, "saldo" : 55000.5, "titular" : "Carvalho", "createdon" : { "$date" : "2019-06-27T02:29:24.688+0000" }, "__v" : 0 }

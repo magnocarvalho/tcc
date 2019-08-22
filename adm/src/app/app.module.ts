@@ -11,6 +11,7 @@ import { ComponentsModule } from './pages/components';
 import { DashboardModule } from './pages/dashboard';
 import { Dashboard2Module } from './pages/dashboard2';
 import { FormsModule } from './pages/forms';
+import { PromocaoComponent } from './pages/promocao/promocao.component';
 
 @NgModule({
   declarations: [AppComponent],

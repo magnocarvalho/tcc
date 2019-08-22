@@ -39,6 +39,8 @@
     "@angular/platform-browser-dynamic": "8.2.2",
     "@angular/router": "8.2.2",
     "@types/googlemaps": "^3.30.18",
+    "@types/jest": "^24.0.18",
+    "@types/mocha": "^5.2.7",
     "classlist.js": "1.1.20150312",
     "core-js": "^2.5.7",
     "d3": "^3.5.17",

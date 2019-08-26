@@ -14,7 +14,7 @@ import { PromocaoComponent } from './pages/promocao/promocao.component';
   imports: [
     RouterModule.forRoot(
       [
-        { path: '', redirectTo: 'app/dashboard', pathMatch: 'full' },
+        { path: '', redirectTo: 'app/promocao', pathMatch: 'full' },
         { path: 'app', component: CommonLayoutComponent, children: [
           { path: 'promocao', component: PromocaoComponent, pathMatch: 'full' },
           { path: 'dashboard', component: DashboardComponent, pathMatch: 'full' },

@@ -13,6 +13,7 @@ import { RightSidebarModule } from './right-sidebar';
 import { TablesComponent, TablesService } from './tables';
 import { TypographyComponent } from './typography';
 import { UIRoutingModule } from './ui-routing.module';
+import {MatFormFieldModule} from '@angular/material/form-field';
 
 @NgModule({
   imports: [
@@ -21,6 +22,7 @@ import { UIRoutingModule } from './ui-routing.module';
     ThemeModule,
     MaterialAngularSelectModule,
     RightSidebarModule,
+    MatFormFieldModule
   ],
   declarations: [
     ButtonsComponent,

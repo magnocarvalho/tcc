@@ -1,6 +1,9 @@
 # tcc
 Trabalho de Conclusão de Curso de Engenharia de Software - UTFPR
 
+Domínio cliente https://gastandopouco.web.app/
+Domínio empresa https://admgastandopouco.web.app/
+
 ## Desenvolviemnto de uma plataforma veiculação publicitaria
 aplicação MEAN Stack
 
@@ -12,7 +15,7 @@ o MEAN Stack é o conjunto de tecnologias que juntas possibilitam o desenvolvime
 
 A Figura apresenta a arquitetura MEAN e a relação com as tecnologias.
 
-![](https://blog.octalmind.com/wp-content/uploads/2018/07/blog-post1_1.png)
+![](https://www.netsolutions.com/insights/wp-content/uploads/2019/02/how-MEAN-STACK-TECHNOLOGY-WORKS.jpg)
  
 ### 1.api
 Api construido em node.js e express, conectando com um banco mongodb, fornecendo estrutura de back-end para todas as visões 

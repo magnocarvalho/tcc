@@ -1,0 +1,17 @@
+{
+  "projects": {
+    "default": "oficina2utfpr"
+  },
+  "targets": {
+    "oficina2utfpr": {
+      "hosting": {
+        "empresa-default": [
+          "oficina2utfpr"
+        ],
+        "empresa": [
+          "gastandopouco"
+        ]
+      }
+    }
+  }
+}

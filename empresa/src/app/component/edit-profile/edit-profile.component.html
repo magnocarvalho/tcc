@@ -1,0 +1,122 @@
+<div style="padding-bottom: 56px;">
+    <mat-card class="mat-controler-edit-profile">
+        <mat-card-header color="primary">
+            <!-- <img mat-card-avatar *ngIf="api.firebaseUser.photoURL" [src]="api.firebaseUser.photoURL"> -->
+            <!-- <mat-card-title *ngIf="api.firebaseUser.displayName">{{api.firebaseUser.displayName}}</mat-card-title> -->
+            <!-- <mat-card-subtitle *ngIf="api.firebaseUser.email">{{api.firebaseUser.email}}</mat-card-subtitle> -->
+            <mat-card-title *ngIf="api.firebaseUser.email">Email: {{api.firebaseUser.email}}</mat-card-title>
+        </mat-card-header>
+
+        <mat-card-content>
+            <form [formGroup]="form">
+                <div fxLayout="column" fxLayoutAlign="start stretch">
+                    <div class="personal-image" *ngIf="api.firebaseUser.photoURL">
+                        <label class="label">
+                            <input type="file" formControlName="foto" (change)="changeListener($event)" accept=".jpg, .jpeg, .png" #fileInput />
+                            <figure class="personal-figure">
+                                <img src="{{imagemPerfil}}" class="personal-avatar" alt="avatar">
+                                <figcaption class="personal-figcaption">
+                                    <img src="/assets/camera-white.png">
+                                </figcaption>
+                            </figure>
+                        </label>
+                        <mat-label *ngIf="form.get('foto').hasError('required') && !arquivoImg">
+                            Adicionar Logo da Empresa
+                        </mat-label>
+                    </div>
+                    <mat-form-field class="formbase" appearance="outline">
+                        <mat-label>Empresa</mat-label>
+                        <input autocomplete="name" matInput placeholder="Insira o nome da empresa" type="text" required formControlName="displayName">
+                        <mat-error *ngIf="form.get('displayName').hasError('required')">
+                            Nome é
+                            <strong>obrigatorio</strong>
+                        </mat-error>
+                        <mat-icon matSuffix>person</mat-icon>
+                    </mat-form-field>
+                    <div class="larg-100">
+                        <agm-map [latitude]="latitude" [longitude]="longitude" [scrollwheel]="false" [zoom]="zoom" draggable="true"
+                            (mapClick)="clickEventNow($event)">
+                            <agm-marker [latitude]="latitude" [longitude]="longitude" draggable="true"></agm-marker>
+                        </agm-map>
+                    </div>
+                    <mat-divider></mat-divider>
+                    <span class="marg-button-20"></span>
+                    <mat-form-field class="larg-100" appearance="outline">
+                        <mat-label>Endereço completo</mat-label>
+                        <input required matValidateAddress #matGoogleMapsAutocomplete="matGoogleMapsAutocomplete" matInput maxlength="100"
+                            matGoogleMapsAutocomplete [types]="['places']" (onAutocompleteSelected)="onAutocompleteSelected($event)"
+                            (onLocationSelected)="onLocationSelected($event)" formControlName="googlePlace">
+                        <mat-error *ngIf="matGoogleMapsAutocomplete.addressSearchControl.hasError('required')">
+                            Obrigatorio
+                        </mat-error>
+                        <mat-error *ngIf="matGoogleMapsAutocomplete.addressSearchControl.hasError('validateAddress')">
+                            Endereço Invalido
+                        </mat-error>
+                    </mat-form-field>
+                    <span fxLayout="row" fxLayoutAlign="space-between start">
+                        <mat-form-field appearance="outline" fxFlex="65">
+                            <mat-label>Rua</mat-label>
+                            <input matInput maxlength="100" required placeholder="rua" formControlName="rua">
+                        </mat-form-field>
+                        <mat-form-field appearance="outline" fxFlex="30">
+                            <mat-label>Numero</mat-label>
+                            <input matInput maxlength="100" required placeholder="Numero" formControlName="numero">
+                        </mat-form-field>
+                    </span>
+                    <span fxLayout="row" fxLayoutAlign="space-between start">
+                        <mat-form-field appearance="outline" fxFlex="50">
+                            <mat-label>Complemento</mat-label>
+                            <input matInput maxlength="100" placeholder="Complemento" formControlName="complemento">
+                        </mat-form-field>
+                        <mat-form-field appearance="outline" fxFlex="45">
+                            <mat-label>CEP</mat-label>
+                            <input matInput maxlength="100" required placeholder="CEP" formControlName="cep">
+                        </mat-form-field>
+                    </span>
+                    <span fxLayout="row" fxLayoutAlign="space-between start">
+                        <mat-form-field appearance="outline" fxFlex="45">
+                            <mat-label>Bairro</mat-label>
+                            <input matInput maxlength="100" required placeholder="Bairro" formControlName="bairro">
+                        </mat-form-field>
+                        <mat-form-field appearance="outline" fxFlex="50">
+                            <mat-label>Cidade</mat-label>
+                            <input matInput maxlength="100" required placeholder="Cidade" formControlName="cidade">
+                        </mat-form-field>
+                    </span>
+                    <span fxLayout="row" fxLayoutAlign="space-between start">
+                        <mat-form-field appearance="outline" fxFlex="45">
+                            <mat-label>Estado</mat-label>
+                            <input matInput maxlength="100" required placeholder="Estado" formControlName="estado">
+                        </mat-form-field>
+                        <mat-form-field appearance="outline" fxFlex="50">
+                            <mat-label>Pais</mat-label>
+                            <input matInput maxlength="100" required placeholder="Pais" formControlName="pais">
+                        </mat-form-field>
+                    </span>
+
+                    <mat-form-field appearance="outline">
+                        <mat-label>CNPJ</mat-label>
+                        <input matInput formControlName="cnpj" type="text" required placeholder="CNPJ" [mask]="mascaraCnpj">
+                    </mat-form-field>
+                    <mat-form-field appearance="outline">
+                        <mat-label>Telefone</mat-label>
+                        <input matInput formControlName="telefone" type="text" required placeholder="Telefone" [mask]="mascaratelefone">
+                    </mat-form-field>
+                    <mat-form-field appearance="outline"> 
+                        <mat-label>Descrição</mat-label>
+                        <input matInput formControlName="description" type="text" required placeholder="Descrição">
+                    </mat-form-field>
+                    <mat-form-field appearance="outline">
+                        <mat-label>Tipo de estabelecimento</mat-label>
+                        <mat-select placeholder="Seleciona o tipo de estabelecimento" formControlName="tipo" name="item">
+                            <mat-option required *ngFor="let item of tiposCarregados" [value]="item._id">
+                                {{item.value}}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                    <button mat-raised-button (click)="salvarDados()" color="primary">Atualizar Perfil</button>
+                </div>
+            </form>
+        </mat-card-content>
+    </mat-card>
+</div>

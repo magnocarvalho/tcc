@@ -1,0 +1,182 @@
+{
+  "tipo": {
+    "_id": {
+      "type": "Object"
+    },
+    "icon": {
+      "type": "string",
+      "required": true
+    },
+    "value": {
+      "type": "string",
+      "required": true
+    }
+  },
+  "user": {
+    "_id": {
+      "type": "Object"
+    },
+    "location": {
+      "type": "Object",
+      "structure": {
+        "coordinates": {
+          "type": "Array",
+          "required": true
+        },
+        "type": {
+          "type": "string",
+          "required": true
+        }
+      },
+      "required": true
+    },
+    "isDeleted": {
+      "type": "boolean",
+      "required": true
+    },
+    "modifiedon": {
+      "type": "Date",
+      "required": true
+    },
+    "rua": {
+      "type": "string",
+      "required": true
+    },
+    "numero": {
+      "type": "string",
+      "required": true
+    },
+    "bairro": {
+      "type": "string",
+      "required": true
+    },
+    "cnpj": {
+      "type": "string",
+      "required": true
+    },
+    "complemento": {
+      "type": "string",
+      "required": true
+    },
+    "tipo": {
+      "type": "Object"
+    },
+    "googlePlace": {
+      "type": "string",
+      "required": true
+    },
+    "uid": {
+      "type": "string",
+      "required": true
+    },
+    "cep": {
+      "type": "string",
+      "required": true
+    },
+    "cidade": {
+      "type": "string",
+      "required": true
+    },
+    "pais": {
+      "type": "string",
+      "required": true
+    },
+    "estado": {
+      "type": "string",
+      "required": true
+    },
+    "displayName": {
+      "type": "string",
+      "required": true
+    },
+    "email": {
+      "type": "string",
+      "required": true
+    },
+    "photoURL": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "string",
+      "required": true
+    },
+    "telefone": {
+      "type": "string",
+      "required": true
+    }
+  },
+  "favorite": {
+    "_id": {
+      "type": "Object"
+    },
+    "isDeleted": {
+      "type": "boolean",
+      "required": true
+    },
+    "modifiedon": {
+      "type": "Date",
+      "required": true
+    },
+    "uid": {
+      "type": "string",
+      "required": true
+    },
+    "promos": {
+      "type": "Array",
+      "required": true
+    }
+  },
+  "promo": {
+    "_id": {
+      "type": "Object"
+    },
+    "isDeleted": {
+      "type": "boolean",
+      "required": true
+    },
+    "modifiedon": {
+      "type": "Date",
+      "required": true
+    },
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "about": {
+      "type": "string",
+      "required": true
+    },
+    "initPrice": {
+      "type": "number",
+      "required": true
+    },
+    "endPrice": {
+      "type": "number",
+      "required": true
+    },
+    "initDate": {
+      "type": "Date",
+      "required": true
+    },
+    "endDate": {
+      "type": "Date",
+      "required": true
+    },
+    "thumbnail": {
+      "type": "string",
+      "required": true
+    },
+    "descont": {
+      "type": "number",
+      "required": true
+    },
+    "createdby": {
+      "type": "Object"
+    },
+    "favoritos": {
+      "type": "number",
+      "required": true
+    }
+  }
+}

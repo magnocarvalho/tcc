@@ -1,0 +1,118 @@
+<div fxLayout="column">
+  <div fxLayout="column" fxLayout.gt-xs="row wrap">
+    <div class="tamanho-maximo" *ngFor="let objTemp of api.promos">
+      <mat-card>
+        <mat-card-header [routerLink]="['/empresa', objTemp._id]">
+          <img matCardAvatar [src]="objTemp.photoURL" />
+          <mat-card-title>{{ objTemp.displayName }} </mat-card-title>
+          <mat-card-subtitle>{{ objTemp.tipo.value }}</mat-card-subtitle>
+          <span class="example-spacer"></span>
+          <mat-icon class="mat-18">{{ objTemp.tipo.icon }}</mat-icon>
+        </mat-card-header>
+        <mat-card-content>
+          <swiper [config]="config" #swipper>
+            <div class="swiper-wrapper" #swipperrapper>
+              <div
+                class="swiper-slide"
+                *ngFor="let item of objTemp.promos; let i; of: index"
+              >
+                <div class="card-imagem" fxLayout="column">
+                  <div class="controle-imagem">
+                    <div class="div-controle">
+                      <img
+                        class="imagem-carrosel"
+                        [src]="item.thumbnail"
+                        #swipperitem
+                      />
+                      <div class="valor-antigo desconto">
+                        <div>
+                          valido ate<br />{{ dataString(item.endDate) }}
+                        </div>
+                        <div>{{ item.descont | percent: "2.2-2" }}</div>
+                      </div>
+                      <div class="valor-desconto">
+                        <div class="valor-de div-desc">
+                          De: {{ item.initPrice | currency: "BRL" }}
+                        </div>
+                        <div class="valor-por div-desc">
+                          Por: {{ item.endPrice | currency: "BRL" }}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="title-por">
+                    <mat-card-title>{{ item.title }}</mat-card-title>
+                  </div>
+                  <div class="about-promo">
+                    <p>{{ item.about }}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="swiper-pagination"></div>
+            <div
+              class="swiper-button-prev"
+              *ngIf="objTemp.promos.length != 1"
+            ></div>
+            <div
+              class="swiper-button-next"
+              *ngIf="objTemp.promos.length != 1"
+            ></div>
+          </swiper>
+        </mat-card-content>
+        <mat-card-actions align="right">
+          <button
+            mat-raised-button
+            (click)="
+              gotToMaps(
+                objTemp.location.coordinates[0],
+                objTemp.location.coordinates[1]
+              )
+            "
+          >
+            <mat-icon class="mat-18">near_me</mat-icon>
+            {{ objTemp.dist.calculated | number: "0.0-0" }} Metros
+          </button>
+          <button
+            mat-raised-button
+            color="primary"
+            [routerLink]="['/empresa', objTemp._id]"
+          >
+            Informaçoes&nbsp;<mat-icon>store_mall_directory</mat-icon>
+          </button>
+        </mat-card-actions>
+        <mat-card-footer> </mat-card-footer>
+      </mat-card>
+    </div>
+  </div>
+  <div
+    *ngIf="permissao"
+    fxLayout="column"
+    fxLayout.gt-xs="row wrap"
+    fxLayoutAlign="center center"
+  >
+    <div class="tamanho-maximo-erro">
+      <mat-card>
+        <mat-card-header>
+          <mat-card-title
+            >Obrigatorio a informação da sua geolocalização =)</mat-card-title
+          >
+          <mat-card-subtitle
+            >Click no botão abaixo para permitir o rastreio da sua
+            localização</mat-card-subtitle
+          >
+          <mat-icon>error</mat-icon>
+        </mat-card-header>
+        <mat-card-content>
+          <img class="borda" matCardImage src="assets/url.png" alt="" />
+          <img class="borda" matCardImage src="assets/localizacao.png" alt="" />
+        </mat-card-content>
+        <mat-card-actions align="center">
+          <a (click)="localizacao()" color="primary" mat-raised-button
+            >Permitir localização</a
+          >
+        </mat-card-actions>
+      </mat-card>
+    </div>
+  </div>
+</div>

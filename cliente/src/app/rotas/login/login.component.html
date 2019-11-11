@@ -1,0 +1,41 @@
+<div
+  flex="100"
+  id="tela-inteira"
+  fxLayout="column"
+  fxLayoutAlign="space-around center"
+>
+  <div fxLayout="column">
+    <mat-card>
+      <div fxLayout="row" fxLayoutAlign="center center">
+        <img src="assets/2x/baseline_loyalty_black_48dp.png" alt="" />
+      </div>
+      <mat-card-header>
+        <mat-card-title>
+          Entre com sua rede social preferida
+        </mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <div fxLayout="column">
+          <button
+            fxFlex="100"
+            mat-raised-button
+            (click)="loginFacebok()"
+            color="primary"
+          >
+            Facebook
+          </button>
+          <button
+            class="pad-10"
+            fxFlex="100"
+            mat-raised-button
+            (click)="loginGoogle()"
+            color="accent"
+          >
+            Google
+          </button>
+        </div>
+        <!-- <button mat-raised-button (click)="loginTwitter()" color="blue">Twitter</button> -->
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>

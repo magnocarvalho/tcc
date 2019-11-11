@@ -59,6 +59,5 @@ typings/
 
 # next.js build output
 .next
-/adm/src/environments/environment.ts
-
-/api/bin
+empresa/.firebase/
+/api/google.json

@@ -1,0 +1,16 @@
+<div id="painel" fxLayout="column" fxLayoutAlign="start stretch" fxFlex="100">
+    <div id="card-principal" fxLayout.gt-sm="row" fxLayout="column" fxLayoutAlign="space-around center">
+        <mat-card>
+            <button mat-raised-button color="primary" [routerLink]="[ '/promo-list' ]">
+                <mat-icon>shopping_cart</mat-icon>
+                <p>Total de Promoçoes<br>cadastradas {{api.promos.length}}</p>
+            </button>
+        </mat-card>
+        <mat-card>
+            <button mat-raised-button color="primary">
+                <mat-icon>person</mat-icon>
+                <p>Total de usuario<br>alcancados 0</p>
+            </button>
+        </mat-card>
+    </div>
+</div>

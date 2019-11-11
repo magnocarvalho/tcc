@@ -1,0 +1,27 @@
+.header-left {
+  font-size: 40px;
+}
+#pe-footer {
+  font-size: 12px;
+  color: rgba(0, 0, 0, 0.54);
+}
+#index-altura {
+  height: calc(100vh - 65px);
+  width: 100%;
+}
+
+.direita {
+  width: 50%;
+}
+.esquerda {
+  width: 50%;
+}
+
+@media (max-width: 599px) {
+  .direita {
+    width: 100%;
+  }
+  .esquerda {
+    width: 100%;
+  }
+}

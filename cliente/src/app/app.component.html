@@ -1,0 +1,86 @@
+<ngx-loading-bar></ngx-loading-bar>
+<ng-container>
+    <mat-toolbar color="primary" class="example-header">
+        <mat-icon class="menu-botao" (click)="sidenav.toggle()" *ngIf="cliente">
+            {{sidenav.opened ? 'close': 'filter_list' }}
+        </mat-icon>
+        <mat-icon *ngIf="!cliente">loyalty</mat-icon>
+        <span>&nbsp;</span>
+        <span>Gastando Pouco</span>
+        <span>&nbsp;&nbsp;&nbsp;</span>
+        <mat-icon *ngIf="cliente && !mobileQuery.matches">shopping_cart</mat-icon>
+        <span class="example-spacer"></span>
+        <button mat-mini-fab [matMenuTriggerFor]="menuLogin" color="primary" *ngIf="cliente">
+            <mat-icon>menu</mat-icon>
+        </button>
+        <mat-menu #menuLogin="matMenu">
+            <button mat-menu-item [routerLink]="[ '/index' ]" routerLinkActive="active">
+                <mat-icon>loyalty</mat-icon>&nbsp;Promoçoes
+            </button>
+            <!-- <button mat-menu-item [routerLink]="[ '/maps' ]" routerLinkActive="active">
+                <mat-icon>map</mat-icon> Mapa
+            </button> -->
+            <button mat-menu-item [routerLink]="[ '/favorite' ]" routerLinkActive="active">
+                <mat-icon>favorite</mat-icon>&nbsp;Favoritos
+            </button>
+            <button mat-menu-item (click)="logout()">
+                <mat-icon>close</mat-icon>&nbsp;Logout
+            </button>
+        </mat-menu>
+    </mat-toolbar>
+    <mat-sidenav-container class="example-container min-container" autosize>
+        <mat-sidenav #sidenav [mode]="mobileQuery.matches ? 'over' : 'side'" class="example-sidenav" [opened]="!mobileQuery.matches && cliente">
+            <div class="padding-20">
+                <mat-card-content>
+                    <mat-card-title>
+                        {{apiLocation.location.city}}
+                    </mat-card-title>
+                    <mat-card-subtitle>
+                        {{apiLocation.location.state}}
+                    </mat-card-subtitle>
+                    <mat-card-subtitle>Distancia : {{distancia}} Metros</mat-card-subtitle>
+                    <mat-slider class="example-margin" max="8000" min="100" step="100" thumbLabel="true" [(ngModel)]="distancia">
+                    </mat-slider>
+                </mat-card-content>
+            </div>
+            <mat-accordion class="example-headers-align">
+                <mat-expansion-panel hideToggle [expanded]="panelOpenState" (opened)="abrirState(true)">
+                    <mat-expansion-panel-header>
+                        <mat-panel-title>
+                            Categorias
+                        </mat-panel-title>
+                        <mat-panel-description>
+                            &nbsp;
+                            <mat-icon class="menu-botao" color="primary">
+                                list
+                            </mat-icon>
+                        </mat-panel-description>
+                    </mat-expansion-panel-header>
+                    <div>
+                        <mat-selection-list #shoes [(ngModel)]="selectedOptions">
+                            <mat-list-option *ngFor="let shoe of tipos" [selected]="true" [value]="shoe._id">
+                                <mat-icon matListIcon>{{shoe.icon}}</mat-icon>
+                                <h3 matLine> {{shoe.value}} </h3>
+                            </mat-list-option>
+                        </mat-selection-list>
+                    </div>
+                </mat-expansion-panel>
+            </mat-accordion>
+            <div class="padding-20" *ngIf="mobileQuery.matches">
+                <button class="windth-100 " mat-raised-button flex="100" (click)="sidenav.toggle(); abrirState(false);" color="primary">Atualizar
+                    busca</button>
+            </div>
+            <div class="padding-20" *ngIf="!mobileQuery.matches">
+                <button class="windth-100 " mat-raised-button flex="100" (click)="abrirState(false);" color="primary">Atualizar
+                    busca</button>
+            </div>
+
+        </mat-sidenav>
+
+        <mat-sidenav-content>
+            <div fxLayout="column" fxLayoutAlign="start stretch" flex="100" id="rotas">
+                <router-outlet></router-outlet>
+            </div>
+        </mat-sidenav-content>
+    </mat-sidenav-container>
+</ng-container>

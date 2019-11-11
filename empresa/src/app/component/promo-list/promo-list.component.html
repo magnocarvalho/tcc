@@ -1,0 +1,35 @@
+<div fxLayout="row wrap">
+
+    <mat-card class="wit-400" *ngFor="let obj of api.promos">
+        <mat-card-header>
+            <mat-card-title>{{obj.title}}</mat-card-title>
+            <mat-card-subtitle>De {{obj.initPrice | currency: 'BRL'}} por {{obj.endPrice | currency : 'BRL'}}</mat-card-subtitle>
+
+            <span class="example-spacer"></span>
+            <mat-chip-list>
+                <mat-chip>-{{obj.descont | percent: '2.2-2'}}<mat-icon>local_offer</mat-icon>
+                </mat-chip>
+            </mat-chip-list>
+
+        </mat-card-header>
+        <img matCardImage [src]="obj.thumbnail">
+        <mat-card-content>
+
+            <mat-card-subtitle>{{obj.about}}</mat-card-subtitle>
+            <mat-card-subtitle>Validade do dia {{dataString(obj.initDate)}} até o dia {{dataString(obj.endDate)}}</mat-card-subtitle>
+        </mat-card-content>
+        <mat-card-actions>
+            <div fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="gappx">
+                <button mat-raised-button (click)="relatorio(obj)">Relatorio</button>
+                <button mat-raised-button (click)="deletar(obj)" color="warn">Deletar</button>
+                <button mat-raised-button (click)="editPromo(obj)" color="primary">Editar</button>
+            </div>
+        </mat-card-actions>
+    </mat-card>
+    <!-- <mat-card *ngIf="!!api.promos" class="wit-400">
+        <mat-card-header>
+            <mat-card-subtitle>Cadastre sua primeira promoção</mat-card-subtitle>
+        </mat-card-header>
+    </mat-card> -->
+
+</div>

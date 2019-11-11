@@ -1,0 +1,158 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+@import "~ngx-toastr/toastr";
+@import "~swiper/css/swiper.min.css";
+body,
+html {
+  min-height: 100%;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+body {
+  line-height: 1;
+  /* background-size: auto; */
+  margin: 0;
+  padding: 0;
+  border: 0;
+  vertical-align: baseline;
+}
+
+mat-toolbar.example-header {
+  position: fixed;
+  top: 0;
+  z-index: 999;
+}
+
+.example-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
+.example-spacer {
+  flex: 1 1 auto;
+}
+
+.example-container {
+  position: absolute;
+  top: 60px !important;
+  bottom: 60px;
+  left: 0;
+  right: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.example-sidenav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 200px;
+  padding-right: 10;
+}
+
+#rotas {
+  min-height: calc(100vh - 64px);
+}
+
+@media (max-width: 600px) {
+  #rotas {
+    min-height: calc(100vh - 54px) !important;
+  }
+  .example-container {
+    top: 54px !important;
+  }
+  .tamanho-maximo {
+    margin-top: 0 !important;
+    margin-left: 0 !important;
+  }
+  agm-map {
+    height: 180px !important;
+  }
+  .wit-250 {
+    max-width: 100% !important;
+    width: 100% !important;
+    padding: 0 !important;
+  }
+}
+.tamanho-maximo {
+  margin-top: 20px;
+  margin-left: 20px;
+}
+.mat-content {
+  align-items: center !important;
+}
+.mat-slider {
+  padding: 0 !important;
+}
+
+.example-headers-align .mat-expansion-panel-header {
+  padding: 0 16px !important;
+}
+.example-headers-align .mat-content {
+  align-items: center !important;
+  white-space: nowrap !important;
+}
+.example-headers-align .mat-expansion-panel-header-description {
+  margin-right: 0 !important;
+}
+.example-headers-align .mat-expansion-panel-header-title,
+.example-headers-align .mat-expansion-panel-header-description {
+  font-size: 16px;
+}
+
+.example-headers-align .mat-expansion-panel-header-description {
+  justify-content: space-between;
+  align-items: center;
+}
+
+.padding-20 {
+  padding: 20px;
+}
+.windth-100 {
+  width: 100%;
+}
+agm-map {
+  height: 300px !important;
+  width: 100% !important;
+}
+.wit-250 {
+  max-width: 300px;
+  width: 100%;
+  padding: 10px 0 10px 10px;
+}
+::-webkit-scrollbar {
+  width: 2px;
+  height: 2px;
+}
+::-webkit-scrollbar-button {
+  width: 0px;
+  height: 0px;
+}
+::-webkit-scrollbar-thumb {
+  background: #e1e1e1;
+  border: 0px none #ffffff;
+  border-radius: 50px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #ffffff;
+}
+::-webkit-scrollbar-thumb:active {
+  background: #000000;
+}
+::-webkit-scrollbar-track {
+  background: #666666;
+  border: 0px none #ffffff;
+  border-radius: 50px;
+}
+::-webkit-scrollbar-track:hover {
+  background: #666666;
+}
+::-webkit-scrollbar-track:active {
+  background: #333333;
+}
+::-webkit-scrollbar-corner {
+  background: transparent;
+}

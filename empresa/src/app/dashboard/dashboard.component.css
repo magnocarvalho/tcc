@@ -1,0 +1,13 @@
+div#painel {
+  width: calc(100% - 40px);
+  min-width: min-content;
+  margin: 20px;
+  min-height: 300px;
+}
+mat-card#card-left {
+  margin: 20px;
+  min-width: 100%;
+}
+.button-dash {
+  padding: 5px;
+}

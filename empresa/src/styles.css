@@ -1,0 +1,283 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import "~@angular/material/prebuilt-themes/deeppurple-amber.css";
+@import "~ngx-toastr/toastr";
+body,
+html {
+  min-height: 100%;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+body {
+  line-height: 1;
+  /* background-size: auto; */
+  margin: 0;
+  padding: 0;
+  border: 0;
+  vertical-align: baseline;
+  /* background: rgb(250, 250, 250);
+  background: -moz-linear-gradient(
+    180deg,
+    rgba(250, 250, 250, 1) 0%,
+    rgba(163, 45, 253, 0.3617822128851541) 100%
+  );
+  background: -webkit-linear-gradient(
+    180deg,
+    rgba(250, 250, 250, 1) 0%,
+    rgba(163, 45, 253, 0.3617822128851541) 100%
+  );
+  background: linear-gradient(
+    180deg,
+    rgba(250, 250, 250, 1) 0%,
+    rgba(163, 45, 253, 0.3617822128851541) 100%
+  );
+  filter: progid: DXImageTransform.Microsoft.gradient(startColorstr="#fafafa", endColorstr="#a32dfd", GradientType=1); */
+}
+
+.login {
+  height: 100%;
+  max-height: max-content;
+  overflow: auto;
+}
+
+.formbase {
+  width: 100%;
+}
+
+.centraliza {
+  display: flex;
+  align-self: center;
+  align-items: center;
+}
+
+.text-center {
+  text-align: center;
+  align-self: center;
+}
+
+.card-login {
+  width: 100%;
+  margin: 0 auto;
+  max-width: 500px;
+  align-self: center;
+}
+
+.centraliza {
+  padding-top: 60px;
+}
+
+.login-button {
+  display: flex;
+  align-self: center;
+  align-items: center;
+  padding-top: 20px;
+}
+
+.ou-login {
+  padding-top: 10px;
+  align-self: center;
+  margin: 0 auto;
+}
+
+.button-login {
+  font-weight: 500;
+  height: auto;
+  line-height: normal;
+  /* max-width: 220px;
+  min-height: 40px; */
+  padding: 8px 16px;
+  text-align: center;
+  width: 100%;
+}
+
+.login-button .button-login {
+  align-self: center;
+  margin: 0 auto;
+}
+
+.facebook {
+  background-color: #3b5998;
+  color: #ffffff;
+}
+
+.googleaccount {
+  background-color: palevioletred;
+}
+
+.marg-10 {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+agm-map {
+  height: 300px;
+}
+mat-toolbar.example-header {
+  position: fixed;
+  top: 0;
+  z-index: 999;
+}
+.mat-card {
+  margin-bottom: 20px;
+}
+.example-spacer {
+  flex: 1 1 auto;
+}
+span#pe-footer {
+  font-size: 10px;
+}
+
+/* responsivo */
+@media (max-width: 600px) {
+  .centraliza {
+    padding-top: 0;
+  }
+  mat-card.card-login.mat-card {
+    margin-top: 0;
+  }
+  .card-login.mat-card {
+    width: 100% !important;
+    max-width: 600px !important;
+    margin-bottom: 0;
+    margin: 0 auto;
+  }
+  div#largura-total.login-total {
+    width: 100% !important;
+  }
+  .min-container {
+    min-height: calc(100vh - 54px) !important;
+  }
+  .example-container {
+    top: 54px !important;
+  }
+  .wit-400 {
+    max-width: 100% !important;
+    width: 100% !important;
+    margin: 0 auto !important;
+  }
+  .card-login.card-promo {
+    width: auto !important;
+  }
+  .altura-init {
+    padding-top: 0 !important;
+  }
+}
+.example-container {
+  position: absolute;
+  top: 60px;
+  bottom: 60px;
+  left: 0;
+  right: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+/* .example-container {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+} */
+.example-sidenav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 200px;
+  padding-right: 10;
+}
+.min-container {
+  min-height: calc(100vh - 128px);
+}
+
+.example-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
+.example-footer {
+  position: fixed;
+  bottom: 0;
+  z-index: 222;
+  left: 0;
+  right: 0;
+}
+img.foto-footer {
+  width: 34px;
+  border-radius: 50%;
+  height: 34px;
+}
+
+mat-card#header-infos {
+  margin-bottom: 0 !important;
+  padding-bottom: 0 !important;
+}
+
+.telainiciaal-promos {
+  max-width: 250px;
+  margin-left: 5px;
+  margin-top: 5px;
+  margin-right: 5px;
+}
+.margin-100px {
+  padding-bottom: 100px;
+}
+
+mat-list-item.mat-list-item.active {
+  box-shadow: 0 2px 1px -1px rgba(0, 0, 0, 0.2), 0 1px 1px 0 rgba(0, 0, 0, 0.14),
+    0 1px 3px 0 rgba(0, 0, 0, 0.12);
+  transition: box-shadow 280ms cubic-bezier(0.4, 0, 0.2, 1);
+  color: #7308fff8;
+}
+.personal-image {
+  text-align: center;
+  margin-bottom: 30px;
+}
+.personal-image input[type="file"] {
+  display: none;
+}
+.personal-figure {
+  position: relative;
+  width: 120px;
+  height: 120px;
+  margin: 0 auto;
+}
+.personal-avatar {
+  cursor: pointer;
+  width: inherit;
+  height: inherit;
+  box-sizing: border-box;
+  border-radius: 100%;
+  border: 2px solid transparent;
+  box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.3);
+  transition: all ease-in-out 0.3s;
+}
+.personal-avatar:hover {
+  box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.5);
+}
+.personal-figcaption {
+  cursor: pointer;
+  position: absolute;
+  top: 0px;
+  width: inherit;
+  height: inherit;
+  border-radius: 100%;
+  opacity: 0;
+  background-color: rgba(0, 0, 0, 0);
+  transition: all ease-in-out 0.3s;
+}
+.personal-figcaption:hover {
+  opacity: 1;
+  background-color: rgba(0, 0, 0, 0.9);
+}
+.personal-figcaption > img {
+  margin-top: 32.5px;
+  width: 50px;
+  height: 50px;
+}
+.centraliza-label {
+  text-align: center;
+}

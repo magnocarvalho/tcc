@@ -1,0 +1,135 @@
+<div class="login">
+    <div class="margin-100px card-login">
+        <mat-card>
+            <mat-card-header>
+                <img mat-card-avatar *ngIf="photoURL" class="example-header-image" [src]="photoURL">
+                <mat-card-title *ngIf="displayName">{{displayName}}</mat-card-title>
+                <mat-card-subtitle *ngIf="email">{{email}}</mat-card-subtitle>
+            </mat-card-header>
+            <mat-divider>
+            </mat-divider>
+            <mat-card-content>
+                <span *ngIf="!emailVerified">
+                    <h5 *ngIf="email">Para continuar o cadastro verifique seu usuario no email e recarregue a pagina</h5>
+                </span>
+                <span *ngIf="emailVerified">
+                    <form [formGroup]="form">
+                        <div fxLayout="column" fxLayoutAlign="start stretch">
+                            <div class="larg-100">
+                                <agm-map [latitude]="latitude" [longitude]="longitude" [scrollwheel]="false" [zoom]="zoom" draggable="true"
+                                    (mapClick)="clickEventNow($event)">
+                                    <agm-marker [latitude]="latitude" [longitude]="longitude" draggable="true"></agm-marker>
+                                </agm-map>
+                            </div>
+                            <mat-divider></mat-divider>
+                            <span class="marg-button-20"></span>
+                            <mat-form-field class="larg-100" appearance="outline">
+                                <mat-label>Endereço completo</mat-label>
+                                <input required matValidateAddress #matGoogleMapsAutocomplete="matGoogleMapsAutocomplete" matInput maxlength="100"
+                                    matGoogleMapsAutocomplete [types]="['places']" (onAutocompleteSelected)="onAutocompleteSelected($event)"
+                                    (onLocationSelected)="onLocationSelected($event)" formControlName="googlePlace">
+                                <mat-error *ngIf="matGoogleMapsAutocomplete.addressSearchControl.hasError('required')">
+                                    Obrigatorio
+                                </mat-error>
+                                <mat-error *ngIf="matGoogleMapsAutocomplete.addressSearchControl.hasError('validateAddress')">
+                                    Endereço Invalido
+                                </mat-error>
+                            </mat-form-field>
+                            <span fxLayout="row" fxLayoutAlign="space-between start">
+                                <mat-form-field appearance="outline" fxFlex="65">
+                                    <mat-label>Rua</mat-label>
+                                    <input matInput maxlength="100" required placeholder="rua" formControlName="rua">
+                                </mat-form-field>
+                                <mat-form-field appearance="outline" fxFlex="30">
+                                    <mat-label>Numero</mat-label>
+                                    <input matInput maxlength="100" required placeholder="Numero" formControlName="numero">
+                                </mat-form-field>
+                            </span>
+                            <span fxLayout="row" fxLayoutAlign="space-between start">
+                                <mat-form-field appearance="outline" fxFlex="50">
+                                    <mat-label>Complemento</mat-label>
+                                    <input matInput maxlength="100" placeholder="Complemento" formControlName="complemento">
+                                </mat-form-field>
+                                <mat-form-field appearance="outline" fxFlex="45">
+                                    <mat-label>CEP</mat-label>
+                                    <input matInput maxlength="100" required placeholder="CEP" formControlName="cep">
+                                </mat-form-field>
+                            </span>
+                            <span fxLayout="row" fxLayoutAlign="space-between start">
+                                <mat-form-field appearance="outline" fxFlex="45">
+                                    <mat-label>Bairro</mat-label>
+                                    <input matInput maxlength="100" required placeholder="Bairro" formControlName="bairro">
+                                </mat-form-field>
+                                <mat-form-field appearance="outline" fxFlex="50">
+                                    <mat-label>Cidade</mat-label>
+                                    <input matInput maxlength="100" required placeholder="Cidade" formControlName="cidade">
+                                </mat-form-field>
+                            </span>
+                            <span fxLayout="row" fxLayoutAlign="space-between start">
+                                <mat-form-field appearance="outline" fxFlex="45">
+                                    <mat-label>Estado</mat-label>
+                                    <input matInput maxlength="100" required placeholder="Estado" formControlName="estado">
+                                </mat-form-field>
+                                <mat-form-field appearance="outline" fxFlex="50">
+                                    <mat-label>Pais</mat-label>
+                                    <input matInput maxlength="100" required placeholder="Pais" formControlName="pais">
+                                </mat-form-field>
+                            </span>
+
+                            <mat-form-field appearance="outline">
+                                <mat-label>CNPJ</mat-label>
+                                <input matInput formControlName="cnpj" type="text" required placeholder="CNPJ" [mask]="mascaraCnpj">
+                            </mat-form-field>
+                            <mat-form-field appearance="outline">
+                                <mat-label>Telefone</mat-label>
+                                <input matInput formControlName="telefone" type="text" required placeholder="Telefone" [mask]="mascaratelefone">
+                            </mat-form-field>
+                            <mat-form-field appearance="outline">
+                                <mat-label>Descrição</mat-label>
+                                <input matInput formControlName="description" type="text" required placeholder="Descrição">
+                            </mat-form-field>
+                            <mat-form-field appearance="outline">
+                                <mat-label>Tipo de estabelecimento</mat-label>
+                                <mat-select placeholder="Seleciona o tipo de estabelecimento" formControlName="tipo" name="item">
+                                    <mat-option required *ngFor="let item of tiposCarregados" [value]="item._id">
+                                        <mat-icon>{{item.icon}}</mat-icon> {{item.value}}
+                                    </mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                        </div>
+                    </form>
+                </span>
+            </mat-card-content>
+            <mat-divider>
+            </mat-divider>
+            <span *ngIf="!emailVerified || !api.userComplete">
+                <mat-card-actions>
+                    <div class="larg-100" *ngIf="!emailVerified" fxLayout="row" fxLayoutAlign="center center">
+                        <span class="span-1">
+                            <a mat-raised-button color="primary" href="/form-empresa">Recarregar a pagina</a>
+                        </span>
+                        <span class="span-1" class="marg-10">
+                            <p>ou</p>
+                        </span>
+                        <span class="span-1">
+                            <button mat-raised-button (click)="reEnviarEmail()" color="warn">Reenviar Email</button>
+                        </span>
+                    </div>
+
+                </mat-card-actions>
+            </span>
+            <mat-card-actions *ngIf="emailVerified">
+                <div class="larg-100" *ngIf="emailVerified" fxLayout="row" fxLayoutAlign="center center">
+                    <button mat-raised-button color="primary" (click)="salvarDados()">Salvar</button>
+                </div>
+            </mat-card-actions>
+            <!-- <span *ngIf="api.userComplete">
+                <mat-card-actions>
+                    <div class="larg-100" fxLayout="row" fxLayoutAlign="center center">
+                        <a mat-raised-button href="adm">Painel</a>
+                    </div>
+                </mat-card-actions>
+            </span> -->
+        </mat-card>
+    </div>
+</div>

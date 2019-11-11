@@ -1,0 +1,43 @@
+<div fxLayout="column" fxLayout.gt-xs="row" fxFlexAlign="space-around stretch" class="all-page" id="index-altura" flex="100">
+    <div fxLayout="column" fxLayoutAlign="center center" flex="50" flex.gt-xs="100" class="direita centraliza">
+        <mat-card flex="50" flex.gt-xs="100" class="card-index centraliza">
+            <mat-card-header>
+                <div matCardAvatar>
+                    <mat-icon class="header-left">business</mat-icon>
+                </div>
+                <mat-card-title id="gastando-pouco">Gastando pouco</mat-card-title>
+                <mat-card-subtitle>Cadastre agora sua empresa</mat-card-subtitle>
+            </mat-card-header>
+            <mat-divider></mat-divider>
+            <mat-card-content>
+                <span>&nbsp;</span>
+                <mat-card-subtitle>Mostre a todos da sua cidade suas ofertas</mat-card-subtitle>
+                <mat-card-subtitle>Alcançe seu publico de uma nova maneira</mat-card-subtitle>
+            </mat-card-content>
+            <mat-card-actions>
+                <div fxLayout="row" fxLayoutAlign="center center">
+                    <button fxFlex="100" mat-raised-button [routerLink]="[ '/register' ]" color="primary">Cadastre-se</button>
+                </div>
+            </mat-card-actions>
+        </mat-card>
+    </div>
+    <div fxLayout="column" fxLayoutAlign="center center" flex="50" flex.gt-xs="100" class="esquerda centraliza">
+        <mat-card flex="50" flex.gt-xs="100" class="card-index centraliza">
+            <mat-card-header>
+                <div matCardAvatar>
+                    <mat-icon class="header-left">how_to_reg</mat-icon>
+                </div>
+                <mat-card-title>Ja é cadastrado?</mat-card-title>
+                <mat-card-subtitle>Faça login agora mesmo</mat-card-subtitle>
+            </mat-card-header>
+            <mat-divider></mat-divider>
+            <mat-card-actions align="center">
+                <button fxFlex="100" mat-raised-button [routerLink]="[ '/login' ]" color="primary">Login</button>
+            </mat-card-actions>
+            <mat-card-footer>
+                <span id="pe-footer">Desenvolvido com ❤️ em <a target="_blank" href="http://portal.utfpr.edu.br/">UTFPR</a>
+                    por <a target="_blank" href="https://github.com/magnocarvalho">Magno Carvalho</a></span>
+            </mat-card-footer>
+        </mat-card>
+    </div>
+</div>

@@ -1,0 +1,6 @@
+div#tela-inteira {
+    height: calc(100vh - 54px);
+}
+.pad-10{
+    margin-top: 10px;
+}

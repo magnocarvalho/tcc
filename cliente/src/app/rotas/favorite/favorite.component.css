@@ -1,0 +1,45 @@
+.img-150max {
+  max-width: 150px;
+}
+.valor-desconto {
+  position: absolute;
+  top: 0;
+  padding: 10px;
+  color: #fff;
+  text-align: right;
+  right: 0;
+  background-color: #3f51b5;
+  border-radius: 0 0 0 5px;
+}
+.valor-antigo {
+  position: absolute;
+  top: 50px;
+  padding: 10px;
+  color: #fff;
+
+  right: 0;
+  background-color: #ff4081;
+  border-radius: 0 0 0 5px;
+}
+.about-promo {
+  text-align: left;
+  font-size: 16px;
+  padding-top: 3px;
+  padding-bottom: 20px;
+}
+.about-promo p {
+  padding-top: 0;
+  margin-top: 0;
+  text-align: justify;
+}
+.desconto {
+  text-align: right;
+  font-size: 14px;
+}
+.valor-de {
+  font-size: 16px;
+  text-decoration: line-through;
+}
+.div-controler {
+  position: relative;
+}

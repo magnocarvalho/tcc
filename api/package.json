@@ -29,14 +29,19 @@
         "async-waterfall": "^0.1.5",
         "chai-http": "^4.3.0",
         "compression": "^1.6.0",
+        "cors": "^2.8.5",
         "del": "^4.1.1",
-        "dotenv": "^8.0.0",
+        "dotenv": "^8.1.0",
         "express": "^4.17.1",
+        "express-firebase-middleware": "^3.0.0",
+        "firebase-admin": "^8.6.0",
+        "moment": "^2.24.0",
         "mongoose": "^5.6.0",
         "mongoose-double": "0.0.1",
         "mongoose-transactions": "^1.1.1",
         "node": "^10.16.0",
         "path": "^0.12.7",
+        "simple-node-logger": "^18.12.23",
         "suspend": "^0.7.0"
     }
 }

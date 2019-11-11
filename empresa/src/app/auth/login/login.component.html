@@ -1,0 +1,69 @@
+<div class="login">
+    <div class="centraliza">
+        <mat-card class="card-login">
+            <mat-card-header>
+                <div matCardAvatar>
+                    <mat-icon class="header-left">how_to_reg</mat-icon>
+                </div>
+                <mat-card-title>Ja é cadastrado?</mat-card-title>
+                <mat-card-subtitle>Faça login agora mesmo</mat-card-subtitle>
+            </mat-card-header>
+
+            <mat-card-content>
+                <form [formGroup]="form">
+                    <div fxLayout="column" fxLayoutAlign="center stretch">
+                        <mat-form-field class="formbase" appearance="outline">
+                            <mat-label>Email</mat-label>
+                            <input matInput placeholder="Insira seu email" type="email" required formControlName="email">
+                            <mat-error *ngIf="form.get('email').hasError('email') && !form.get('email').hasError('required')">
+                                Entre com um email valido
+                            </mat-error>
+                            <mat-error *ngIf="form.get('email').hasError('required')">
+                                Email é
+                                <strong>exigido</strong>
+                            </mat-error>
+                            <mat-icon matSuffix>email</mat-icon>
+                        </mat-form-field>
+                        <mat-form-field class="formbase" appearance="outline">
+                            <mat-label>Senha</mat-label>
+                            <input matInput type="password" placeholder="Digite sua senha" required formControlName="password">
+                            <mat-icon matSuffix>vpn_key</mat-icon>
+                            <mat-error *ngIf="form.get('password').hasError('required')">
+                                Senha é
+                                <strong>exigido</strong>
+                            </mat-error>
+                            <mat-error *ngIf="form.get('password').hasError('minlength')">
+                                Senha menor que 6 caracteres
+                            </mat-error>
+                        </mat-form-field>
+                        <div flex="100">
+                            <button mat-raised-button color="primary" class="button-login" (click)="goLogin()">
+                                <mat-icon>email</mat-icon> Login
+                            </button>
+                        </div>
+                        <!-- <div class="login-button">
+                        <p class="ou-login text-center">ou</p>
+                    </div>
+                    <div class="login-button">
+                        <button class="button-login facebook" mat-raised-button>Login com Facebook</button>
+                    </div>
+                    <div class="login-button">
+                        <button class="button-login googleaccount" color="warn" mat-raised-button>Login com Google</button>
+                    </div> -->
+                    </div>
+                </form>
+                <div class="login-button">
+                    <p class="ou-login">ou</p>
+                </div>
+                <div class="login-button centraliza-label">
+                    <a class="button-login" mat-raised-button flex="100" [routerLink]="[ '/register' ]">Não possui uma conta ?</a>
+                </div>
+
+            </mat-card-content>
+            <mat-card-footer>
+                <span id="pe-footer">Desenvolvido com ❤️ em <a target="_blank" href="http://portal.utfpr.edu.br/">UTFPR</a>
+                    por <a target="_blank" href="https://github.com/magnocarvalho">Magno Carvalho</a></span>
+            </mat-card-footer>
+        </mat-card>
+    </div>
+</div>

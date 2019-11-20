@@ -6,7 +6,7 @@
     svg {
       background-color: white;
       font-family: "Helvetic Neue", Helvetica, Arial, sans-serif;
-      font-size: small;
+      font-size: large;
     }
 
     .node rect,
@@ -198,7 +198,7 @@
     var data = {
       categoria: {
         _id: {
-          type: "Object"
+          type: "ObjectID"
         },
         icon: {
           type: "string",
@@ -211,7 +211,7 @@
       },
       empresa: {
         _id: {
-          type: "Object"
+          type: "ObjectID"
         },
         location: {
           type: "GeoJSON",
@@ -295,7 +295,7 @@
       },
       favoritos: {
         _id: {
-          type: "Object"
+          type: "ObjectID"
         },
         isDeleted: {
           type: "boolean",
@@ -316,7 +316,7 @@
       },
       promocoes: {
         _id: {
-          type: "Object"
+          type: "ObjectID"
         },
         isDeleted: {
           type: "boolean",
@@ -359,7 +359,7 @@
           required: true
         },
         createdby: {
-          type: "Object"
+          type: "ObjectID empresa"
         },
         favoritos: {
           type: "number",

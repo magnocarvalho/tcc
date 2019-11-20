@@ -1,0 +1,11 @@
+<div align="start">
+  <button mat-raised-button (click)="onNoClick()">cancelar</button>
+  <button
+    mat-raised-button
+    [mat-dialog-close]="data._id"
+    cdkFocusInitial
+    color="warn"
+  >
+    Ok
+  </button>
+</div>

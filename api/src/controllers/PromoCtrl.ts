@@ -49,9 +49,9 @@ class PromoCtrl {
         {
           $match: {
             $and: [
+              { "promos.isDeleted": { $eq: false } },
               { "promos.endDate": { $gte: dateIn } },
               { "promos.initDate": { $lt: dateIn } },
-              { "promos.isDeleted": false },
               cat
             ]
           }
@@ -89,9 +89,31 @@ class PromoCtrl {
       }
     });
   }
+  public static deletePromo(req, res, next) {
+    let obj = req.body;
+    return Promo.findByIdAndUpdate(obj._id, { isDeleted: true }, (err: any, data: any) => {
+      if (err) {
+        console.log(err);
+        console.log(new Date().toLocaleString(), err.messagem);
+        next(err);
+      } else {
+        res.json(data);
+      }
+    });
+  }
+  public static getPromosIdEmpresa(req, res, next) {
+    let idUser = req.query.empresa;
+    return Promo.find({ createdby: idUser, isDeleted: false }, (err: any, data: any) => {
+      if (err) {
+        console.log(err);
+        console.log(new Date().toLocaleString(), err.messagem);
+        next(err);
+      } else res.json(data);
+    });
+  }
   public static getPromosIdUser(req, res, next) {
     let idUser = req.query.empresa;
-    return Promo.find({ createdby: idUser }, (err: any, data: any) => {
+    return Promo.find({ createdby: idUser, isDeleted: false }, (err: any, data: any) => {
       if (err) {
         console.log(err);
         console.log(new Date().toLocaleString(), err.messagem);

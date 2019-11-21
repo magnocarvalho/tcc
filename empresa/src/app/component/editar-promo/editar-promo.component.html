@@ -1,0 +1,205 @@
+<div class="altura-init">
+    <div id="form-card-left-top">
+        <mat-card>
+            <mat-card-content>
+                <form [formGroup]="form">
+                    <div fxLayout="column" fxLayout.gt-sm="row">
+                        <div fxLayout="row" fxLayout.gt-sm="column" fxFlex="30" fxLayoutAlign="start start">
+                            <div *ngIf="!fotoThumbAplicado" class="crop-preview local" fxFlex="100">
+                                <div class="foto personal-image-promo">
+                                    <label class="bg-color-primary" for="filethumb" *ngIf="!imageChangedEventThumb"
+                                        fxFlex="100">
+                                        <input fxFlex="100" type="file" id="filethumb" class="input-default"
+                                            (change)="fileChangeEventThumb($event)" accept=".jpg, .jpeg, .png"
+                                            #fileInput />
+                                        <figure fxFlex="100" class="personal-figure-promo">
+                                            <img src="{{ imagemPerfil }}" class="personal-avatar-promo" alt="avatar" />
+                                            <figcaption class="personal-figcaption-promo">
+                                                <img src="/assets/camera-white.png" />
+                                            </figcaption>
+                                        </figure>
+                                    </label>
+                                </div>
+                                <div class="crop-fix">
+                                    <div class="form-group foto">
+                                        <image-cropper #cropthumb [imageChangedEvent]="imageChangedEventThumb"
+                                            [maintainAspectRatio]="true" [aspectRatio]="1 / 1" [cropperMinWidth]="200"
+                                            [cropperMinHeight]="200" [resizeToWidth]="500" format="png"
+                                            (imageCropped)="onFileChange($event)" (imageLoaded)="imageLoaded()"
+                                            (loadImageFailed)="loadImageFailed()" class="preview-image-promo">
+                                        </image-cropper>
+                                        <div class="buttons-crop" *ngIf="imageChangedEventThumb">
+                                            <div fxLayout="row" fxLayoutAlign="space-around center" fxLayoutGap="gappx">
+                                                <button title="Rotacionar para esquerda" button mat-raised-button
+                                                    color="white" (click)="rotateLeft($event)">
+                                                    <i class="material-icons">rotate_left</i>
+                                                </button>
+                                                <button title="Rotacionar para direita" button mat-raised-button
+                                                    color="white" (click)="rotateRight($event)">
+                                                    <i class="material-icons">rotate_right</i>
+                                                </button>
+                                                <button title="Espelhar horizontalmente" button mat-raised-button
+                                                    color="white" (click)="flipHorizontal($event)">
+                                                    <i class="material-icons">flip</i>
+                                                </button>
+                                                <button title="Espelhar verticalmente" button mat-raised-button
+                                                    color="white" (click)="flipVertical($event)">
+                                                    <i class="material-icons flip-vertical">flip</i>
+                                                </button>
+                                            </div>
+                                            <div fxLayout="row" style="margin-top: 5px;"
+                                                fxLayoutAlign="space-around center" fxLayoutGap="gappx">
+                                                <button title="Remover foto" mat-raised-button color="warn" type="reset"
+                                                    (click)="retirarFotoThumb()">
+                                                    Remover Foto
+                                                </button>
+                                                <button title="Aplicar" mat-raised-button color="primary"
+                                                    (click)="aplicarFotoThumb()">
+                                                    Aplicar
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div *ngIf="fotoThumbAplicado">
+                                <figure fxFlex="100" class="personal-figure-promo">
+                                    <img class="postagem-thumbnail-promo" src="{{ fotoThumb }}" alt="" />
+                                    <figcaption class="personal-figcaption-promo botao-remove">
+                                        <div class="botao-caption-promo" fxLayout="column"
+                                            fxLayoutAlign="center center">
+                                            <button mat-raised-button color="warn" type="reset" (click)="removeThumb()">
+                                                Remover
+                                            </button>
+                                        </div>
+                                    </figcaption>
+                                </figure>
+                            </div>
+                            <mat-error style="margin-top: 5px;"
+                                *ngIf="!fotoThumb && form.get('thumbnail').hasError('required')">
+                                Thumbnail obrigatório*
+                            </mat-error>
+                        </div>
+                        <div fxLayout="column" class="pading-5-left" fxFlex="auto" fxLayoutAlign="start start">
+                            <mat-form-field class="formbase" appearance="outline">
+                                <mat-label>Titulo</mat-label>
+                                <input matInput placeholder="Insira o titulo" type="text" #titulos required
+                                    formControlName="title" />
+                                <mat-hint align="end">{{ titulos.value.length }} / 100</mat-hint>
+                                <mat-error *ngIf="form.get('title').hasError('required')">
+                                    Titulo é
+                                    <strong>obrigatorio</strong>
+                                </mat-error>
+                                <mat-icon matSuffix>person</mat-icon>
+                            </mat-form-field>
+                            <mat-form-field class="formbase" appearance="outline">
+                                <mat-label>Descrição</mat-label>
+                                <textarea matInput #message maxlength="300" placeholder="Insira a Descrição" type="text"
+                                    required formControlName="about"></textarea>
+                                <mat-hint align="end">{{ message.value.length }} / 300</mat-hint>
+                                <mat-error *ngIf="form.get('about').hasError('required')">
+                                    Descrição é
+                                    <strong>obrigatoria</strong>
+                                </mat-error>
+                            </mat-form-field>
+                            <div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="gappx" fxFlex="100"
+                                style="width: 100%;">
+                                <mat-form-field appearance="outline" fxFlex="50" fxFlex.gt-sm="25"
+                                    (click)="picker1.open()">
+                                    <mat-label>Data inicial</mat-label>
+                                    <input required matInput [matDatepicker]="picker1"
+                                        placeholder="Data do inicio da vigencia da promoção" formControlName="initDate"
+                                        [min]="day" [max]="form.get('endDate').value || mes" />
+                                    <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+                                    <mat-datepicker disabled="false" #picker1></mat-datepicker>
+                                    <mat-error *ngIf="form.get('initDate').hasError('required')">
+                                        Data inicial é
+                                        <strong>obrigatoria</strong>
+                                    </mat-error>
+                                </mat-form-field>
+
+                                <mat-form-field appearance="outline" fxFlex="50" fxFlex.gt-sm="25" class="pading-5-left"
+                                    (click)="picker3.open()">
+                                    <mat-label>Data Final</mat-label>
+                                    <input required matInput [matDatepicker]="picker3"
+                                        placeholder="Data Maxima para vigencia da promoção" formControlName="endDate"
+                                        [min]="form.get('initDate').value || day" [max]="mes" />
+                                    <mat-datepicker-toggle matSuffix [for]="picker3"></mat-datepicker-toggle>
+                                    <mat-datepicker disabled="false" #picker3></mat-datepicker>
+                                    <mat-error *ngIf="form.get('endDate').hasError('required')">
+                                        Data Final é
+                                        <strong>obrigatoria</strong>
+                                    </mat-error>
+                                </mat-form-field>
+                            </div>
+                            <div fxLayout="row wrap" fxLayoutAlign="start start" fxLayoutGap="gappx" fxFlex="100"
+                                style="width: 100%;">
+                                <mat-form-field appearance="outline" fxFlex="50" fxFlex.gt-sm="25">
+                                    <mat-label>Valor anterior</mat-label>
+                                    <input class="example-right-align" matInput placeholder="Valor anterior ao desconto"
+                                        currencyMask type="text" required formControlName="initPrice" [options]="{
+                        prefix: 'R$ ',
+                        thousands: '.',
+                        decimal: ',',
+                        allowNegative: false
+                      }" />
+                                    <mat-error *ngIf="form.get('initPrice').hasError('required')">
+                                        Valor anterior é
+                                        <strong>obrigatorio</strong>
+                                    </mat-error>
+                                    <mat-error *ngIf="form.get('initPrice').hasError('min')">
+                                        Valor anterior
+                                        <strong>invalido</strong>
+                                    </mat-error>
+
+                                    <mat-icon matPrefix>money_off</mat-icon>
+                                </mat-form-field>
+                                <mat-form-field appearance="outline" fxFlex="50" fxFlex.gt-sm="25"
+                                    class="pading-5-left">
+                                    <mat-label>Valor Com desconto</mat-label>
+                                    <input class="example-right-align" matInput placeholder="Valor com desconto"
+                                        currencyMask type="text" required formControlName="endPrice" [options]="{
+                        prefix: 'R$ ',
+                        thousands: '.',
+                        decimal: ',',
+                        allowNegative: false
+                      }" />
+                                    <mat-error *ngIf="form.get('endPrice').hasError('required')">
+                                        Valor com desconto é
+                                        <strong>obrigatorio</strong>
+                                    </mat-error>
+                                    <mat-error *ngIf="form.get('endPrice').hasError('min')">
+                                        Valor com desconto minimo
+                                        <strong>invalido</strong>
+                                    </mat-error>
+                                    <mat-error *ngIf="form.get('endPrice').hasError('menor')">
+                                        Valor com desconto
+                                        <strong>maior que valor inicial</strong>
+                                    </mat-error>
+                                    <mat-icon matPrefix>local_offer</mat-icon>
+                                </mat-form-field>
+                                <div fxLayout.gt-sm="row" fxLayout="column" fxLayoutAlign="center stretch"
+                                    class="pading-5-left" style="margin-top: 5px;">
+                                    <mat-chip-list style="margin-top: 5px;margin-bottom: 5px;">
+                                        <mat-chip style="margin-top: 5px;" [color]="
+                          consultDescont().includes('%') && descont >= 0
+                            ? 'primary'
+                            : 'warn'
+                        " selected>
+                                            {{ consultDescont() }}</mat-chip>
+                                    </mat-chip-list>
+                                </div>
+                            </div>
+                            <div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="gappx" fxFlex="100"
+                                style="width: 100%;">
+                                <button mat-raised-button color="primary" (click)="salvar()">
+                                    Salvar
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </mat-card-content>
+        </mat-card>
+    </div>
+</div>

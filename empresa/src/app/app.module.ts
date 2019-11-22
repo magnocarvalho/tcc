@@ -78,6 +78,8 @@ import { ReportsComponent } from './component/reports/reports.component';
 
 import { DialogOverviewExampleDialog } from './component/reports/reports.component';
 import { ApiService } from './services/api.service';
+import { PromoData } from './services/promo-data.service';
+
 import { MenuComponent } from './dashboard/menu/menu.component';
 import { PromoListComponent } from './component/promo-list/promo-list.component';
 import { EditProfileComponent } from './component/edit-profile/edit-profile.component';
@@ -163,7 +165,7 @@ import { EditarPromoComponent } from './component/editar-promo/editar-promo.comp
     ToastrModule.forRoot(),
     ImageCropperModule,
     CurrencyMaskModule],
-  providers: [LocationService, ApiService,
+  providers: [LocationService, ApiService, PromoData,
     { provide: HTTP_INTERCEPTORS, useClass: ApiService, multi: true },
     { provide: MAT_DATE_LOCALE, useValue: 'pt-br' },
   ],

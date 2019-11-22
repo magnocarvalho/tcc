@@ -29,8 +29,8 @@ export class PromoListComponent implements OnInit {
   }
   editPromo(obj) {
     alert('A ser feito');
-    this.store.storage = obj
-    this.rotas.navigate(['/edit-promo', obj._id])
+    this.store.setPromo(obj);
+    this.rotas.navigate(['/edit-promo', obj._id]);
     //  console.log(obj)
   }
   relatorio(obj) {

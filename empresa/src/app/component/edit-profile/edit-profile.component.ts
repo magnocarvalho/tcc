@@ -7,7 +7,7 @@ import { Router } from '@angular/router';
 import { MatSnackBar } from '@angular/material';
 import { Location } from '@angular-material-extensions/google-maps-autocomplete';
 import { User, Usuario } from 'src/app/model/user';
-declare var google: any
+declare var google: any;
 
 @Component({
   selector: 'app-edit-profile',
@@ -22,11 +22,11 @@ export class EditProfileComponent implements OnInit {
   public longitude: number;
   public selectedAddress: google.maps.places.PlaceResult;
   public tiposCarregados = [];
-  public mascaraCnpj: String = "00.000.000/0000-00";
-  public mascaratelefone: String = "(00) 00000-0000"
+  public mascaraCnpj: String = '00.000.000/0000-00';
+  public mascaratelefone: String = '(00) 00000-0000'
   public user: User;
   public arquivoImg: any;
-  imagemPerfil: any = "";
+  imagemPerfil: any = '';
 
   constructor(private rota: Router, public api: ApiService, public snackBar: MatSnackBar, private formBuilder: FormBuilder, private mapLoader: MapsAPILoader, private reverso: LocationService) {
     api.user.subscribe(user => {
@@ -34,7 +34,7 @@ export class EditProfileComponent implements OnInit {
         this.imagemPerfil = user.photoURL;
         this.api.getTipos().subscribe(res => {
           this.tiposCarregados = res;
-          let UserDados = api.getUserDados
+          const UserDados = api.getUserDados;
           this.form.get('rua').setValue(UserDados.rua);
           this.form.get('photoURL').setValue(UserDados.photoURL);
           this.form.get('pais').setValue(UserDados.pais);
@@ -49,29 +49,29 @@ export class EditProfileComponent implements OnInit {
           this.form.get('description').setValue(UserDados.description);
           this.form.get('complemento').setValue(UserDados.complemento);
           this.form.get('googlePlace').setValue(UserDados.googlePlace);
-          this.latitude = UserDados.location.coordinates[0]
-          this.longitude = UserDados.location.coordinates[1]
+          this.latitude = UserDados.location.coordinates[0];
+          this.longitude = UserDados.location.coordinates[1];
           this.zoom = 16;
-        })
+        });
       }
-    })
+    });
     this.form = this.formBuilder.group({
-      rua: ["", [Validators.required, Validators.minLength(2), Validators.maxLength(100)]],
-      numero: ["", [Validators.required, Validators.minLength(1), Validators.maxLength(100)]],
-      bairro: ["", [Validators.required, Validators.minLength(2), Validators.maxLength(100)]],
-      cidade: [{ value: "", disabled: true }, , [Validators.required, Validators.minLength(2), Validators.maxLength(100)]],
-      estado: [{ value: "", disabled: true }, [Validators.required, Validators.minLength(2), Validators.maxLength(100)]],
-      pais: [{ value: "", disabled: true }, [Validators.required, Validators.minLength(2), Validators.maxLength(100)]],
-      cep: [{ value: "", disabled: true }, [Validators.required, Validators.minLength(2), Validators.maxLength(100)]],
-      cnpj: ["", [Validators.required, Validators.maxLength(22)]],
-      complemento: [""],
-      photoURL: ["", [Validators.required]],
-      foto: [""],
-      displayName: ["", [Validators.required]],
-      telefone: ["", [Validators.required]],
-      description: [""],
-      tipo: ["", [Validators.required]],
-      googlePlace: ["", [Validators.required]]
+      rua: ['', [Validators.required, Validators.minLength(2), Validators.maxLength(100)]],
+      numero: ['', [Validators.required, Validators.minLength(1), Validators.maxLength(100)]],
+      bairro: ['', [Validators.required, Validators.minLength(2), Validators.maxLength(100)]],
+      cidade: [{ value: '', disabled: true }, , [Validators.required, Validators.minLength(2), Validators.maxLength(100)]],
+      estado: [{ value: '', disabled: true }, [Validators.required, Validators.minLength(2), Validators.maxLength(100)]],
+      pais: [{ value: '', disabled: true }, [Validators.required, Validators.minLength(2), Validators.maxLength(100)]],
+      cep: [{ value: '', disabled: true }, [Validators.required, Validators.minLength(2), Validators.maxLength(100)]],
+      cnpj: ['', [Validators.required, Validators.maxLength(22)]],
+      complemento: [''],
+      photoURL: ['', [Validators.required]],
+      foto: [''],
+      displayName: ['', [Validators.required]],
+      telefone: ['', [Validators.required]],
+      description: [''],
+      tipo: ['', [Validators.required]],
+      googlePlace: ['', [Validators.required]]
     });
 
     // this.carregarDados()
@@ -82,10 +82,10 @@ export class EditProfileComponent implements OnInit {
 
   readThis(inputValue: any): void {
     try {
-      var file: File = inputValue.files[0];
+      let file: File = inputValue.files[0];
       // this.form.get("foto").setValue(file);
       this.arquivoImg = file;
-      var myReader: FileReader = new FileReader();
+      let myReader: FileReader = new FileReader();
 
       myReader.onload = e => {
         this.imagemPerfil = myReader.result;
@@ -113,8 +113,8 @@ export class EditProfileComponent implements OnInit {
       this.latitude = lat;
       this.longitude = lng;
       this.form.get('googlePlace').setValue(location.results[0].formatted_address);
-      this.onAutocompleteSelected(location.results[0])
-    })
+      this.onAutocompleteSelected(location.results[0]);
+    });
   }
   onAutocompleteSelected(result: google.maps.places.PlaceResult) {
 
@@ -127,25 +127,25 @@ export class EditProfileComponent implements OnInit {
         administrative_area_level_1: 'state',
         country: 'country',
         postal_code: 'zipcode'
-      }
+      };
 
-      const [validKey] = next.types.filter(key => Object.keys(mapKeys).includes(key))
+      const [validKey] = next.types.filter(key => Object.keys(mapKeys).includes(key));
 
-      if (!validKey) return current
+      if (!validKey) { return current }
 
       return {
         ...current,
         [mapKeys[validKey]]: next.long_name
-      }
-    }, {})
+      };
+    }, {});
 
-    this.form.get('rua').setValue(filterResponse['address']);
-    this.form.get('pais').setValue(filterResponse['country']);
-    this.form.get('numero').setValue(filterResponse['address_number']);
-    this.form.get('bairro').setValue(filterResponse['neighborhood']);
-    this.form.get('cep').setValue(filterResponse['zipcode']);
-    this.form.get('estado').setValue(filterResponse['state']);
-    this.form.get('cidade').setValue(filterResponse['city']);
+    this.form.get('rua').setValue(filterResponse.address);
+    this.form.get('pais').setValue(filterResponse.country);
+    this.form.get('numero').setValue(filterResponse.address_number);
+    this.form.get('bairro').setValue(filterResponse.neighborhood);
+    this.form.get('cep').setValue(filterResponse.zipcode);
+    this.form.get('estado').setValue(filterResponse.state);
+    this.form.get('cidade').setValue(filterResponse.city);
 
   }
 
@@ -156,56 +156,56 @@ export class EditProfileComponent implements OnInit {
   }
 
   async salvarDados() {
-  //  console.log(this.form.value)
+    //  console.log(this.form.value)
     if (this.form.valid) {
 
-      var uid = await this.api.firebaseUser.uid;
+      let uid = await this.api.firebaseUser.uid;
       if (uid && this.arquivoImg) {
         this.api.uploadPerfilImagem(this.arquivoImg, uid).then(img => {
           this.api.doUpdateUser(this.form.get('displayName').value, img.caminhoImagem).then(userProfile => {
 
-            var obj: Usuario = this.form.value
+            let obj: Usuario = this.form.value;
             obj.uid = uid;
-            obj.cep = this.form.get('cep').value
-            obj.cidade = this.form.get('cidade').value
-            obj.pais = this.form.get('pais').value
-            obj.estado = this.form.get('estado').value
-            obj.location = { coordinates: [this.latitude, this.longitude], type: 'Point' }
+            obj.cep = this.form.get('cep').value;
+            obj.cidade = this.form.get('cidade').value;
+            obj.pais = this.form.get('pais').value;
+            obj.estado = this.form.get('estado').value;
+            obj.location = { coordinates: [this.latitude, this.longitude], type: 'Point' };
             obj.photoURL = img.caminhoImagem;
-            obj.displayName = this.form.get('displayName').value
-          //  console.log(obj)
+            obj.displayName = this.form.get('displayName').value;
+            //  console.log(obj)
             this.api.updateUserDados(obj).subscribe(res => {
-            //  console.log('Usuario atualizado', res)
-              this.rota.navigate(['adm'])
+              //  console.log('Usuario atualizado', res)
+              this.rota.navigate(['adm']);
             }, error => {
-              this.snackBar.open(error.message, 'error', { duration: 5000 })
-            })
-          })
-        })
+              this.snackBar.open(error.message, 'error', { duration: 5000 });
+            });
+          });
+        });
       } else if (uid && !this.arquivoImg) {
 
 
         this.api.doUpdateUser(this.form.get('displayName').value, this.form.get('photoURL').value).then(updateProfile => {
 
-          var obj: Usuario = this.form.value
+          let obj: Usuario = this.form.value;
           obj.uid = uid;
-          obj.cep = this.form.get('cep').value
-          obj.cidade = this.form.get('cidade').value
-          obj.pais = this.form.get('pais').value
-          obj.estado = this.form.get('estado').value
-          obj.location = { coordinates: [this.latitude, this.longitude], type: 'Point' }
-        //  console.log(obj)
+          obj.cep = this.form.get('cep').value;
+          obj.cidade = this.form.get('cidade').value;
+          obj.pais = this.form.get('pais').value;
+          obj.estado = this.form.get('estado').value;
+          obj.location = { coordinates: [this.latitude, this.longitude], type: 'Point' };
+          //  console.log(obj)
           this.api.updateUserDados(obj).subscribe(res => {
-          //  console.log('Usuario atualizado', res)
-            this.rota.navigate(['adm'])
+            //  console.log('Usuario atualizado', res)
+            this.rota.navigate(['adm']);
           }, error => {
-            this.snackBar.open(error.message, 'error', { duration: 5000 })
-          })
-        })
+            this.snackBar.open(error.message, 'error', { duration: 5000 });
+          });
+        });
 
       } else {
-        this.form.markAllAsTouched()
-        console.error(this.form.value)
+        this.form.markAllAsTouched();
+        console.error(this.form.value);
       }
     }
   }

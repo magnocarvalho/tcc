@@ -8,4 +8,8 @@ export class PromoData {
 
     public constructor() { }
 
+    setPromo(obj: Promo) {
+        this.storage = obj;
+    }
+
 }

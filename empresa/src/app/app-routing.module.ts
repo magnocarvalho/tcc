@@ -14,6 +14,7 @@ import { NewPromoComponent } from './component/new-promo/new-promo.component';
 import { ReportsComponent } from './component/reports/reports.component';
 import { PromoListComponent } from './component/promo-list/promo-list.component';
 import { EditProfileComponent } from './component/edit-profile/edit-profile.component';
+import { EditarPromoComponent } from './component/editar-promo/editar-promo.component';
 
 const routes: Routes = [
   {
@@ -30,6 +31,7 @@ const routes: Routes = [
   { path: "reports", component: ReportsComponent, canActivate: [AuthGuard] },
   { path: "promo-list", component: PromoListComponent, canActivate: [AuthGuard] },
   { path: "edit-profile", component: EditProfileComponent, canActivate: [AuthGuard] },
+  { path: "edit-promo/:id", component: EditarPromoComponent, canActivate: [AuthGuard] },
   { path: 'new-promo', component: NewPromoComponent, canActivate: [AuthGuard] },
   { path: "landpage", component: LandingPageComponent },
   { path: "form-empresa", component: InfosEmpresaComponent },

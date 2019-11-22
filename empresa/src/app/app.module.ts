@@ -81,6 +81,7 @@ import { ApiService } from './services/api.service';
 import { MenuComponent } from './dashboard/menu/menu.component';
 import { PromoListComponent } from './component/promo-list/promo-list.component';
 import { EditProfileComponent } from './component/edit-profile/edit-profile.component';
+import { EditarPromoComponent } from './component/editar-promo/editar-promo.component';
 
 @NgModule({
   declarations: [
@@ -99,7 +100,8 @@ import { EditProfileComponent } from './component/edit-profile/edit-profile.comp
     MenuComponent,
     PromoListComponent,
     EditProfileComponent,
-    DialogOverviewExampleDialog
+    DialogOverviewExampleDialog,
+    EditarPromoComponent
   ],
   imports: [
     AngularFireModule.initializeApp(environment.firebase),

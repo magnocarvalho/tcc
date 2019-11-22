@@ -165,7 +165,7 @@ export class EditarPromoComponent implements OnInit {
   enviarFormServidor(tmp: Promo) {
     //  console.log(tmp)
     if (this.form.valid) {
-      this.api.promoPost(tmp).subscribe(res => {
+      this.api.promoPut(tmp).subscribe(res => {
         //  console.log(res)
         this.rota.navigate(["promo-list"]);
       });

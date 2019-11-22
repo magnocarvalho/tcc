@@ -1,5 +1,5 @@
 import { Promo, IPromo } from "../model/Promo";
-import { UserModel } from "../model/Empresa";
+import { UserModel, IUserModel } from "../model/Empresa";
 import * as mongoose from "mongoose";
 import { ObjectId } from "bson";
 
@@ -12,7 +12,7 @@ class PromoCtrl {
     let coordinates = [lat, lng];
     let distance = req.query.distance;
     const cat = req.query.category
-      ? { tipo: { $in: category.map((m) => new ObjectId(m)) } }
+      ? { tipo: { $in: category.map(m => new ObjectId(m)) } }
       : {};
     const dateIn = new Date();
 
@@ -91,7 +91,29 @@ class PromoCtrl {
   }
   public static deletePromo(req, res, next) {
     let obj = req.body;
-    return Promo.findByIdAndUpdate(obj._id, { isDeleted: true }, (err: any, data: any) => {
+    return Promo.findByIdAndUpdate(
+      obj._id,
+      { isDeleted: true },
+      (err: any, data: any) => {
+        if (err) {
+          console.log(err);
+          console.log(new Date().toLocaleString(), err.messagem);
+          next(err);
+        } else {
+          res.json(data);
+        }
+      }
+    );
+  }
+  public static async updatePromo(req, res, next) {
+    let obj: IPromo = req.body;
+    let uid = res.locals.uid;
+    let usuario: IUserModel = await UserModel.findOne({ uid: uid });
+    if (usuario._id != obj.modifiedby) {
+      console.log({ obj }, res.locals, { usuario });
+      next({ error: "promo e usuario nao conferem" });
+    }
+    return Promo.findByIdAndUpdate(obj._id, obj, (err: any, data: any) => {
       if (err) {
         console.log(err);
         console.log(new Date().toLocaleString(), err.messagem);
@@ -103,23 +125,29 @@ class PromoCtrl {
   }
   public static getPromosIdEmpresa(req, res, next) {
     let idUser = req.query.empresa;
-    return Promo.find({ createdby: idUser, isDeleted: false }, (err: any, data: any) => {
-      if (err) {
-        console.log(err);
-        console.log(new Date().toLocaleString(), err.messagem);
-        next(err);
-      } else res.json(data);
-    });
+    return Promo.find(
+      { createdby: idUser, isDeleted: false },
+      (err: any, data: any) => {
+        if (err) {
+          console.log(err);
+          console.log(new Date().toLocaleString(), err.messagem);
+          next(err);
+        } else res.json(data);
+      }
+    );
   }
   public static getPromosIdUser(req, res, next) {
     let idUser = req.query.empresa;
-    return Promo.find({ createdby: idUser, isDeleted: false }, (err: any, data: any) => {
-      if (err) {
-        console.log(err);
-        console.log(new Date().toLocaleString(), err.messagem);
-        next(err);
-      } else res.json(data);
-    });
+    return Promo.find(
+      { createdby: idUser, isDeleted: false },
+      (err: any, data: any) => {
+        if (err) {
+          console.log(err);
+          console.log(new Date().toLocaleString(), err.messagem);
+          next(err);
+        } else res.json(data);
+      }
+    );
   }
 }
 export default PromoCtrl;

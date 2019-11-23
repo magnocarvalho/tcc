@@ -106,22 +106,32 @@ class PromoCtrl {
     );
   }
   public static async updatePromo(req, res, next) {
-    let obj: IPromo = req.body;
+    let obj = req.body;
     let uid = res.locals.uid;
     let usuario: IUserModel = await UserModel.findOne({ uid: uid });
-    if (usuario._id != obj.modifiedby) {
+    if (usuario._id.toString() != obj.modifiedby.toString()) {
       console.log({ obj }, res.locals, { usuario });
       next({ error: "promo e usuario nao conferem" });
     }
-    return Promo.findByIdAndUpdate(obj._id, obj, (err: any, data: any) => {
-      if (err) {
-        console.log(err);
-        console.log(new Date().toLocaleString(), err.messagem);
-        next(err);
-      } else {
-        res.json(data);
+    console.log(
+      usuario._id.toString() == obj.modifiedby.toString(),
+      res.locals
+    );
+    return Promo.findOneAndUpdate(
+      { _id: obj._id },
+      obj,
+      { new: true },
+      async (err: any, data: any) => {
+        if (err) {
+          console.log(err);
+          console.log(new Date().toLocaleString(), err.messagem);
+          next(err);
+        } else {
+          console.log("Promoção atualizada", data);
+          res.json(data);
+        }
       }
-    });
+    );
   }
   public static getPromosIdEmpresa(req, res, next) {
     let idUser = req.query.empresa;

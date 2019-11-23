@@ -584,7 +584,6 @@ export class ApiService implements HttpInterceptor {
       });
     });
   }
-
   promoPost(obj: Promo): Observable<Promo> {
     return new Observable(observer => {
       this.postData("promo", obj).subscribe(res => {
@@ -596,11 +595,17 @@ export class ApiService implements HttpInterceptor {
   }
   promoPut(obj: Promo): Observable<Promo> {
     return new Observable(observer => {
-      this.putData("promo", obj).subscribe(res => {
-        this.promos.push(res);
-        this.showSuccess("Promoção Atualizada com sucesso");
-        observer.next(res);
-      });
+      this.putData("promoupdate", obj).subscribe(
+        res => {
+          this.promos.push(res);
+          this.showSuccess("Promoção Atualizada com sucesso");
+          observer.next(res);
+        },
+        err => {
+          console.log("Promoção Atualizada", err);
+          observer.error(err);
+        }
+      );
     });
   }
 

@@ -14,9 +14,8 @@ router.put("/user", UserCtrl.updateUser);
 router.get("/tipos", TipoCtrl.getTipos);
 //promoçoes
 router.post("/promo", PromoCtrl.createPromo);
+router.put("/promoupdate", PromoCtrl.updatePromo);
 router.post("/deletarpromo", PromoCtrl.deletePromo);
-router.put("/promo", PromoCtrl.updatePromo);
-
 router.get("/promo/:empresa?", PromoCtrl.getPromosIdUser);
 router.get("/allpromos/:empresa?", PromoCtrl.getPromosIdEmpresa);
 

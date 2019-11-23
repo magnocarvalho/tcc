@@ -143,8 +143,9 @@ export class EditarPromoComponent implements OnInit {
     // show message
   }
   async salvar() {
-    const tmp: Promo = this.form.value;
-    tmp.descont = this.descont;
+    let tmp: Promo = this.form.value;
+    tmp["descont"] = this.descont;
+    tmp["_id"] = this.store.storage._id;
     if (!tmp.thumbnail && this.fotoThumb && tmp.title) {
       this.api.uploadFoto(this.fotoThumb, this.uid, tmp.title).then(ress => {
         tmp.thumbnail = ress;
@@ -163,10 +164,11 @@ export class EditarPromoComponent implements OnInit {
   }
 
   enviarFormServidor(tmp: Promo) {
-    //  console.log(tmp)
+    console.log(tmp);
     if (this.form.valid) {
       this.api.promoPut(tmp).subscribe(res => {
-        //  console.log(res)
+        // console.log(res);
+        this.api.getPromocoes();
         this.rota.navigate(["promo-list"]);
       });
     } else {

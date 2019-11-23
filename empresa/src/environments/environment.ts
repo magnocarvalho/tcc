@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  baseURL: "https://magnotcc.herokuapp.com/api/",
+  baseURL: "https://localhost:1337/api/",
   firebase: {
     apiKey: "AIzaSyDDbrKT_n1EqlRi6Yf6oheVVxRi5-GfnMA",
     authDomain: "oficina2utfpr.firebaseapp.com",

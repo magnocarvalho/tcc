@@ -10,8 +10,9 @@ var rotasCliente = express.Router();
 // tipo de comercio
 rotasCliente.get("/tipos", TipoCtrl.getTipos);
 //favoritos e empresa
-rotasCliente.use("/", firewallbase);
 rotasCliente.get("/promos:lat?:lng?:distance?", PromoCtrl.getPromos);
+
+rotasCliente.use("/", firewallbase);
 rotasCliente.get("/empresa:empresa?:uid?", UserCtrl.findByIdAllPromos);
 rotasCliente.get("/favorites", FavoriteCtrl.getFavorites);
 rotasCliente.post("/favorites", FavoriteCtrl.createFavorites);

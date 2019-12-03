@@ -12,7 +12,7 @@ class PromoCtrl {
     let coordinates = [lat, lng];
     let distance = req.query.distance;
     const cat = req.query.category
-      ? { tipo: { $in: category.map(m => new ObjectId(m)) } }
+      ? { tipo: { $in: category.map((m) => new ObjectId(m)) } }
       : {};
     const dateIn = new Date();
 
@@ -46,10 +46,10 @@ class PromoCtrl {
             as: "promos"
           }
         },
+        // { $match: { "promos.isDeleted": { $ne: true } } },
         {
           $match: {
             $and: [
-              { "promos.isDeleted": { $eq: false } },
               { "promos.endDate": { $gte: dateIn } },
               { "promos.initDate": { $lt: dateIn } },
               cat
@@ -68,12 +68,31 @@ class PromoCtrl {
           $unwind: "$tipo"
         }
       ],
-      (err: any, data: any) => {
+      async (err: any, data: any) => {
         if (err) {
           console.log(err);
           console.log(new Date().toLocaleString(), err.messagem);
           next(err);
-        } else res.json(data);
+        } else {
+          let dados = [];
+          dados = data;
+          for (let i = 0; i < dados.length; i++) {
+            let proms = [];
+            proms = dados[i].promos;
+            let prom2 = [];
+            // console.log(proms.length);
+            for (let j = 0; j < proms.length; j++) {
+              // console.log("err falso", proms[j]);
+              if (!proms[j].isDeleted) {
+                // console.log("err falso", proms[j]);
+                prom2.push(proms[j]);
+              }
+            }
+
+            dados[i].promos = prom2;
+          }
+          res.json(dados);
+        }
       }
     );
   }

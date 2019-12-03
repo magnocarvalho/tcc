@@ -98,11 +98,28 @@ class UserCtrl {
         } else {
           // console.log(data, "busca funcionou", new Date());
           let favorite: IFavorite = await favorites;
+          let dados = [];
+          dados = data;
+          for (let i = 0; i < dados.length; i++) {
+            let proms = [];
+            proms = dados[i].promos;
+            let prom2 = [];
+            console.log(proms.length);
+            for (let j = 0; j < proms.length; j++) {
+              // console.log("err falso", proms[j]);
+              if (!proms[j].isDeleted) {
+                // console.log("err falso", proms[j]);
+                prom2.push(proms[j]);
+              }
+            }
+
+            dados[i].promos = prom2;
+          }
           try {
-            if (data[0].promos && favorite && favorite.promos.length > 0) {
-              let promocoes: IPromo[] = await data[0].promos;
+            if (dados[0].promos && favorite && favorite.promos.length > 0) {
+              let promocoes: IPromo[] = await dados[0].promos;
               // console.log(favorite);
-              data[0].promos = promocoes.map((p) => {
+              dados[0].promos = promocoes.map((p) => {
                 if (favorite.promos) {
                   for (let i = 0; i < favorite.promos.length; i++) {
                     // console.log(favorite.promos[i].id, p._id, favorite.promos[i].id.toString() == p._id.toString())
@@ -117,7 +134,7 @@ class UserCtrl {
                 return p;
               });
             }
-            res.json(data);
+            res.json(dados);
           } catch (error) {
             next(error);
           }

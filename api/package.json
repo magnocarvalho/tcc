@@ -17,7 +17,7 @@
         "gulp-nodemon": "^2.4.2",
         "gulp-typescript": "^5.0.1",
         "merge2": "^1.2.3",
-        "mocha": "^6.1.4",
+        "mocha": "^10.2.0",
         "typescript": "^3.5.2"
     },
     "dependencies": {

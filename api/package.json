@@ -28,7 +28,7 @@
         "async": "^3.1.0",
         "async-waterfall": "^0.1.5",
         "chai-http": "^4.3.0",
-        "compression": "^1.6.0",
+        "compression": "^1.7.4",
         "cors": "^2.8.5",
         "del": "^4.1.1",
         "dotenv": "^8.1.0",

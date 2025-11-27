@@ -16,7 +16,7 @@
         "@angular-material-extensions/google-maps-autocomplete": "^2.0.0",
         "@angular/animations": "^8.2.9",
         "@angular/cdk": "^8.2.0",
-        "@angular/common": "~8.2.0",
+        "@angular/common": "~19.2.16",
         "@angular/compiler": "~8.2.0",
         "@angular/core": "~8.2.0",
         "@angular/fire": "^5.2.1",
